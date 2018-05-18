@@ -1,4 +1,4 @@
-module View.Text exposing (description, label)
+module View.Atom.Text exposing (description, label)
 
 import Element exposing (..)
 import Element.Attributes exposing (alignLeft, spacing)

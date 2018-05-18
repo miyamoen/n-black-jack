@@ -1,4 +1,4 @@
-module Stories.Colors exposing (viewStories)
+module Stories.Atom.Colors exposing (viewStories)
 
 import Colors exposing (..)
 import Element exposing (..)

@@ -1,4 +1,4 @@
-module Stories.Text exposing (viewDescriptionsStories, viewLabelsStories)
+module Stories.Atom.Text exposing (viewDescriptionsStories, viewLabelsStories)
 
 import App.Text exposing (..)
 import Element exposing (Element, column)
@@ -8,7 +8,7 @@ import Stories.Element exposing (toHtml)
 import Styles exposing (Styles(..))
 import Styles.Text exposing (FontStyle(..), Size(..))
 import UIExplorer exposing (renderStories)
-import View.Text exposing (..)
+import View.Atom.Text exposing (..)
 
 
 dummyText : String
@@ -28,7 +28,7 @@ labels fontStyle =
 
 descriptions : FontStyle -> Element Styles variation msg
 descriptions fontStyle =
-    description fontStyle [ dummyText, dummyText, dummyText, dummyText ]
+    description fontStyle [ dummyText, dummyText, dummyText ]
 
 
 stories : List ( String, FontStyle )
