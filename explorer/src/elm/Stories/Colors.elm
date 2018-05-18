@@ -31,7 +31,7 @@ pallet colors =
 
 stories : List ( String, () )
 stories =
-    [ "all colors" => () ]
+    [ "AllColors" => () ]
 
 
 viewStories =
