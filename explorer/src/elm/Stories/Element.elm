@@ -3,7 +3,7 @@ module Stories.Element exposing (..)
 import Element exposing (..)
 import Html exposing (Html, div)
 import Styles exposing (Styles, Variation, styleSheet)
-import View.Symbol exposing (symbols)
+import View.Symbols as Symbols
 
 
 toHtml : Element Styles Variation msg -> Html msg
@@ -15,5 +15,5 @@ toHtmlWithSymbol : Element Styles Variation msg -> Html msg
 toHtmlWithSymbol element =
     div []
         [ layout styleSheet element
-        , symbols
+        , Symbols.view
         ]

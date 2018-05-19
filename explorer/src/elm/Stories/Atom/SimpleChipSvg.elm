@@ -1,4 +1,4 @@
-module Stories.Atom.Chip exposing (viewStories)
+module Stories.Atom.SimpleChipSvg exposing (viewStories)
 
 import Element exposing (Element)
 import Rocket exposing ((=>))
@@ -9,16 +9,15 @@ import View.Symbol as Symbol
 
 view : Int -> Element style variation msg
 view size =
-    Symbol.element size size Symbol.Chip
+    Symbol.element size size Symbol.SimpleChip
 
 
 stories : List ( String, Int )
 stories =
-    [ "70" => 70
-    , "90" => 90
+    [ "60" => 60
+    , "80" => 80
     , "100" => 100
-    , "125" => 125
-    , "150" => 150
+    , "120" => 120
     ]
 
 

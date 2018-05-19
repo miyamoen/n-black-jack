@@ -48,10 +48,10 @@ size price =
     if price <= 0 then
         100
     else if price < 5 then
-        70
+        60
     else if price < 100 then
-        90
+        80
     else if price < 1000 then
-        125
+        100
     else
-        150
+        120
