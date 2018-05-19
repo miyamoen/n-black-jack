@@ -1,4 +1,11 @@
-module Colors exposing (..)
+module Colors
+    exposing
+        ( Colors(..)
+        , Shade(..)
+        , color
+        , colors
+        , shades
+        )
 
 {- http://paletton.com/#uid=72X0u0knFs6uEhMrnnpjzvAe-Gh -}
 

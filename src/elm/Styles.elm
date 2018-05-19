@@ -1,6 +1,7 @@
 module Styles exposing (Styles(..), Variation(..), styleSheet)
 
 import Colors exposing (..)
+import Colors.Chip as Chip
 import Style exposing (..)
 import Style.Color as Color
 import Style.Font as Font
@@ -11,6 +12,7 @@ type Styles
     = None
     | Title Text.FontStyle Text.Size
     | Text Text.FontStyle Text.Size
+    | Chip Chip.Colors
 
 
 type Variation
@@ -20,11 +22,10 @@ type Variation
 styleSheet : StyleSheet Styles Variation
 styleSheet =
     Style.styleSheet
-        ([ style None
-            bgColors
-         ]
+        ([ style None bgColors ]
             ++ titles
             ++ texts
+            ++ chips
         )
 
 
@@ -60,6 +61,16 @@ texts =
         )
         Text.fontStyles
         Text.sizes
+
+
+chips : List (Style Styles variation)
+chips =
+    List.map
+        (\color ->
+            style (Chip color)
+                [ Color.text <| Chip.color color ]
+        )
+        Chip.colors
 
 
 lift2 : (a -> b -> c) -> List a -> List b -> List c
