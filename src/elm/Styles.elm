@@ -3,6 +3,7 @@ module Styles exposing (Styles(..), Variation(..), styleSheet)
 import Colors exposing (..)
 import Colors.Chip as Chip
 import Style exposing (..)
+import Style.Border as Border
 import Style.Color as Color
 import Style.Font as Font
 import Styles.Text as Text
@@ -13,16 +14,26 @@ type Styles
     | Title Text.FontStyle Text.Size
     | Text Text.FontStyle Text.Size
     | Chip Chip.Colors
+    | Circle
 
 
 type Variation
     = BGColor Shade Colors
+    | BorderColor Shade Colors
 
 
 styleSheet : StyleSheet Styles Variation
 styleSheet =
     Style.styleSheet
-        ([ style None bgColors ]
+        ([ style None bgColors
+         , style Circle
+            ([ Border.all 5
+             , Border.rounded 100
+             , Border.dashed
+             ]
+                ++ borderColors
+            )
+         ]
             ++ titles
             ++ texts
             ++ chips
@@ -35,6 +46,17 @@ bgColors =
         (\shade colors ->
             variation (BGColor shade colors)
                 [ Color.background <| Colors.color shade colors ]
+        )
+        Colors.shades
+        Colors.colors
+
+
+borderColors : List (Property style Variation)
+borderColors =
+    lift2
+        (\shade colors ->
+            variation (BorderColor shade colors)
+                [ Color.border <| Colors.color shade colors ]
         )
         Colors.shades
         Colors.colors
