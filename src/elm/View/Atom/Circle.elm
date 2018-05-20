@@ -6,10 +6,10 @@ import Element.Attributes exposing (..)
 import Styles exposing (Styles(..), Variation(..))
 
 
-view : Element Styles Variation msg -> Element Styles Variation msg
-view content =
+view : Shade -> Element Styles Variation msg -> Element Styles Variation msg
+view shade content =
     column Circle
-        [ vary (BorderColor Lighten1 Orange) True
+        [ vary (BorderColor shade Orange) True
         , width <| px 200
         , height <| px 200
         , center

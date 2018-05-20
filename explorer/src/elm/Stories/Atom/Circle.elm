@@ -1,5 +1,6 @@
 module Stories.Atom.Circle exposing (viewStories)
 
+import Colors exposing (Shade(..))
 import Element exposing (Element, empty, text)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
@@ -13,4 +14,4 @@ stories =
 
 
 viewStories =
-    renderStories (view >> toHtml) stories
+    renderStories (view Main >> toHtml) stories
