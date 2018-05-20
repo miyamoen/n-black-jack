@@ -16,6 +16,7 @@ type Styles
     | Text Text.FontStyle Text.Size
     | Chip Chip.Colors
     | Circle
+    | CardBox
 
 
 type Variation
@@ -31,6 +32,13 @@ styleSheet =
          , style Circle
             ([ Border.all 5
              , Border.rounded 100
+             , Border.dashed
+             ]
+                ++ borderColors
+            )
+         , style CardBox
+            ([ Border.all 5
+             , Border.rounded 10
              , Border.dashed
              ]
                 ++ borderColors
