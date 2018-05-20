@@ -6,7 +6,7 @@ import Element.Attributes exposing (..)
 import Styles exposing (Styles(..))
 import Styles.Text exposing (FontStyle(..), Size(..))
 import View.Atom.Text exposing (label)
-import View.Symbol as Symbol exposing (selector)
+import View.Symbol as Symbol
 
 
 view : Int -> Element Styles variation msg

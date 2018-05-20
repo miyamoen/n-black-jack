@@ -9,7 +9,7 @@ symbol : Svg msg
 symbol =
     Svg.symbol
         [ viewBox "0 0 512 512"
-        , Svg.Attributes.id <| id Chip
+        , id Chip
         ]
         [ circle [ cx "256", cy "256", r "256" ] []
         , circle [ fill white, cx "256", cy "256", r "150.069" ] []

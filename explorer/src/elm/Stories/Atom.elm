@@ -1,5 +1,6 @@
 module Stories.Atom exposing (..)
 
+import Stories.Atom.Card as Card
 import Stories.Atom.ChipSvg as ChipSvg
 import Stories.Atom.Circle as Circle
 import Stories.Atom.Colors as Colors
@@ -18,4 +19,5 @@ uiCategory =
     , createUI "Circle" Circle.viewStories
     , createUI "ChipSvg" ChipSvg.viewStories
     , createUI "SimpleChipSvg" SimpleChipSvg.viewStories
+    , createUI "Card" Card.viewStories
     ]

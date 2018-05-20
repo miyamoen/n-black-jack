@@ -2,6 +2,7 @@ module Styles exposing (Styles(..), Variation(..), styleSheet)
 
 import Colors exposing (..)
 import Colors.Chip as Chip
+import List.Extra exposing (lift2)
 import Style exposing (..)
 import Style.Border as Border
 import Style.Color as Color
@@ -20,12 +21,13 @@ type Styles
 type Variation
     = BGColor Shade Colors
     | BorderColor Shade Colors
+    | TextColor Shade Colors
 
 
 styleSheet : StyleSheet Styles Variation
 styleSheet =
     Style.styleSheet
-        ([ style None bgColors
+        ([ style None (bgColors ++ textColors)
          , style Circle
             ([ Border.all 5
              , Border.rounded 100
@@ -46,6 +48,17 @@ bgColors =
         (\shade colors ->
             variation (BGColor shade colors)
                 [ Color.background <| Colors.color shade colors ]
+        )
+        Colors.shades
+        Colors.colors
+
+
+textColors : List (Property style Variation)
+textColors =
+    lift2
+        (\shade colors ->
+            variation (TextColor shade colors)
+                [ Color.text <| Colors.color shade colors ]
         )
         Colors.shades
         Colors.colors
@@ -93,10 +106,3 @@ chips =
                 [ Color.text <| Chip.color color ]
         )
         Chip.colors
-
-
-lift2 : (a -> b -> c) -> List a -> List b -> List c
-lift2 f la lb =
-    la
-        |> List.concatMap
-            (\a -> lb |> List.map (\b -> f a b))
