@@ -129,7 +129,7 @@ outline =
             [ width "72"
             , height "110"
             , rx "6"
-            , fill "none"
+            , fill "rgb(250, 250, 250)"
             , stroke "black"
             , strokeWidth ".5"
             ]
