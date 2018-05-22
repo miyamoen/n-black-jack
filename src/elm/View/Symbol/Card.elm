@@ -3,7 +3,7 @@ module View.Symbol.Card exposing (symbols)
 import List.Extra exposing (lift2)
 import Svg exposing (..)
 import Svg.Attributes exposing (cx, cy, d, fill, height, r, rx, stroke, strokeWidth, transform, viewBox, width, x, xlinkHref, y)
-import Types exposing (Number(..), Suit(..))
+import Types exposing (Face(..), Number(..), Suit(..))
 import View.Symbol as Symbol exposing (Symbol(Card))
 
 
@@ -13,6 +13,7 @@ symbols =
     , jackMark
     , queenMark
     , kingMark
+    , faceDown
     ]
         ++ List.map rank Types.numbers
         ++ List.map suitMark Types.suits
@@ -212,7 +213,7 @@ card suit number =
 cardSymbol : Suit -> Number -> List (Svg msg) -> Svg msg
 cardSymbol suit number contents =
     Svg.symbol
-        [ viewBox, Symbol.id <| Card { suit = suit, number = number } ]
+        [ viewBox, Symbol.id <| Card { suit = suit, number = number, face = Up } ]
         ([ use <| OutlineOf suit
          , use <| Rank number
          ]
@@ -345,3 +346,19 @@ useXY x_ y_ isRotate suit =
                )
         )
         []
+
+
+faceDown : Svg msg
+faceDown =
+    Svg.symbol
+        [ viewBox
+        , Symbol.id <|
+            Card { suit = Spade, number = Ace, face = Down }
+        , fill "rgb(80, 112, 161)"
+        ]
+        (use Outline
+            :: lift2
+                (\x y -> useXY x y False Diamond)
+                (List.range 0 5 |> List.map (\i -> 2.0448 / 2 + 11.6592 * toFloat i))
+                (List.range 0 5 |> List.map (\i -> 7 + 16 * toFloat i))
+        )

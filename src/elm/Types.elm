@@ -46,10 +46,18 @@ numbers =
     [ Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King ]
 
 
+type Face
+    = Up
+    | Down
+
+
 type alias Card =
-    { suit : Suit, number : Number }
+    { suit : Suit
+    , number : Number
+    , face : Face
+    }
 
 
 cards : List Card
 cards =
-    lift2 Card suits numbers
+    lift2 (\suit number -> Card suit number Down) suits numbers

@@ -13,7 +13,7 @@ import Element exposing (Element)
 import Html exposing (Html)
 import Svg exposing (..)
 import Svg.Attributes exposing (d, display, height, viewBox, width, xlinkHref)
-import Types
+import Types exposing (Face(..))
 
 
 type Symbol
@@ -61,8 +61,17 @@ id_ symbol =
         SimpleChip ->
             "svg-simple-chip"
 
-        Card { suit, number } ->
-            String.join "-" [ "svg-card", toString suit, toString number ]
+        Card { suit, number, face } ->
+            case face of
+                Up ->
+                    String.join "-"
+                        [ "svg-card"
+                        , toString suit
+                        , toString number
+                        ]
+
+                Down ->
+                    "svg-card-face-down"
 
 
 simpleChip : Svg msg

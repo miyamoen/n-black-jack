@@ -5,7 +5,7 @@ import Element.Attributes exposing (spacing)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
 import Styles exposing (Styles(None), Variation)
-import Types exposing (Card, Number(..), Suit(..), numbers, suits)
+import Types exposing (Card, Face(..), Number(..), Suit(..), numbers, suits)
 import UIExplorer exposing (renderStories)
 import View.Atom.Card as Card
 
@@ -27,14 +27,15 @@ stories =
         => List.map
             (\suit ->
                 List.map
-                    (\number -> Card suit number)
+                    (\number -> Card suit number Up)
                     numbers
             )
             suits
-    , "Spades" => [ List.map (Card Spade) numbers ]
-    , "Hearts" => [ List.map (Card Heart) numbers ]
-    , "Clubs" => [ List.map (Card Club) numbers ]
-    , "Diamonds" => [ List.map (Card Diamond) numbers ]
+    , "Spades" => [ List.map (\num -> Card Spade num Up) numbers ]
+    , "Hearts" => [ List.map (\num -> Card Heart num Up) numbers ]
+    , "Clubs" => [ List.map (\num -> Card Club num Up) numbers ]
+    , "Diamonds" => [ List.map (\num -> Card Diamond num Up) numbers ]
+    , "FaceDown" => [ [ Card Club Ace Down, Card Diamond Ace Down ] ]
     ]
 
 
