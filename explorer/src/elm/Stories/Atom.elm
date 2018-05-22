@@ -5,6 +5,7 @@ import Stories.Atom.CardBox as CardBox
 import Stories.Atom.ChipSvg as ChipSvg
 import Stories.Atom.Circle as Circle
 import Stories.Atom.Colors as Colors
+import Stories.Atom.PointLabel as PointLabel
 import Stories.Atom.SimpleChipSvg as SimpleChipSvg
 import Stories.Atom.Table as Table
 import Stories.Atom.Text as Text
@@ -22,4 +23,5 @@ uiCategory =
     , createUI "ChipSvg" ChipSvg.viewStories
     , createUI "SimpleChipSvg" SimpleChipSvg.viewStories
     , createUI "Card" Card.viewStories
+    , createUI "PointLabel" PointLabel.viewStories
     ]
