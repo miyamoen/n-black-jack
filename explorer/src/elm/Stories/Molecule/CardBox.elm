@@ -1,18 +1,15 @@
-module Stories.Atom.PointLabel exposing (viewStories)
+module Stories.Molecule.CardBox exposing (viewStories)
 
-import Element exposing (Element, empty)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml)
-import Styles exposing (Styles(..))
-import Styles.Text exposing (Size(..))
+import Stories.Element exposing (toHtmlWithSymbol)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Atom.PointLabel as PointLabel
+import View.Molecule.CardBox exposing (view)
 
 
-view : List Card -> Element Styles variation msg
-view cards =
-    PointLabel.view Medium cards
+cards : List Card
+cards =
+    [ Card Spade Ace Up, Card Club Ten Up, Card Heart Four Up ]
 
 
 stories : List ( String, List Card )
@@ -50,8 +47,32 @@ stories =
            , Card Spade Six Up
            , Card Spade Eight Up
            ]
+    , "Five"
+        => [ Card Spade Ace Up
+           , Card Heart Ace Up
+           , Card Spade Four Up
+           , Card Diamond Six Up
+           , Card Spade Six Up
+           ]
+    , "Six"
+        => [ Card Spade Ace Up
+           , Card Heart Ace Up
+           , Card Club Ace Up
+           , Card Spade Four Up
+           , Card Diamond Six Up
+           , Card Spade Six Up
+           ]
+    , "Seven"
+        => [ Card Spade Ace Up
+           , Card Heart Ace Up
+           , Card Club Ace Up
+           , Card Diamond Ace Up
+           , Card Spade Four Up
+           , Card Diamond Six Up
+           , Card Spade Six Up
+           ]
     ]
 
 
 viewStories =
-    renderStories (view >> toHtml) stories
+    renderStories (view >> toHtmlWithSymbol) stories

@@ -18,8 +18,8 @@ uiCategory =
     , createUI "Label" Text.viewLabelsStories
     , createUI "Description" Text.viewDescriptionsStories
     , createUI "Table" Table.viewStories
-    , createUI "Circle" Circle.viewStories
-    , createUI "CardBox" CardBox.viewStories
+    , createUI "CircleFrame" Circle.viewStories
+    , createUI "CardBoxFrame" CardBox.viewStories
     , createUI "ChipSvg" ChipSvg.viewStories
     , createUI "SimpleChipSvg" SimpleChipSvg.viewStories
     , createUI "Card" Card.viewStories

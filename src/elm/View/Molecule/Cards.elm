@@ -1,7 +1,7 @@
 module View.Molecule.Cards exposing (Align(..), view)
 
 import Element exposing (..)
-import Element.Attributes exposing (moveRight, moveUp)
+import Element.Attributes exposing (height, moveRight, moveUp, px, width)
 import Styles exposing (Styles(..), Variation)
 import Types exposing (Card)
 import View.Atom.Card as Card
@@ -27,7 +27,7 @@ view align cards =
                 Vertical ->
                     ( 0, 20 )
     in
-    el None [] empty
+    el None [ width <| px 70, height <| px 110 ] empty
         |> within
             (List.indexedMap
                 (\index card ->
