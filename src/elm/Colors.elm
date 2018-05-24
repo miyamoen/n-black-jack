@@ -17,11 +17,12 @@ type Colors
     | Blue
     | Orange
     | Red
+    | Mono
 
 
 colors : List Colors
 colors =
-    [ Green, Blue, Orange, Red ]
+    [ Green, Blue, Orange, Red, Mono ]
 
 
 type Shade
@@ -80,10 +81,23 @@ pallet colors =
         Red ->
             red
 
+        Mono ->
+            mono
+
 
 color : Shade -> Colors -> Color
 color shade colors =
     shadeGetter shade <| pallet colors
+
+
+mono : Pallet
+mono =
+    Pallet
+        (rgb 157 157 157)
+        (rgb 101 101 101)
+        (rgb 139 139 139)
+        (rgb 186 186 186)
+        (rgb 209 209 209)
 
 
 green : Pallet

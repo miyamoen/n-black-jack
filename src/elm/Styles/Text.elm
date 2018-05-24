@@ -15,11 +15,12 @@ type Size
     = Large
     | Medium
     | Small
+    | Tiny
 
 
 sizes : List Size
 sizes =
-    [ Large, Medium, Small ]
+    [ Large, Medium, Small, Tiny ]
 
 
 type FontStyle
@@ -66,3 +67,6 @@ size s =
 
         Small ->
             Font.size 16
+
+        Tiny ->
+            Font.size 12
