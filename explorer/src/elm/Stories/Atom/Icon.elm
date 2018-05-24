@@ -10,7 +10,9 @@ import View.Atom.Icon exposing (view)
 
 stories : List ( String, ( Icon, List Option ) )
 stories =
-    [ "twitter" => ( FA.twitter, [] ) ]
+    [ "twitter" => ( FA.twitter, [] )
+    , "taxi" => ( FA.taxi, [] )
+    ]
 
 
 viewStories =
