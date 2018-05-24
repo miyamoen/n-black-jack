@@ -1,6 +1,6 @@
 module View.Atom.Card exposing (view)
 
-import Colors exposing (Colors(..), Shade(..))
+import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import Styles exposing (Styles(..), Variation(TextColor))
@@ -14,11 +14,17 @@ view card =
         |> el None
             [ width <| px 72
             , height <| px 110
-            , vary (TextColor Main <| colors card.suit) True
+            , vary
+                (TextColor
+                    { shade = Main
+                    , hue = colors card.suit
+                    }
+                )
+                True
             ]
 
 
-colors : Suit -> Colors
+colors : Suit -> Hue
 colors suit =
     case suit of
         Spade ->

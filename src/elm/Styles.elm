@@ -1,5 +1,6 @@
 module Styles exposing (Styles(..), Variation(..), styleSheet)
 
+import Color
 import Colors exposing (..)
 import Colors.Chip as Chip
 import List.Extra exposing (lift2)
@@ -7,6 +8,7 @@ import Style exposing (..)
 import Style.Border as Border
 import Style.Color as Color
 import Style.Font as Font
+import Style.Shadow as Shadow
 import Styles.Text as Text
 
 
@@ -17,12 +19,15 @@ type Styles
     | Chip Chip.Colors
     | Circle
     | CardBox
+    | UserCard
+    | Avatar
+    | Button
 
 
 type Variation
-    = BGColor Shade Colors
-    | BorderColor Shade Colors
-    | TextColor Shade Colors
+    = BGColor Colors
+    | BorderColor Colors
+    | TextColor Colors
 
 
 styleSheet : StyleSheet Styles Variation
@@ -43,6 +48,25 @@ styleSheet =
              ]
                 ++ borderColors
             )
+         , style UserCard
+            [ Shadow.box
+                { offset = ( 0, 1 )
+                , size = 0
+                , blur = 2
+                , color = Color.rgba 0 0 0 0.3
+                }
+            ]
+         , style Avatar
+            [ Border.rounded 40
+            , Border.all 1
+            , Color.border <|
+                Colors.color { shade = Lighten2, hue = Mono }
+            ]
+         , style Button
+            ([ Border.rounded 4
+             ]
+                ++ bgColors
+            )
          ]
             ++ titles
             ++ texts
@@ -52,34 +76,31 @@ styleSheet =
 
 bgColors : List (Property style Variation)
 bgColors =
-    lift2
-        (\shade colors ->
-            variation (BGColor shade colors)
-                [ Color.background <| Colors.color shade colors ]
+    List.map
+        (\color ->
+            variation (BGColor color)
+                [ Color.background <| Colors.color color ]
         )
-        Colors.shades
         Colors.colors
 
 
 textColors : List (Property style Variation)
 textColors =
-    lift2
-        (\shade colors ->
-            variation (TextColor shade colors)
-                [ Color.text <| Colors.color shade colors ]
+    List.map
+        (\color ->
+            variation (TextColor color)
+                [ Color.text <| Colors.color color ]
         )
-        Colors.shades
         Colors.colors
 
 
 borderColors : List (Property style Variation)
 borderColors =
-    lift2
-        (\shade colors ->
-            variation (BorderColor shade colors)
-                [ Color.border <| Colors.color shade colors ]
+    List.map
+        (\color ->
+            variation (BorderColor color)
+                [ Color.border <| Colors.color color ]
         )
-        Colors.shades
         Colors.colors
 
 

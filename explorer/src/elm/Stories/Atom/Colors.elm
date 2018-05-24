@@ -11,22 +11,22 @@ import UIExplorer exposing (renderStories)
 
 view : () -> Element Styles Variation msg
 view _ =
-    column None [] <| List.map pallet Colors.colors
+    column None [] <| List.map pallet Colors.hues
 
 
-box : Shade -> Colors -> Element Styles Variation msg
-box shade colors =
+box : Shade -> Hue -> Element Styles Variation msg
+box shade hue =
     el None
         [ width <| px 50
         , height <| px 50
-        , vary (BGColor shade colors) True
+        , vary (BGColor { shade = shade, hue = hue }) True
         ]
         empty
 
 
-pallet : Colors -> Element Styles Variation msg
-pallet colors =
-    row None [] <| List.map (flip box colors) Colors.shades
+pallet : Hue -> Element Styles Variation msg
+pallet hue =
+    row None [] <| List.map (flip box hue) Colors.shades
 
 
 stories : List ( String, () )

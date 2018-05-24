@@ -1,6 +1,6 @@
 module View.Molecule.CardBox exposing (view)
 
-import Colors exposing (Colors(Orange), Shade(..))
+import Colors exposing (Hue(Orange), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (alignBottom, center, fill, height, vary, width)
 import Styles exposing (Styles(..), Variation(..))
@@ -24,7 +24,13 @@ view cards =
                     , height fill
                     , alignBottom
                     , center
-                    , vary (TextColor Lighten1 Orange) True
+                    , vary
+                        (TextColor
+                            { shade = Lighten1
+                            , hue = Orange
+                            }
+                        )
+                        True
                     ]
                     [ Cards.view Slanting cards
                     , PointLabel.view Medium cards

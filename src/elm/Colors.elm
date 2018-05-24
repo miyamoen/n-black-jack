@@ -1,18 +1,32 @@
 module Colors
     exposing
-        ( Colors(..)
+        ( Colors
+        , Hue(..)
         , Shade(..)
         , color
         , colors
+        , hues
         , shades
         )
 
 {- http://paletton.com/#uid=72X0u0knFs6uEhMrnnpjzvAe-Gh -}
 
 import Color exposing (Color, rgb)
+import List.Extra exposing (lift2)
 
 
-type Colors
+type alias Colors =
+    { hue : Hue
+    , shade : Shade
+    }
+
+
+colors : List Colors
+colors =
+    lift2 Colors hues shades
+
+
+type Hue
     = Green
     | Blue
     | Orange
@@ -20,8 +34,8 @@ type Colors
     | Mono
 
 
-colors : List Colors
-colors =
+hues : List Hue
+hues =
     [ Green, Blue, Orange, Red, Mono ]
 
 
@@ -66,9 +80,9 @@ shadeGetter shade =
             .lighten2
 
 
-pallet : Colors -> Pallet
-pallet colors =
-    case colors of
+pallet : Hue -> Pallet
+pallet hue =
+    case hue of
         Green ->
             green
 
@@ -85,9 +99,9 @@ pallet colors =
             mono
 
 
-color : Shade -> Colors -> Color
-color shade colors =
-    shadeGetter shade <| pallet colors
+color : Colors -> Color
+color { hue, shade } =
+    shadeGetter shade <| pallet hue
 
 
 mono : Pallet
