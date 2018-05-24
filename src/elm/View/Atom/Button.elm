@@ -29,29 +29,40 @@ default label =
 
 view : Option -> Element Styles Variation msg
 view { color, textColor, icon, label } =
-    button Button
-        [ vary
-            (BGColor
-                (Maybe.withDefault
-                    { hue = Mono, shade = Lighten1 }
-                    color
-                )
-            )
-            True
-        , vary
-            (TextColor
-                (Maybe.withDefault
-                    { hue = Mono, shade = Darken2 }
-                    textColor
-                )
-            )
-            True
-        ]
-    <|
-        row None
-            [ spacing 5, padding 5, verticalCenter ]
+    node "button" <|
+        row Button
+            [ spacing 10
+            , padding 10
+            , verticalCenter
+            , background color
+            , text textColor
+            ]
             [ icon
                 |> Maybe.map (\icon -> Icon.view icon [])
                 |> Maybe.withDefault empty
             , Text.text Regular Small label
             ]
+
+
+background : Maybe Colors -> Attribute Variation msg
+background color =
+    vary
+        (BGColor
+            (Maybe.withDefault
+                { hue = Mono, shade = Lighten1 }
+                color
+            )
+        )
+        True
+
+
+text : Maybe Colors -> Attribute Variation msg
+text color =
+    vary
+        (TextColor
+            (Maybe.withDefault
+                { hue = Mono, shade = Darken2 }
+                color
+            )
+        )
+        True
