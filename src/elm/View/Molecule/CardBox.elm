@@ -6,6 +6,7 @@ import Element.Attributes exposing (alignBottom, center, fill, height, vary, wid
 import Styles exposing (Styles(..), Variation(..))
 import Styles.Text exposing (FontStyle(..), Size(Medium))
 import Types exposing (Card)
+import Types.Card exposing (Point(..), point)
 import View.Atom.CardBox as CardBox
 import View.Atom.PointLabel as PointLabel
 import View.Molecule.Cards as Cards exposing (Align(..))
@@ -32,6 +33,14 @@ view cards =
                         )
                         True
                     ]
-                    [ Cards.view Slanting cards
+                    [ Cards.view
+                        (case point cards of
+                            Bust ->
+                                Folding
+
+                            _ ->
+                                Slanting
+                        )
+                        cards
                     , PointLabel.view Medium cards
                     ]

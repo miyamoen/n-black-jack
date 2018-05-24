@@ -11,6 +11,7 @@ type Align
     = Slanting
     | Vertical
     | Horizontal
+    | Folding
 
 
 view : Align -> List Card -> Element Styles Variation msg
@@ -26,6 +27,9 @@ view align cards =
 
                 Vertical ->
                     ( 0, 20 )
+
+                Folding ->
+                    ( 0, 10 )
     in
     el None [ width <| px 70, height <| px 110 ] empty
         |> within

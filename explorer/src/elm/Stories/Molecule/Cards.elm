@@ -24,6 +24,7 @@ stories =
     [ "Slanting" => Slanting
     , "Horizontal" => Horizontal
     , "Vertical" => Vertical
+    , "Folding" => Folding
     ]
 
 
