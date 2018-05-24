@@ -1,5 +1,6 @@
 module Stories.Atom exposing (..)
 
+import Stories.Atom.Button as Button
 import Stories.Atom.Card as Card
 import Stories.Atom.CardBox as CardBox
 import Stories.Atom.ChipSvg as ChipSvg
@@ -26,4 +27,5 @@ uiCategory =
     , createUI "SimpleChipSvg" SimpleChipSvg.viewStories
     , createUI "Card" Card.viewStories
     , createUI "PointLabel" PointLabel.viewStories
+    , createUI "Button" Button.viewStories
     ]

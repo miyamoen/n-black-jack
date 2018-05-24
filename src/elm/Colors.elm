@@ -108,10 +108,10 @@ mono : Pallet
 mono =
     Pallet
         (rgb 157 157 157)
-        (rgb 101 101 101)
+        (rgb 10 10 10)
         (rgb 139 139 139)
         (rgb 186 186 186)
-        (rgb 209 209 209)
+        (rgb 250 250 250)
 
 
 green : Pallet

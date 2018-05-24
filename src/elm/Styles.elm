@@ -9,6 +9,7 @@ import Style.Border as Border
 import Style.Color as Color
 import Style.Font as Font
 import Style.Shadow as Shadow
+import Style.Transition as Transition
 import Styles.Text as Text
 
 
@@ -64,8 +65,18 @@ styleSheet =
             ]
          , style Button
             ([ Border.rounded 4
+             , Border.bottom 2
+             , Color.border <|
+                Colors.color { hue = Mono, shade = Darken1 }
+             , cursor "pointer"
+             , Transition.all
+             , pseudo "active"
+                [ translate 0 2 0
+                , Border.bottom 0
+                ]
              ]
                 ++ bgColors
+                ++ textColors
             )
          ]
             ++ titles
