@@ -1,4 +1,4 @@
-module Stories.Atom.ChipSvg exposing (viewStories)
+module Stories.Atom.PlainChip exposing (viewStories)
 
 import Element exposing (Element)
 import Rocket exposing ((=>))

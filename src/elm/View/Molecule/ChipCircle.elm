@@ -3,8 +3,8 @@ module View.Molecule.ChipCircle exposing (view)
 import Colors exposing (Shade(..))
 import Element exposing (..)
 import Styles exposing (Styles, Variation)
+import View.Atom.Chip as Chip
 import View.Atom.Circle as Circle
-import View.Molecule.Chip as Chip
 
 
 view : Maybe Int -> Element Styles Variation msg

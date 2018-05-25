@@ -3,10 +3,11 @@ module Stories.Atom exposing (..)
 import Stories.Atom.Button as Button
 import Stories.Atom.Card as Card
 import Stories.Atom.CardBox as CardBox
-import Stories.Atom.ChipSvg as ChipSvg
+import Stories.Atom.Chip as Chip
 import Stories.Atom.Circle as Circle
 import Stories.Atom.Colors as Colors
 import Stories.Atom.Icon as Icon
+import Stories.Atom.PlainChip as PlainChip
 import Stories.Atom.PointLabel as PointLabel
 import Stories.Atom.SimpleChipSvg as SimpleChipSvg
 import Stories.Atom.Table as Table
@@ -23,7 +24,8 @@ uiCategory =
     , createUI "Table" Table.viewStories
     , createUI "CircleFrame" Circle.viewStories
     , createUI "CardBoxFrame" CardBox.viewStories
-    , createUI "ChipSvg" ChipSvg.viewStories
+    , createUI "Chip" Chip.viewStories
+    , createUI "PlainChip" PlainChip.viewStories
     , createUI "SimpleChipSvg" SimpleChipSvg.viewStories
     , createUI "Card" Card.viewStories
     , createUI "PointLabel" PointLabel.viewStories

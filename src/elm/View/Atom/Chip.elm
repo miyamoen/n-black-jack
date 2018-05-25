@@ -1,4 +1,4 @@
-module View.Molecule.Chip exposing (view)
+module View.Atom.Chip exposing (view)
 
 import Colors.Chip as Colors exposing (Colors(..))
 import Element exposing (..)
