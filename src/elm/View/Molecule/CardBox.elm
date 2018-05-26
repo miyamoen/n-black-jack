@@ -5,8 +5,8 @@ import Element exposing (..)
 import Element.Attributes exposing (alignBottom, center, fill, height, vary, width)
 import Styles exposing (Styles(..), Variation(..))
 import Styles.Text exposing (FontStyle(..), Size(Medium))
-import Types exposing (Card)
-import Types.Card exposing (Point(..), point)
+import Types exposing (Card, Point(..))
+import Types.Card exposing (point)
 import View.Atom.CardBox as CardBox
 import View.Atom.PointLabel as PointLabel
 import View.Molecule.Cards as Cards exposing (Align(..))

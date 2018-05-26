@@ -1,14 +1,6 @@
-module Types.Card exposing (Point(..), point)
+module Types.Card exposing (point)
 
 import Types exposing (..)
-
-
-type Point
-    = BlackJack
-    | TwentyOne
-    | Point Int
-    | PointOr Int Int
-    | Bust
 
 
 point : List Card -> Point
@@ -59,18 +51,22 @@ point cards =
                 )
                 ( 0, 0 )
                 cards
+
+        high =
+            if aceNum > 0 then
+                low + 10
+            else
+                low
     in
-    if List.length cards == 2 && aceNum == 1 && low + 10 == 21 then
+    if List.length cards == 2 && high == 21 then
         BlackJack
-    else if low == 21 then
+    else if low == 21 || high == 21 then
         TwentyOne
     else if low > 21 then
         Bust
-    else if aceNum > 0 && low + 10 == 21 then
-        TwentyOne
-    else if aceNum > 0 && low + 10 > 21 then
+    else if high > 21 then
         Point low
-    else if aceNum > 0 then
-        PointOr (low + 10) low
+    else if high /= low then
+        PointOr high low
     else
         Point low

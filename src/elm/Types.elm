@@ -61,3 +61,11 @@ type alias Card =
 cards : List Card
 cards =
     lift2 (\suit number -> Card suit number Down) suits numbers
+
+
+type Point
+    = BlackJack
+    | TwentyOne
+    | Point Int
+    | PointOr Int Int
+    | Bust
