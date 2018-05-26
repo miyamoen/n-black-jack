@@ -9,6 +9,7 @@ import Style.Color as Color
 import Style.Shadow as Shadow
 import Style.Sheet exposing (mix)
 import Style.Transition as Transition
+import Styles.Button as Button
 import Styles.Font as Font
 import Styles.Frame as Frame
 import Styles.Types exposing (Styles(..), Variation(..))
@@ -17,9 +18,10 @@ import Styles.Types exposing (Styles(..), Variation(..))
 styleSheet : StyleSheet Styles Variation
 styleSheet =
     Style.styleSheet
-        [ style None (bgColors ++ textColors)
+        [ style None []
         , Frame.styles
         , Font.styles
+        , Button.styles
         , chipStyles
         , style UserCard
             [ Shadow.box
@@ -35,19 +37,6 @@ styleSheet =
             , Color.border <|
                 Colors.color { shade = Lighten2, hue = Mono }
             ]
-        , style Button
-            ([ Border.rounded 4
-             , buttonShadow 2
-             , cursor "pointer"
-             , Transition.all
-             , pseudo "active"
-                [ translate 0 2 0
-                , buttonShadow 0
-                ]
-             ]
-                ++ bgColors
-                ++ textColors
-            )
         , style ActionButton
             ([ Border.rounded 4
              , Border.all 2
@@ -106,12 +95,3 @@ chipStyles =
                     [ Color.text <| Chip.color color ]
             )
         |> mix
-
-
-buttonShadow : Float -> Property class variation
-buttonShadow dy =
-    Shadow.drop
-        { offset = ( 0, dy )
-        , blur = 0
-        , color = Colors.color { hue = Mono, shade = Darken1 }
-        }

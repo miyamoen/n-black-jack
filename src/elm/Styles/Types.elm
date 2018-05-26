@@ -31,6 +31,7 @@ type Variation
     | CircleShape
     | ShadeVar Shade
     | ColorVar Colors
+    | SubColorVar Colors
 
 
 type FontSize

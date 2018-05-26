@@ -26,11 +26,11 @@ view user =
                 , column None
                     [ center ]
                     [ Button.view
-                        { icon = Just FA.twitter
-                        , color = Just { hue = Blue, shade = Lighten2 }
-                        , textColor = Just { hue = Mono, shade = Lighten2 }
-                        , label = "Twitter Sign In"
+                        { buttonDefault
+                            | icon = Just FA.twitter
+                            , color = Colors Blue Lighten2
                         }
+                        "Twitter Sign In"
                     , label
                         { labelDefault
                             | style = RegularItaric
@@ -38,11 +38,11 @@ view user =
                         }
                         "or"
                     , Button.view
-                        { icon = Just FA.signInAlt
-                        , color = Just { hue = Mono, shade = Darken1 }
-                        , textColor = Just { hue = Mono, shade = Lighten2 }
-                        , label = "Anonymously Sign In"
+                        { buttonDefault
+                            | icon = Just FA.signInAlt
+                            , color = Colors Mono Darken1
                         }
+                        "Anonymously Sign In"
                     ]
                 ]
 
@@ -58,11 +58,11 @@ view user =
                     , el None [ vary (TextColor { shade = Main, hue = Mono }) True ] <|
                         label labelOption id
                     , Button.view
-                        { icon = Just FA.signOutAlt
-                        , color = Just { hue = Mono, shade = Darken1 }
-                        , textColor = Just { hue = Mono, shade = Lighten2 }
-                        , label = "Sign Out"
+                        { buttonDefault
+                            | icon = Just FA.signOutAlt
+                            , color = Colors Mono Darken1
                         }
+                        "Sign Out"
                     ]
                 ]
 
@@ -80,13 +80,18 @@ view user =
                     [ el None [ vary (TextColor { shade = Main, hue = Mono }) True ] <|
                         label labelOption id
                     , Button.view
-                        { icon = Just FA.twitter
-                        , color = Just { hue = Blue, shade = Lighten2 }
-                        , textColor = Just { hue = Mono, shade = Lighten2 }
-                        , label = "Sign In"
+                        { buttonDefault
+                            | icon = Just FA.twitter
+                            , color = Colors Blue Lighten2
                         }
+                        "Sign In"
                     ]
                 ]
+
+
+buttonDefault : Button.Option
+buttonDefault =
+    Button.default
 
 
 labelDefault : Text.Option

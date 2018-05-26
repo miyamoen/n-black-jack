@@ -9,59 +9,32 @@ import View.Atom.Icon as Icon
 
 
 type alias Option =
-    { color : Maybe Colors
-    , textColor : Maybe Colors
+    { color : Colors
+    , labelColor : Colors
     , icon : Maybe Icon
-    , label : String
     }
 
 
-default : String -> Option
-default label =
-    { color = Nothing
-    , textColor = Nothing
+default : Option
+default =
+    { color = Colors Mono Darken1
+    , labelColor = Colors Mono Lighten2
     , icon = Nothing
-    , label = label
     }
 
 
-view : Option -> Element Styles Variation msg
-view { color, textColor, icon, label } =
+view : Option -> String -> Element Styles Variation msg
+view { color, labelColor, icon } label =
     node "button" <|
         row Button
             [ spacing 10
             , padding 10
             , verticalCenter
-            , background color
-            , text textColor
+            , vary (ColorVar color) True
+            , vary (SubColorVar labelColor) True
             ]
             [ icon
                 |> Maybe.map (\icon -> Icon.view icon [])
                 |> Maybe.withDefault empty
-            , el (Label Regular Small) [] <|
-                Element.text label
+            , el (Label Regular Small) [] <| text label
             ]
-
-
-background : Maybe Colors -> Attribute Variation msg
-background color =
-    vary
-        (BGColor
-            (Maybe.withDefault
-                { hue = Mono, shade = Lighten1 }
-                color
-            )
-        )
-        True
-
-
-text : Maybe Colors -> Attribute Variation msg
-text color =
-    vary
-        (TextColor
-            (Maybe.withDefault
-                { hue = Mono, shade = Darken2 }
-                color
-            )
-        )
-        True
