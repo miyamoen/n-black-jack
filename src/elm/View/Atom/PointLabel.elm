@@ -1,14 +1,13 @@
 module View.Atom.PointLabel exposing (view)
 
 import Element exposing (..)
-import Styles exposing (Styles(..))
-import Styles.Text exposing (..)
+import Styles.Types exposing (..)
 import Types exposing (Card, Face(..), Point(..))
 import Types.Card as Card
 import View.Atom.Text exposing (label)
 
 
-view : Size -> List Card -> Element Styles variation msg
+view : FontSize -> List Card -> Element Styles variation msg
 view size cards =
     case Card.point <| List.filter (.face >> (==) Up) cards of
         BlackJack ->

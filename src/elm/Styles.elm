@@ -1,54 +1,24 @@
-module Styles exposing (Styles(..), Variation(..), styleSheet)
+module Styles exposing (styleSheet)
 
 import Color
 import Colors exposing (..)
 import Colors.Chip as Chip
-import List.Extra exposing (lift2)
 import Style exposing (..)
 import Style.Border as Border
 import Style.Color as Color
-import Style.Font as Font
 import Style.Shadow as Shadow
 import Style.Transition as Transition
-import Styles.Text as Text
-
-
-type Styles
-    = None
-    | Title Text.FontStyle Text.Size
-    | Text Text.FontStyle Text.Size
-    | Chip Chip.Colors
-    | Circle
-    | CardBox
-    | UserCard
-    | Avatar
-    | Button
-
-
-type Variation
-    = BGColor Colors
-    | BorderColor Colors
-    | TextColor Colors
+import Styles.Font as Font
+import Styles.Frame as Frame
+import Styles.Types exposing (Styles(..), Variation(..))
 
 
 styleSheet : StyleSheet Styles Variation
 styleSheet =
     Style.styleSheet
         ([ style None (bgColors ++ textColors)
-         , style Circle
-            ([ Border.all 5
-             , Border.rounded 100
-             , Border.dashed
-             ]
-                ++ borderColors
-            )
-         , style CardBox
-            ([ Border.all 5
-             , Border.rounded 10
-             , Border.dashed
-             ]
-                ++ borderColors
-            )
+         , Frame.styles
+         , Font.styles
          , style UserCard
             [ Shadow.box
                 { offset = ( 0, 1 )
@@ -65,7 +35,20 @@ styleSheet =
             ]
          , style Button
             ([ Border.rounded 4
-             , Border.bottom 2
+             , buttonShadow 2
+             , cursor "pointer"
+             , Transition.all
+             , pseudo "active"
+                [ translate 0 2 0
+                , buttonShadow 0
+                ]
+             ]
+                ++ bgColors
+                ++ textColors
+            )
+         , style ActionButton
+            ([ Border.rounded 4
+             , Border.all 2
              , Color.border <|
                 Colors.color { hue = Mono, shade = Darken1 }
              , cursor "pointer"
@@ -75,12 +58,9 @@ styleSheet =
                 , Border.bottom 0
                 ]
              ]
-                ++ bgColors
                 ++ textColors
             )
          ]
-            ++ titles
-            ++ texts
             ++ chips
         )
 
@@ -115,29 +95,6 @@ borderColors =
         Colors.colors
 
 
-titles : List (Style Styles variation)
-titles =
-    lift2 (\fs s -> style (Title fs s) (Text.style fs s))
-        Text.fontStyles
-        Text.sizes
-
-
-texts : List (Style Styles variation)
-texts =
-    lift2
-        (\fs s ->
-            style (Text fs s)
-                ([ Font.alignLeft
-                 , Font.lineHeight 1.3
-                 , Font.wordSpacing 3
-                 ]
-                    ++ Text.style fs s
-                )
-        )
-        Text.fontStyles
-        Text.sizes
-
-
 chips : List (Style Styles variation)
 chips =
     List.map
@@ -146,3 +103,12 @@ chips =
                 [ Color.text <| Chip.color color ]
         )
         Chip.colors
+
+
+buttonShadow : Float -> Property class variation
+buttonShadow dy =
+    Shadow.drop
+        { offset = ( 0, dy )
+        , blur = 0
+        , color = Colors.color { hue = Mono, shade = Darken1 }
+        }

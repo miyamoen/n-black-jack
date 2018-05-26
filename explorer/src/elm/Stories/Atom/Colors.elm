@@ -5,7 +5,7 @@ import Element exposing (..)
 import Element.Attributes exposing (height, px, vary, width)
 import Rocket exposing ((=>))
 import Stories.Element
-import Styles exposing (Styles(..), Variation(..))
+import Styles.Types exposing (Styles(..), Variation(..))
 import UIExplorer exposing (renderStories)
 
 

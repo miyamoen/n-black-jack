@@ -3,8 +3,7 @@ module View.Atom.Chip exposing (view)
 import Colors.Chip as Colors exposing (Colors(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles exposing (Styles(..))
-import Styles.Text exposing (FontStyle(..), Size(..))
+import Styles.Types exposing (FontSize(..), FontStyle(..), Styles(..))
 import View.Atom.Text exposing (label)
 import View.Symbol as Symbol
 

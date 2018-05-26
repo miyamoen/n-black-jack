@@ -3,7 +3,7 @@ module View.Atom.Table exposing (..)
 import Colors exposing (Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles exposing (Styles(..), Variation(..))
+import Styles.Types exposing (Styles(..), Variation(..))
 
 
 view : Element Styles Variation msg -> Element Styles Variation msg

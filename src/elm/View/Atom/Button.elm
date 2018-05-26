@@ -4,10 +4,8 @@ import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import FontAwesome exposing (Icon)
-import Styles exposing (Styles(..), Variation(..))
-import Styles.Text exposing (..)
+import Styles.Types exposing (..)
 import View.Atom.Icon as Icon
-import View.Atom.Text as Text
 
 
 type alias Option =
@@ -40,7 +38,8 @@ view { color, textColor, icon, label } =
             [ icon
                 |> Maybe.map (\icon -> Icon.view icon [])
                 |> Maybe.withDefault empty
-            , Text.text Regular Small label
+            , el (Label Regular Small) [] <|
+                Element.text label
             ]
 
 

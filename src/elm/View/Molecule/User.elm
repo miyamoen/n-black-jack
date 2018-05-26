@@ -4,8 +4,7 @@ import Colors exposing (Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import FontAwesome as FA
-import Styles exposing (Styles(..), Variation(..))
-import Styles.Text exposing (FontStyle(..), Size(..))
+import Styles.Types exposing (..)
 import Types exposing (User(..))
 import View.Atom.Button as Button
 import View.Atom.Icon as Icon
@@ -26,14 +25,14 @@ view user =
                     ]
                 , column None
                     [ center, textColor ]
-                    [ button
+                    [ Button.view
                         { icon = Just FA.twitter
                         , color = Just { hue = Blue, shade = Lighten2 }
                         , textColor = Just { hue = Mono, shade = Lighten2 }
                         , label = "Twitter Sign In"
                         }
                     , label RegularItaric Small "or"
-                    , button
+                    , Button.view
                         { icon = Just FA.signInAlt
                         , color = Just { hue = Mono, shade = Darken1 }
                         , textColor = Just { hue = Mono, shade = Lighten2 }
@@ -53,7 +52,7 @@ view user =
                     [ label Regular Small (Maybe.withDefault "" name)
                     , el None [ vary (TextColor { shade = Main, hue = Mono }) True ] <|
                         label Regular Tiny id
-                    , button
+                    , Button.view
                         { icon = Just FA.signOutAlt
                         , color = Just { hue = Mono, shade = Darken1 }
                         , textColor = Just { hue = Mono, shade = Lighten2 }
@@ -75,7 +74,7 @@ view user =
                     [ spacing 5, alignTop, center ]
                     [ el None [ vary (TextColor { shade = Main, hue = Mono }) True ] <|
                         label Regular Tiny id
-                    , button
+                    , Button.view
                         { icon = Just FA.twitter
                         , color = Just { hue = Blue, shade = Lighten2 }
                         , textColor = Just { hue = Mono, shade = Lighten2 }
@@ -103,11 +102,3 @@ avatar iconUrl =
         Nothing ->
             el None [ width <| px 80, height <| px 64 ] <|
                 Icon.view FA.user [ FA.Size <| FA.Mult 4 ]
-
-
-button : Button.Option -> Element Styles Variation msg
-button option =
-    el None [ width content ] <|
-        column None
-            [ height <| px 45, verticalCenter ]
-            [ Button.view option ]

@@ -3,7 +3,7 @@ module View.Atom.Card exposing (view)
 import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles exposing (Styles(..), Variation(TextColor))
+import Styles.Types exposing (Styles(..), Variation(TextColor))
 import Types exposing (Card, Suit(..))
 import View.Symbol as Symbol
 

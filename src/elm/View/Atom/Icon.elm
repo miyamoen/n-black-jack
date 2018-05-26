@@ -4,7 +4,7 @@ import Element exposing (..)
 import FontAwesome as FA exposing (Icon, Option)
 import Html.Keyed
 import Rocket exposing ((=>))
-import Styles exposing (Styles(..))
+import Styles.Types exposing (Styles(..))
 
 
 view : Icon -> List Option -> Element Styles variation msg

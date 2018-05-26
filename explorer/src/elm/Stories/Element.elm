@@ -2,7 +2,8 @@ module Stories.Element exposing (..)
 
 import Element exposing (..)
 import Html exposing (Html, div)
-import Styles exposing (Styles, Variation, styleSheet)
+import Styles exposing (styleSheet)
+import Styles.Types exposing (Styles, Variation)
 import View.Symbols as Symbols
 
 
