@@ -5,7 +5,6 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import Styles.Types exposing (..)
 import Types exposing (Card, Point(..))
-import Types.Card exposing (point)
 import View.Atom.Card as Card
 import View.Atom.PointLabel as PointLabel
 
@@ -25,7 +24,7 @@ view cards =
         , if List.isEmpty cards then
             empty
           else
-            PointLabel.view Medium cards
+            PointLabel.view PointLabel.default cards
         ]
 
 

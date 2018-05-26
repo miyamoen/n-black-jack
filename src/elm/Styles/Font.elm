@@ -1,13 +1,15 @@
 module Styles.Font exposing (styles)
 
+import Colors
 import List.Extra exposing (lift2)
 import Style exposing (..)
+import Style.Color as Color
 import Style.Font as Font
 import Style.Sheet exposing (mix)
 import Styles.Types exposing (..)
 
 
-styles : Style Styles variation
+styles : Style Styles Variation
 styles =
     lift2
         (\style_ size_ ->
@@ -21,7 +23,7 @@ styles =
         |> mix
 
 
-bodyStyles : FontStyle -> FontSize -> Style Styles variation
+bodyStyles : FontStyle -> FontSize -> Style Styles Variation
 bodyStyles style_ size_ =
     style (Body style_ size_) <|
         fontStyle style_
@@ -30,11 +32,15 @@ bodyStyles style_ size_ =
                , Font.wordSpacing 3
                , size size_
                ]
+            ++ textColors
 
 
-labelStyles : FontStyle -> FontSize -> Style Styles variation
+labelStyles : FontStyle -> FontSize -> Style Styles Variation
 labelStyles style_ size_ =
-    style (Label style_ size_) <| size size_ :: fontStyle style_
+    style (Label style_ size_) <|
+        size size_
+            :: fontStyle style_
+            ++ textColors
 
 
 fontStyle : FontStyle -> List (Property style variation)
@@ -67,3 +73,13 @@ size s =
 
         Tiny ->
             Font.size 12
+
+
+textColors : List (Property style Variation)
+textColors =
+    List.map
+        (\color ->
+            variation (ColorVar color)
+                [ Color.text <| Colors.color color ]
+        )
+        Colors.colors

@@ -7,6 +7,7 @@ import Style exposing (..)
 import Style.Border as Border
 import Style.Color as Color
 import Style.Shadow as Shadow
+import Style.Sheet exposing (mix)
 import Style.Transition as Transition
 import Styles.Font as Font
 import Styles.Frame as Frame
@@ -16,10 +17,11 @@ import Styles.Types exposing (Styles(..), Variation(..))
 styleSheet : StyleSheet Styles Variation
 styleSheet =
     Style.styleSheet
-        ([ style None (bgColors ++ textColors)
-         , Frame.styles
-         , Font.styles
-         , style UserCard
+        [ style None (bgColors ++ textColors)
+        , Frame.styles
+        , Font.styles
+        , chipStyles
+        , style UserCard
             [ Shadow.box
                 { offset = ( 0, 1 )
                 , size = 0
@@ -27,13 +29,13 @@ styleSheet =
                 , color = Color.rgba 0 0 0 0.3
                 }
             ]
-         , style Avatar
+        , style Avatar
             [ Border.rounded 40
             , Border.all 1
             , Color.border <|
                 Colors.color { shade = Lighten2, hue = Mono }
             ]
-         , style Button
+        , style Button
             ([ Border.rounded 4
              , buttonShadow 2
              , cursor "pointer"
@@ -46,7 +48,7 @@ styleSheet =
                 ++ bgColors
                 ++ textColors
             )
-         , style ActionButton
+        , style ActionButton
             ([ Border.rounded 4
              , Border.all 2
              , Color.border <|
@@ -60,9 +62,7 @@ styleSheet =
              ]
                 ++ textColors
             )
-         ]
-            ++ chips
-        )
+        ]
 
 
 bgColors : List (Property style Variation)
@@ -95,14 +95,17 @@ borderColors =
         Colors.colors
 
 
-chips : List (Style Styles variation)
-chips =
-    List.map
-        (\color ->
-            style (Chip color)
-                [ Color.text <| Chip.color color ]
-        )
-        Chip.colors
+{-| to fill Svg
+-}
+chipStyles : Style Styles variation
+chipStyles =
+    Chip.colors
+        |> List.map
+            (\color ->
+                style (Chip color)
+                    [ Color.text <| Chip.color color ]
+            )
+        |> mix
 
 
 buttonShadow : Float -> Property class variation

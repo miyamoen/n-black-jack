@@ -30,6 +30,7 @@ type Variation
     | TextColor Colors
     | CircleShape
     | ShadeVar Shade
+    | ColorVar Colors
 
 
 type FontSize

@@ -2,9 +2,9 @@ module View.Molecule.ChipCircle exposing (view)
 
 import Colors exposing (Shade(..))
 import Element exposing (..)
-import Styles.Types exposing (Styles, Variation)
+import Element.Attributes exposing (..)
+import Styles.Types exposing (Styles(Frame), Variation(CircleShape, ShadeVar))
 import View.Atom.Chip as Chip
-import View.Atom.Circle as Circle
 
 
 view : Maybe Int -> Element Styles Variation msg
@@ -12,9 +12,20 @@ view mPrice =
     case mPrice of
         Just price ->
             if price <= 0 then
-                Circle.view Darken2 <| Chip.view price
+                circle Darken2 <| Chip.view price
             else
-                Circle.view Lighten2 <| Chip.view price
+                circle Lighten2 <| Chip.view price
 
         Nothing ->
-            Circle.view Darken1 empty
+            circle Darken1 empty
+
+
+circle : Shade -> Element Styles Variation msg -> Element Styles Variation msg
+circle shade content =
+    el Frame
+        [ vary (ShadeVar shade) True
+        , vary CircleShape True
+        , width <| px 200
+        , height <| px 200
+        ]
+        content

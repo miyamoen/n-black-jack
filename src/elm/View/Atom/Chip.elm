@@ -1,14 +1,15 @@
 module View.Atom.Chip exposing (view)
 
+import Colors exposing (Hue(Mono), Shade(Darken1))
 import Colors.Chip as Colors exposing (Colors(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (FontSize(..), FontStyle(..), Styles(..))
-import View.Atom.Text exposing (label)
+import Styles.Types exposing (FontSize(..), FontStyle(..), Styles(..), Variation)
+import View.Atom.Text exposing (default, label)
 import View.Symbol as Symbol
 
 
-view : Int -> Element Styles variation msg
+view : Int -> Element Styles Variation msg
 view price =
     let
         size_ =
@@ -19,7 +20,13 @@ view price =
             [ width <| px size_, height <| px size_ ]
         |> within
             [ el None [ center, verticalCenter ] <|
-                label RegularItaric Medium <|
+                label
+                    { default
+                        | style = RegularItaric
+                        , size = Medium
+                        , color = { hue = Mono, shade = Darken1 }
+                    }
+                <|
                     toString price
             ]
 

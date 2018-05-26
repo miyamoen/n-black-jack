@@ -1,17 +1,10 @@
 module Stories.Atom.PointLabel exposing (viewStories)
 
-import Element exposing (Element, empty)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
-import Styles.Types exposing (FontSize(..), Styles)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Atom.PointLabel as PointLabel
-
-
-view : List Card -> Element Styles variation msg
-view cards =
-    PointLabel.view Medium cards
+import View.Atom.PointLabel as PointLabel exposing (default, view)
 
 
 stories : List ( String, List Card )
@@ -57,4 +50,4 @@ stories =
 
 
 viewStories =
-    renderStories (view >> toHtml) stories
+    renderStories (view default >> toHtml) stories

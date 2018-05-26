@@ -1,20 +1,40 @@
-module View.Atom.Text exposing (description, label)
+module View.Atom.Text exposing (Option, default, description, label)
 
+import Colors exposing (Colors, Hue(Mono), Shade(Darken2))
 import Element exposing (..)
-import Element.Attributes exposing (alignLeft, spacing)
+import Element.Attributes exposing (alignLeft, spacing, vary)
 import Styles.Types exposing (..)
 
 
-label : FontStyle -> FontSize -> String -> Element Styles variation msg
-label fontStyle size content =
+type alias Option =
+    { style : FontStyle
+    , size : FontSize
+    , color : Colors
+    }
+
+
+default : Option
+default =
+    { style = Regular
+    , size = Small
+    , color = Colors Mono Darken2
+    }
+
+
+label : Option -> String -> Element Styles Variation msg
+label { style, size, color } content =
     node "label" <|
-        el (Label fontStyle size) [] <|
-            Element.text content
+        el (Label style size) [ vary (ColorVar color) True ] <|
+            text content
 
 
-description : FontStyle -> List String -> Element Styles variation msg
-description fontStyle contents =
+description : Option -> List String -> Element Styles Variation msg
+description { style, size, color } contents =
     contents
         |> List.map
-            (\content -> paragraph (Body fontStyle Small) [] [ Element.text content ])
-        |> Element.textLayout None [ spacing 10 ]
+            (\content ->
+                paragraph (Body style size)
+                    [ vary (ColorVar color) True ]
+                    [ text content ]
+            )
+        |> textLayout None [ spacing 10 ]
