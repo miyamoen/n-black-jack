@@ -1,10 +1,10 @@
-module Stories.Molecule.User exposing (viewStories)
+module Stories.Molecule.UserCard exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
 import Types exposing (User(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.User exposing (view)
+import View.Molecule.UserCard exposing (view)
 
 
 stories : List ( String, User )

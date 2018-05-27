@@ -1,4 +1,4 @@
-module View.Molecule.User exposing (view)
+module View.Molecule.UserCard exposing (view)
 
 import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
