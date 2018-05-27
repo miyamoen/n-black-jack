@@ -15,6 +15,7 @@ cards =
 stories : List ( String, List Card )
 stories =
     [ "Empty" => []
+    , "One" => [ Card Spade Ace Up ]
     , "FaceDown"
         => [ Card Spade Ten Down
            , Card Spade King Up
