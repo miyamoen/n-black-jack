@@ -4,6 +4,7 @@ import Stories.Atom.ActionButton as ActionButton
 import Stories.Atom.Button as Button
 import Stories.Atom.Card as Card
 import Stories.Atom.Chip as Chip
+import Stories.Atom.ChipLabel as ChipLabel
 import Stories.Atom.Colors as Colors
 import Stories.Atom.Frame as Frame
 import Stories.Atom.Icon as Icon
@@ -26,6 +27,7 @@ uiCategory =
     , createUI "SimpleChipSvg" SimpleChipSvg.viewStories
     , createUI "Card" Card.viewStories
     , createUI "PointLabel" PointLabel.viewStories
+    , createUI "ChipLabel" ChipLabel.viewStories
     , createUI "Button" Button.viewStories
     , createUI "ActionButton" ActionButton.viewStories
     ]

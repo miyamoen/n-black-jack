@@ -1,4 +1,4 @@
-module View.Atom.Chip exposing (view)
+module View.Atom.Chip exposing (color, view)
 
 import Colors exposing (Hue(Mono), Shade(Darken1))
 import Colors.Chip as Colors exposing (Colors(..))
