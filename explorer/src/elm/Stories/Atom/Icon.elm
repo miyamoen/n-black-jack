@@ -5,15 +5,15 @@ import FontAwesome as FA exposing (Icon, Option)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
 import UIExplorer exposing (renderStories)
-import View.Atom.Icon exposing (view)
+import View.Atom.Icon exposing (default, view)
 
 
-stories : List ( String, ( Icon, List Option ) )
+stories : List ( String, Icon )
 stories =
-    [ "twitter" => ( FA.twitter, [] )
-    , "taxi" => ( FA.taxi, [] )
+    [ "twitter" => FA.twitter
+    , "taxi" => FA.taxi
     ]
 
 
 viewStories =
-    renderStories (uncurry view >> toHtml) stories
+    renderStories (view default >> toHtml) stories

@@ -22,6 +22,7 @@ type Styles
     | Chip Chip.Colors
     | Card Suit
     | Button
+    | Icon Colors
     | UserCard
     | Avatar
     | ActionButton

@@ -26,6 +26,7 @@ styleSheet =
         , chipStyles
         , cardStyles
         , colorBoxStyles
+        , iconStyles
         , style UserCard
             [ Shadow.box
                 { offset = ( 0, 1 )
@@ -33,6 +34,7 @@ styleSheet =
                 , blur = 2
                 , color = Color.rgba 0 0 0 0.3
                 }
+            , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
             ]
         , style Avatar
             [ Border.rounded 40
@@ -105,5 +107,16 @@ colorBoxStyles =
             (\color ->
                 style (ColorBox color)
                     [ Color.background <| Colors.color color ]
+            )
+        |> mix
+
+
+iconStyles : Style Styles variation
+iconStyles =
+    colors
+        |> List.map
+            (\color ->
+                style (Icon color)
+                    [ Color.text <| Colors.color color ]
             )
         |> mix

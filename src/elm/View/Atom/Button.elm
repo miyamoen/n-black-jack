@@ -34,7 +34,12 @@ view { color, labelColor, icon } label =
             , vary (SubColorVar labelColor) True
             ]
             [ icon
-                |> Maybe.map (\icon -> Icon.view icon [])
+                |> Maybe.map (\icon -> Icon.view { iconDefault | color = labelColor } icon)
                 |> Maybe.withDefault empty
             , el (Label Regular Small) [] <| text label
             ]
+
+
+iconDefault : Icon.Option
+iconDefault =
+    Icon.default
