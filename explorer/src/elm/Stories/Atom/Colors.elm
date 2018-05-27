@@ -14,12 +14,11 @@ view _ =
     column None [] <| List.map pallet Colors.hues
 
 
-box : Shade -> Hue -> Element Styles Variation msg
+box : Shade -> Hue -> Element Styles variation msg
 box shade hue =
-    el None
+    el (ColorBox <| Colors hue shade)
         [ width <| px 50
         , height <| px 50
-        , vary (BGColor { shade = shade, hue = hue }) True
         ]
         empty
 

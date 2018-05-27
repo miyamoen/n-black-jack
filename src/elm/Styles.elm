@@ -13,6 +13,7 @@ import Styles.Button as Button
 import Styles.Font as Font
 import Styles.Frame as Frame
 import Styles.Types exposing (Styles(..), Variation(..))
+import Types exposing (Suit(..))
 
 
 styleSheet : StyleSheet Styles Variation
@@ -23,6 +24,8 @@ styleSheet =
         , Font.styles
         , Button.styles
         , chipStyles
+        , cardStyles
+        , colorBoxStyles
         , style UserCard
             [ Shadow.box
                 { offset = ( 0, 1 )
@@ -38,50 +41,18 @@ styleSheet =
                 Colors.color { shade = Lighten2, hue = Mono }
             ]
         , style ActionButton
-            ([ Border.rounded 4
-             , Border.all 2
-             , Color.border <|
+            [ Border.rounded 4
+            , Border.all 2
+            , Color.border <|
                 Colors.color { hue = Mono, shade = Darken1 }
-             , cursor "pointer"
-             , Transition.all
-             , pseudo "active"
+            , cursor "pointer"
+            , Transition.all
+            , pseudo "active"
                 [ translate 0 2 0
                 , Border.bottom 0
                 ]
-             ]
-                ++ textColors
-            )
+            ]
         ]
-
-
-bgColors : List (Property style Variation)
-bgColors =
-    List.map
-        (\color ->
-            variation (BGColor color)
-                [ Color.background <| Colors.color color ]
-        )
-        Colors.colors
-
-
-textColors : List (Property style Variation)
-textColors =
-    List.map
-        (\color ->
-            variation (TextColor color)
-                [ Color.text <| Colors.color color ]
-        )
-        Colors.colors
-
-
-borderColors : List (Property style Variation)
-borderColors =
-    List.map
-        (\color ->
-            variation (BorderColor color)
-                [ Color.border <| Colors.color color ]
-        )
-        Colors.colors
 
 
 {-| to fill Svg
@@ -93,5 +64,46 @@ chipStyles =
             (\color ->
                 style (Chip color)
                     [ Color.text <| Chip.color color ]
+            )
+        |> mix
+
+
+{-| to fill Svg
+-}
+cardStyles : Style Styles variation
+cardStyles =
+    Types.suits
+        |> List.map
+            (\suit ->
+                style (Card suit)
+                    [ Color.text <|
+                        Colors.color <|
+                            { shade = Main
+                            , hue =
+                                case suit of
+                                    Spade ->
+                                        Blue
+
+                                    Heart ->
+                                        Red
+
+                                    Club ->
+                                        Blue
+
+                                    Diamond ->
+                                        Red
+                            }
+                    ]
+            )
+        |> mix
+
+
+colorBoxStyles : Style Styles variation
+colorBoxStyles =
+    colors
+        |> List.map
+            (\color ->
+                style (ColorBox color)
+                    [ Color.background <| Colors.color color ]
             )
         |> mix

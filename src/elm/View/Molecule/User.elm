@@ -55,8 +55,7 @@ view user =
                 , column None
                     [ spacing 5, alignTop, center ]
                     [ label labelDefault (Maybe.withDefault "" name)
-                    , el None [ vary (TextColor { shade = Main, hue = Mono }) True ] <|
-                        label labelOption id
+                    , label { labelOption | color = Colors Mono Main } id
                     , Button.view
                         { buttonDefault
                             | icon = Just FA.signOutAlt
@@ -77,8 +76,7 @@ view user =
                     ]
                 , column None
                     [ spacing 5, alignTop, center ]
-                    [ el None [ vary (TextColor { shade = Main, hue = Mono }) True ] <|
-                        label labelOption id
+                    [ label { labelOption | color = Colors Mono Main } id
                     , Button.view
                         { buttonDefault
                             | icon = Just FA.twitter

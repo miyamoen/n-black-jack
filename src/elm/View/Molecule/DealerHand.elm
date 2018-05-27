@@ -1,6 +1,5 @@
 module View.Molecule.DealerHand exposing (view)
 
-import Colors exposing (Hue(Orange), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import Styles.Types exposing (..)
@@ -12,10 +11,7 @@ import View.Atom.PointLabel as PointLabel
 view : List Card -> Element Styles Variation msg
 view cards =
     column None
-        [ vary
-            (TextColor { shade = Lighten1, hue = Orange })
-            True
-        , center
+        [ center
         , width <| px 200
         , height <| px 160
         , verticalSpread
@@ -30,19 +26,19 @@ view cards =
 
 align : List Card -> Element Styles Variation msg
 align cards =
-    el None [ width <| px 70, height <| px 110 ] empty
+    el None [ width <| px 72, height <| px 110 ] empty
         |> within
             (case cards of
                 hole :: up :: [] ->
-                    [ el None [ moveRight -40 ] <| Card.view up
-                    , el None [ moveRight 40 ] <| Card.view hole
+                    [ el None [ moveRight -41 ] <| Card.view up
+                    , el None [ moveRight 41 ] <| Card.view hole
                     ]
 
                 _ ->
                     List.reverse cards
                         |> List.indexedMap
                             (\index card ->
-                                el None [ moveRight <| -40 + 40 * toFloat index ] <|
+                                el None [ moveRight <| -41 + 41 * toFloat index ] <|
                                     Card.view card
                             )
             )

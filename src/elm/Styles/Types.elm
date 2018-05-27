@@ -10,25 +10,25 @@ module Styles.Types
 
 import Colors exposing (Colors, Shade)
 import Colors.Chip as Chip
+import Types exposing (Suit)
 
 
 type Styles
     = None
+    | ColorBox Colors
     | Frame
     | Label FontStyle FontSize
     | Body FontStyle FontSize
     | Chip Chip.Colors
+    | Card Suit
+    | Button
     | UserCard
     | Avatar
-    | Button
     | ActionButton
 
 
 type Variation
-    = BGColor Colors
-    | BorderColor Colors
-    | TextColor Colors
-    | CircleShape
+    = CircleShape
     | ShadeVar Shade
     | ColorVar Colors
     | SubColorVar Colors
