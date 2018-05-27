@@ -7,6 +7,7 @@ import FontAwesome as FA
 import Styles.Types exposing (..)
 import Types exposing (User(..))
 import View.Atom.Button as Button
+import View.Atom.ChipLabel as ChipLabel
 import View.Atom.Icon as Icon
 import View.Atom.Text as Text exposing (description, label)
 
@@ -16,7 +17,8 @@ view user =
     frame user <|
         case user of
             Unauthenticated ->
-                [ Button.view
+                [ label labelDefault "Unauthenticated"
+                , Button.view
                     { buttonDefault
                         | icon = Just FA.twitter
                         , color = Colors Blue Lighten2
@@ -36,23 +38,26 @@ view user =
                     "Anonymously Sign In"
                 ]
 
-            Authenticated { id, name, iconUrl } ->
-                [ label labelDefault (Maybe.withDefault "" name)
+            Anonymous { id, chip } ->
+                [ label labelDefault "Anonymus"
+                , ChipLabel.view chipLabelOption chip
+                , Button.view
+                    { buttonDefault
+                        | icon = Just FA.twitter
+                        , color = Colors Blue Lighten2
+                    }
+                    "Sign In"
+                ]
+
+            Authenticated { id, name, iconUrl, chip } ->
+                [ label labelDefault (Maybe.withDefault "no name" name)
+                , ChipLabel.view chipLabelOption chip
                 , Button.view
                     { buttonDefault
                         | icon = Just FA.signOutAlt
                         , color = Colors Mono Darken1
                     }
                     "Sign Out"
-                ]
-
-            Anonymous { id } ->
-                [ Button.view
-                    { buttonDefault
-                        | icon = Just FA.twitter
-                        , color = Colors Blue Lighten2
-                    }
-                    "Sign In"
                 ]
 
 
@@ -129,3 +134,13 @@ iconDefault =
 iconOption : Icon.Option
 iconOption =
     { iconDefault | options = [ FA.Size <| FA.Mult 4 ] }
+
+
+chipLabelDefault : ChipLabel.Option
+chipLabelDefault =
+    ChipLabel.default
+
+
+chipLabelOption : ChipLabel.Option
+chipLabelOption =
+    { chipLabelDefault | color = Colors Mono Darken2 }

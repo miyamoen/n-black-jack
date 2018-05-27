@@ -6,10 +6,11 @@ import List.Extra exposing (lift2)
 type User
     = Authenticated
         { id : String
+        , chip : Float
         , name : Maybe String
         , iconUrl : Maybe String
         }
-    | Anonymous { id : String }
+    | Anonymous { id : String, chip : Float }
     | Unauthenticated
 
 
