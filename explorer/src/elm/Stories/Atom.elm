@@ -1,5 +1,6 @@
 module Stories.Atom exposing (..)
 
+import Stories.Atom.ActionButton as ActionButton
 import Stories.Atom.Button as Button
 import Stories.Atom.Card as Card
 import Stories.Atom.Chip as Chip
@@ -26,4 +27,5 @@ uiCategory =
     , createUI "Card" Card.viewStories
     , createUI "PointLabel" PointLabel.viewStories
     , createUI "Button" Button.viewStories
+    , createUI "ActionButton" ActionButton.viewStories
     ]

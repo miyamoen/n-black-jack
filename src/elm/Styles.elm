@@ -8,7 +8,7 @@ import Style.Border as Border
 import Style.Color as Color
 import Style.Shadow as Shadow
 import Style.Sheet exposing (mix)
-import Style.Transition as Transition
+import Styles.ActionButton as ActionButton
 import Styles.Button as Button
 import Styles.Font as Font
 import Styles.Frame as Frame
@@ -38,18 +38,7 @@ styleSheet =
             ]
         , style Avatar
             [ Border.rounded 50 ]
-        , style ActionButton
-            [ Border.rounded 4
-            , Border.all 2
-            , Color.border <|
-                Colors.color { hue = Mono, shade = Darken1 }
-            , cursor "pointer"
-            , Transition.all
-            , pseudo "active"
-                [ translate 0 2 0
-                , Border.bottom 0
-                ]
-            ]
+        , ActionButton.styles
         ]
 
 

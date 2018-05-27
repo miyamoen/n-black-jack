@@ -20,3 +20,12 @@ img {
 svg {
     fill: currentColor;
 }
+
+@keyframes blink {
+    0% {
+        filter: brightness(110%);
+    }
+    100% {
+        filter: brightness(80%);
+    }
+}
