@@ -6,6 +6,7 @@ import Element.Attributes exposing (..)
 import FontAwesome as FA
 import Styles.Types exposing (..)
 import Types exposing (User(..))
+import View.Atom.Avatar as Avatar
 import View.Atom.Button as Button exposing (buttonDefault)
 import View.Atom.ChipLabel as ChipLabel exposing (chipLabelDefault)
 import View.Atom.Icon as Icon exposing (iconDefault)
@@ -65,8 +66,9 @@ frame : User -> List (Element Styles Variation msg) -> Element Styles Variation 
 frame user right =
     row UserCard
         [ center, padding 10, spacing 5 ]
-        [ column None [ verticalCenter, width <| px 80 ] <|
-            avatar user
+        [ column None
+            [ verticalCenter, width <| px 80 ]
+            [ Avatar.view user ]
         , column None
             [ spacing 10
             , verticalCenter
@@ -75,40 +77,6 @@ frame user right =
             ]
             right
         ]
-
-
-avatar : User -> List (Element Styles Variation msg)
-avatar user =
-    case user of
-        Unauthenticated ->
-            [ column Avatar
-                [ width <| px 80, height <| px 80, clip, center, verticalCenter ]
-                [ Icon.view iconOption FA.userSlash ]
-            ]
-
-        Anonymous { id } ->
-            [ column Avatar
-                [ width <| px 80, height <| px 80, clip, center, verticalCenter ]
-                [ Icon.view iconOption FA.user ]
-            , el None [ attribute "title" id ] <| label idLabelOption id
-            ]
-
-        Authenticated { iconUrl, id } ->
-            case iconUrl of
-                Just url ->
-                    [ decorativeImage Avatar
-                        [ width <| px 80
-                        , height <| px 80
-                        ]
-                        { src = url }
-                    , el None [ attribute "title" id ] <| label idLabelOption id
-                    ]
-
-                Nothing ->
-                    [ column Avatar
-                        [ width <| px 80, height <| px 80, clip, center, verticalCenter ]
-                        [ Icon.view iconOption FA.userSlash ]
-                    ]
 
 
 idLabelOption : Text.Option

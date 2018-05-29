@@ -37,7 +37,11 @@ styleSheet =
             , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
             ]
         , style Avatar
-            [ Border.rounded 50 ]
+            [ Border.rounded 50
+            , Border.all 2
+            , Color.border <| Colors.color { hue = Mono, shade = Lighten2 }
+            , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
+            ]
         , ActionButton.styles
         ]
 
