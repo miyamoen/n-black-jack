@@ -5,7 +5,7 @@ import Element.Attributes exposing (..)
 import Styles.Types exposing (..)
 import Types exposing (Card, Point(..))
 import View.Atom.Card as Card
-import View.Atom.PointLabel as PointLabel
+import View.Atom.PointLabel as PointLabel exposing (pointLabelDefault)
 
 
 view : List Card -> Element Styles Variation msg
@@ -20,7 +20,7 @@ view cards =
         , if List.isEmpty cards then
             empty
           else
-            PointLabel.view PointLabel.default cards
+            PointLabel.view pointLabelDefault cards
         ]
 
 

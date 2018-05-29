@@ -1,8 +1,7 @@
-module View.Atom.Icon exposing (Option, default, view)
+module View.Atom.Icon exposing (Option, iconDefault, view)
 
 import Colors exposing (Colors, Hue(Mono), Shade(Darken1))
 import Element exposing (..)
-import Element.Attributes exposing (vary)
 import FontAwesome as FA exposing (Icon)
 import Html.Keyed
 import Rocket exposing ((=>))
@@ -15,8 +14,8 @@ type alias Option =
     }
 
 
-default : Option
-default =
+iconDefault : Option
+iconDefault =
     { options = []
     , color = Colors Mono Darken1
     }

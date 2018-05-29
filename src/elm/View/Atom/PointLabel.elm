@@ -1,4 +1,4 @@
-module View.Atom.PointLabel exposing (Option, default, view)
+module View.Atom.PointLabel exposing (Option, pointLabelDefault, view)
 
 import Colors exposing (Colors, Hue(Orange), Shade(Lighten1))
 import Element exposing (..)
@@ -14,8 +14,8 @@ type alias Option =
     }
 
 
-default : Option
-default =
+pointLabelDefault : Option
+pointLabelDefault =
     { size = Medium
     , color = Colors Orange Lighten1
     }

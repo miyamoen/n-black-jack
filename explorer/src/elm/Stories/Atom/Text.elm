@@ -19,16 +19,16 @@ labels : FontStyle -> Element Styles Variation msg
 labels style =
     column None
         [ spacing 20 ]
-        [ label { default | style = style, size = Large } title
-        , label { default | style = style, size = Medium } title
-        , label { default | style = style, size = Small } title
-        , label { default | style = style, size = Tiny } title
+        [ label { textDefault | style = style, size = Large } title
+        , label { textDefault | style = style, size = Medium } title
+        , label { textDefault | style = style, size = Small } title
+        , label { textDefault | style = style, size = Tiny } title
         ]
 
 
 descriptions : FontStyle -> Element Styles Variation msg
 descriptions style =
-    description { default | style = style, size = Tiny }
+    description { textDefault | style = style, size = Tiny }
         [ dummyText, dummyText, dummyText ]
 
 

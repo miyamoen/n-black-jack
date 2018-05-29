@@ -5,12 +5,12 @@ import FontAwesome as FA exposing (Icon)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
 import UIExplorer exposing (renderStories)
-import View.Atom.Button exposing (Option, default, view)
+import View.Atom.Button exposing (Option, buttonDefault, view)
 
 
 stories : List ( String, ( Option, String ) )
 stories =
-    [ "default" => ( default, "default" )
+    [ "default" => ( buttonDefault, "default" )
     , "twitter"
         => ( { icon = Just FA.twitter
              , color = { hue = Blue, shade = Lighten2 }

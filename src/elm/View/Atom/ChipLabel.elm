@@ -1,4 +1,4 @@
-module View.Atom.ChipLabel exposing (Option, default, view)
+module View.Atom.ChipLabel exposing (Option, chipLabelDefault, view)
 
 import Colors exposing (Colors, Hue(Orange), Shade(Lighten1))
 import Element exposing (..)
@@ -15,8 +15,8 @@ type alias Option =
     }
 
 
-default : Option
-default =
+chipLabelDefault : Option
+chipLabelDefault =
     { size = Small
     , color = Colors Orange Lighten1
     }

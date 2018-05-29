@@ -6,10 +6,10 @@ import Element.Attributes exposing (..)
 import FontAwesome as FA
 import Styles.Types exposing (..)
 import Types exposing (User(..))
-import View.Atom.Button as Button
-import View.Atom.ChipLabel as ChipLabel
-import View.Atom.Icon as Icon
-import View.Atom.Text as Text exposing (description, label)
+import View.Atom.Button as Button exposing (buttonDefault)
+import View.Atom.ChipLabel as ChipLabel exposing (chipLabelDefault)
+import View.Atom.Icon as Icon exposing (iconDefault)
+import View.Atom.Text as Text exposing (description, label, textDefault)
 
 
 view : User -> Element Styles Variation msg
@@ -17,7 +17,7 @@ view user =
     frame user <|
         case user of
             Unauthenticated ->
-                [ label labelDefault "Unauthenticated"
+                [ label textDefault "Unauthenticated"
                 , Button.view
                     { buttonDefault
                         | icon = Just FA.twitter
@@ -25,7 +25,7 @@ view user =
                     }
                     "Twitter Sign In"
                 , label
-                    { labelDefault
+                    { textDefault
                         | style = RegularItaric
                         , color = Colors Mono Main
                     }
@@ -39,7 +39,7 @@ view user =
                 ]
 
             Anonymous { id, chip } ->
-                [ label labelDefault "Anonymus"
+                [ label textDefault "Anonymus"
                 , ChipLabel.view chipLabelOption chip
                 , Button.view
                     { buttonDefault
@@ -50,7 +50,7 @@ view user =
                 ]
 
             Authenticated { id, name, iconUrl, chip } ->
-                [ label labelDefault (Maybe.withDefault "no name" name)
+                [ label textDefault (Maybe.withDefault "no name" name)
                 , ChipLabel.view chipLabelOption chip
                 , Button.view
                     { buttonDefault
@@ -90,7 +90,7 @@ avatar user =
             [ column Avatar
                 [ width <| px 80, height <| px 80, clip, center, verticalCenter ]
                 [ Icon.view iconOption FA.user ]
-            , el None [ attribute "title" id ] <| label labelOption id
+            , el None [ attribute "title" id ] <| label idLabelOption id
             ]
 
         Authenticated { iconUrl, id } ->
@@ -101,7 +101,7 @@ avatar user =
                         , height <| px 80
                         ]
                         { src = url }
-                    , el None [ attribute "title" id ] <| label labelOption id
+                    , el None [ attribute "title" id ] <| label idLabelOption id
                     ]
 
                 Nothing ->
@@ -111,34 +111,14 @@ avatar user =
                     ]
 
 
-buttonDefault : Button.Option
-buttonDefault =
-    Button.default
-
-
-labelDefault : Text.Option
-labelDefault =
-    Text.default
-
-
-labelOption : Text.Option
-labelOption =
-    { labelDefault | size = Tiny, color = Colors Mono Main }
-
-
-iconDefault : Icon.Option
-iconDefault =
-    Icon.default
+idLabelOption : Text.Option
+idLabelOption =
+    { textDefault | size = Tiny, color = Colors Mono Main }
 
 
 iconOption : Icon.Option
 iconOption =
     { iconDefault | options = [ FA.Size <| FA.Mult 4 ] }
-
-
-chipLabelDefault : ChipLabel.Option
-chipLabelDefault =
-    ChipLabel.default
 
 
 chipLabelOption : ChipLabel.Option

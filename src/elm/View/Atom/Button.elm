@@ -1,11 +1,11 @@
-module View.Atom.Button exposing (Option, default, view)
+module View.Atom.Button exposing (Option, buttonDefault, view)
 
 import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import FontAwesome exposing (Icon)
 import Styles.Types exposing (..)
-import View.Atom.Icon as Icon
+import View.Atom.Icon as Icon exposing (iconDefault)
 
 
 type alias Option =
@@ -15,8 +15,8 @@ type alias Option =
     }
 
 
-default : Option
-default =
+buttonDefault : Option
+buttonDefault =
     { color = Colors Mono Darken1
     , labelColor = Colors Mono Lighten2
     , icon = Nothing
@@ -38,8 +38,3 @@ view { color, labelColor, icon } label =
                 |> Maybe.withDefault empty
             , el (Label Regular Small) [] <| text label
             ]
-
-
-iconDefault : Icon.Option
-iconDefault =
-    Icon.default

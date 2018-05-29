@@ -4,7 +4,7 @@ import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Atom.PointLabel as PointLabel exposing (default, view)
+import View.Atom.PointLabel as PointLabel exposing (pointLabelDefault, view)
 
 
 stories : List ( String, List Card )
@@ -50,4 +50,4 @@ stories =
 
 
 viewStories =
-    renderStories (view default >> toHtml) stories
+    renderStories (view pointLabelDefault >> toHtml) stories

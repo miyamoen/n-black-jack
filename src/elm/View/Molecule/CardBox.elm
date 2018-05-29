@@ -6,7 +6,7 @@ import Element.Attributes exposing (..)
 import Styles.Types exposing (..)
 import Types exposing (Card, Point(..))
 import Types.Card exposing (point)
-import View.Atom.PointLabel as PointLabel
+import View.Atom.PointLabel as PointLabel exposing (pointLabelDefault)
 import View.Molecule.Cards as Cards exposing (Align(..))
 
 
@@ -38,5 +38,5 @@ view cards =
                             Slanting
                     )
                     cards
-                , PointLabel.view PointLabel.default cards
+                , PointLabel.view pointLabelDefault cards
                 ]

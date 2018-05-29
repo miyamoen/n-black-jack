@@ -5,7 +5,7 @@ import Colors.Chip as Colors exposing (Colors(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import Styles.Types exposing (FontSize(..), FontStyle(..), Styles(..), Variation)
-import View.Atom.Text exposing (default, label)
+import View.Atom.Text exposing (label, textDefault)
 import View.Symbol as Symbol
 
 
@@ -21,7 +21,7 @@ view price =
         |> within
             [ el None [ center, verticalCenter ] <|
                 label
-                    { default
+                    { textDefault
                         | style = RegularItaric
                         , size = Medium
                         , color = { hue = Mono, shade = Darken1 }

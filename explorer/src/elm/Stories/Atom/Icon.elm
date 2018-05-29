@@ -1,11 +1,10 @@
 module Stories.Atom.Icon exposing (viewStories)
 
-import Element exposing (Element, empty, text)
 import FontAwesome as FA exposing (Icon, Option)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
 import UIExplorer exposing (renderStories)
-import View.Atom.Icon exposing (default, view)
+import View.Atom.Icon exposing (iconDefault, view)
 
 
 stories : List ( String, Icon )
@@ -16,4 +15,4 @@ stories =
 
 
 viewStories =
-    renderStories (view default >> toHtml) stories
+    renderStories (view iconDefault >> toHtml) stories

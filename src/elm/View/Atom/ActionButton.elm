@@ -1,12 +1,9 @@
-module View.Atom.ActionButton exposing (Option, default, view)
+module View.Atom.ActionButton exposing (Option, actionButtonDefault, view)
 
 import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import FontAwesome exposing (Icon)
 import Styles.Types exposing (..)
-import View.Atom.Icon as Icon
-import View.Atom.Text as Text
 
 
 type alias Option =
@@ -16,8 +13,8 @@ type alias Option =
     }
 
 
-default : Option
-default =
+actionButtonDefault : Option
+actionButtonDefault =
     { hue = Orange
     , label = ""
     , state = Active
@@ -38,8 +35,3 @@ view { hue, state, label } =
             [ el (Label RegularItaric Medium) [] <|
                 text label
             ]
-
-
-labelOption : Text.Option
-labelOption =
-    Text.default

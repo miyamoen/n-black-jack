@@ -1,4 +1,4 @@
-module View.Atom.Text exposing (Option, default, description, label)
+module View.Atom.Text exposing (Option, description, label, textDefault)
 
 import Colors exposing (Colors, Hue(Mono), Shade(Darken2))
 import Element exposing (..)
@@ -13,8 +13,8 @@ type alias Option =
     }
 
 
-default : Option
-default =
+textDefault : Option
+textDefault =
     { style = Regular
     , size = Small
     , color = Colors Mono Darken2
