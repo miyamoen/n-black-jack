@@ -9,7 +9,6 @@ import Types exposing (User(..))
 import View.Atom.Avatar as Avatar
 import View.Atom.Button as Button exposing (buttonDefault)
 import View.Atom.ChipLabel as ChipLabel exposing (chipLabelDefault)
-import View.Atom.Icon as Icon exposing (iconDefault)
 import View.Atom.Text as Text exposing (description, label, textDefault)
 
 
@@ -19,12 +18,7 @@ view user =
         case user of
             Unauthenticated ->
                 [ label textDefault "Unauthenticated"
-                , Button.view
-                    { buttonDefault
-                        | icon = Just FA.twitter
-                        , color = Colors Blue Lighten2
-                    }
-                    "Twitter Sign In"
+                , twitterButton "Twitter Sign In"
                 , label
                     { textDefault
                         | style = RegularItaric
@@ -41,18 +35,13 @@ view user =
 
             Anonymous { id, chip } ->
                 [ label textDefault "Anonymus"
-                , ChipLabel.view chipLabelOption chip
-                , Button.view
-                    { buttonDefault
-                        | icon = Just FA.twitter
-                        , color = Colors Blue Lighten2
-                    }
-                    "Sign In"
+                , chipLabel chip
+                , twitterButton "Sign In"
                 ]
 
             Authenticated { id, name, iconUrl, chip } ->
                 [ label textDefault (Maybe.withDefault "no name" name)
-                , ChipLabel.view chipLabelOption chip
+                , chipLabel chip
                 , Button.view
                     { buttonDefault
                         | icon = Just FA.signOutAlt
@@ -79,16 +68,16 @@ frame user right =
         ]
 
 
-idLabelOption : Text.Option
-idLabelOption =
-    { textDefault | size = Tiny, color = Colors Mono Main }
+chipLabel : Float -> Element Styles Variation msg
+chipLabel =
+    ChipLabel.view { chipLabelDefault | color = Colors Mono Darken2 }
 
 
-iconOption : Icon.Option
-iconOption =
-    { iconDefault | options = [ FA.Size <| FA.Mult 4 ] }
-
-
-chipLabelOption : ChipLabel.Option
-chipLabelOption =
-    { chipLabelDefault | color = Colors Mono Darken2 }
+twitterButton : String -> Element Styles Variation msg
+twitterButton label =
+    Button.view
+        { buttonDefault
+            | icon = Just FA.twitter
+            , color = Colors Blue Lighten2
+        }
+        label

@@ -1,5 +1,6 @@
 module Stories.Molecule exposing (..)
 
+import Stories.Molecule.AvatarWithLabel as AvatarWithLabel
 import Stories.Molecule.CardBox as CardBox
 import Stories.Molecule.Cards as Cards
 import Stories.Molecule.ChipCircle as ChipCircle
@@ -14,5 +15,6 @@ uiCategory =
     , createUI "Cards" Cards.viewStories
     , createUI "CardBox" CardBox.viewStories
     , createUI "DealerHand" DealerHand.viewStories
+    , createUI "AvatarWithLabel" AvatarWithLabel.viewStories
     , createUI "UserCard" UserCard.viewStories
     ]
