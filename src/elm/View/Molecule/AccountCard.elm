@@ -1,21 +1,21 @@
-module View.Molecule.UserCard exposing (view)
+module View.Molecule.AccountCard exposing (view)
 
 import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import FontAwesome as FA
 import Styles.Types exposing (..)
-import Types exposing (User(..))
+import Types exposing (Account(..))
 import View.Atom.Avatar as Avatar
 import View.Atom.Button as Button exposing (buttonDefault)
 import View.Atom.ChipLabel as ChipLabel exposing (chipLabelDefault)
 import View.Atom.Text as Text exposing (description, label, textDefault)
 
 
-view : User -> Element Styles Variation msg
-view user =
-    frame user <|
-        case user of
+view : Account -> Element Styles Variation msg
+view account =
+    frame account <|
+        case account of
             Unauthenticated ->
                 [ label textDefault "Unauthenticated"
                 , twitterButton "Twitter Sign In"
@@ -51,13 +51,13 @@ view user =
                 ]
 
 
-frame : User -> List (Element Styles Variation msg) -> Element Styles Variation msg
-frame user right =
-    row UserCard
+frame : Account -> List (Element Styles Variation msg) -> Element Styles Variation msg
+frame account right =
+    row AccountCard
         [ center, padding 10, spacing 5 ]
         [ column None
             [ verticalCenter, width <| px 80 ]
-            [ Avatar.view user ]
+            [ Avatar.view account ]
         , column None
             [ spacing 10
             , verticalCenter

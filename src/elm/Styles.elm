@@ -27,7 +27,7 @@ styleSheet =
         , cardStyles
         , colorBoxStyles
         , iconStyles
-        , style UserCard
+        , style AccountCard
             [ Shadow.box
                 { offset = ( 0, 1 )
                 , size = 0

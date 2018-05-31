@@ -4,11 +4,11 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import FontAwesome as FA
 import Styles.Types exposing (..)
-import Types exposing (User(..))
+import Types exposing (Account(..))
 import View.Atom.Icon as Icon exposing (iconDefault)
 
 
-view : User -> Element Styles Variation msg
+view : Account -> Element Styles Variation msg
 view user =
     case user of
         Unauthenticated ->

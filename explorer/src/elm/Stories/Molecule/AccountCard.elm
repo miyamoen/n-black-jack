@@ -1,13 +1,13 @@
-module Stories.Molecule.UserCard exposing (viewStories)
+module Stories.Molecule.AccountCard exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
-import Types exposing (User(..))
+import Types exposing (Account(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.UserCard exposing (view)
+import View.Molecule.AccountCard exposing (view)
 
 
-stories : List ( String, User )
+stories : List ( String, Account )
 stories =
     [ "Unauthenticated" => Unauthenticated
     , "me"

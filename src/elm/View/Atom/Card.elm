@@ -1,6 +1,5 @@
 module View.Atom.Card exposing (view)
 
-import Colors exposing (Colors, Hue(..), Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import Styles.Types as Styles exposing (Styles)

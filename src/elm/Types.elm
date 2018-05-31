@@ -3,7 +3,7 @@ module Types exposing (..)
 import List.Extra exposing (lift2)
 
 
-type User
+type Account
     = Authenticated
         { id : String
         , chip : Float

@@ -2,12 +2,12 @@ module Stories.Atom.Avatar exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
-import Types exposing (User(..))
+import Types exposing (Account(..))
 import UIExplorer exposing (renderStories)
 import View.Atom.Avatar exposing (view)
 
 
-stories : List ( String, User )
+stories : List ( String, Account )
 stories =
     [ "Unauthenticated" => Unauthenticated
     , "me"

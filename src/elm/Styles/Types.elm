@@ -25,7 +25,7 @@ type Styles
     | Card Suit
     | Button
     | Icon Colors
-    | UserCard
+    | AccountCard
     | Avatar
     | ActionButton State
 

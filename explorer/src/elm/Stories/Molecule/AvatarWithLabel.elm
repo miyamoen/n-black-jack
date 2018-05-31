@@ -2,12 +2,12 @@ module Stories.Molecule.AvatarWithLabel exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
-import Types exposing (User(..))
+import Types exposing (Account(..))
 import UIExplorer exposing (renderStories)
 import View.Molecule.AvatarWithLabel exposing (view)
 
 
-stories : List ( String, User )
+stories : List ( String, Account )
 stories =
     [ "Unauthenticated" => Unauthenticated
     , "me"
