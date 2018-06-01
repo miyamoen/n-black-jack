@@ -14,6 +14,13 @@ type Account
     | Unauthenticated
 
 
+type alias Player =
+    { account : Account
+    , cards : List Card
+    , bet : Maybe Int
+    }
+
+
 type Suit
     = Spade
     | Heart

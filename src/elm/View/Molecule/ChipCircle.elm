@@ -22,10 +22,12 @@ view mPrice =
 
 circle : Shade -> Element Styles Variation msg -> Element Styles Variation msg
 circle shade content =
-    el Frame
+    column Frame
         [ vary (ShadeVar shade) True
         , vary CircleShape True
-        , width <| px 200
-        , height <| px 200
+        , width <| px 150
+        , height <| px 150
+        , center
+        , verticalCenter
         ]
-        content
+        [ content ]
