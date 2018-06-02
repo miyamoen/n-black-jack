@@ -1,10 +1,12 @@
 module Styles.Types
     exposing
-        ( FontSize(..)
+        ( Angle(..)
+        , FontSize(..)
         , FontStyle(..)
         , State(..)
         , Styles(..)
         , Variation(..)
+        , angles
         , fontSizes
         , fontStyles
         , states
@@ -28,6 +30,7 @@ type Styles
     | AccountCard
     | Avatar
     | ActionButton State
+    | PlayerField
 
 
 type Variation
@@ -36,6 +39,7 @@ type Variation
     | HueVar Hue
     | ColorVar Colors
     | SubColorVar Colors
+    | AngleVar Angle
 
 
 type FontSize
@@ -75,4 +79,22 @@ states =
     , Active
     , Selected
     , Confirmed
+    ]
+
+
+type Angle
+    = South
+    | Southeast
+    | East
+    | Southwest
+    | West
+
+
+angles : List Angle
+angles =
+    [ South
+    , Southeast
+    , Southwest
+    , East
+    , West
     ]

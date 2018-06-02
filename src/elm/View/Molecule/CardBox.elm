@@ -16,8 +16,8 @@ view cards =
         [] ->
             el Frame
                 [ vary (ShadeVar Darken1) True
-                , width <| px 200
-                , height <| px 200
+                , width <| px 180
+                , height <| px 190
                 ]
                 empty
 

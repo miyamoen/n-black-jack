@@ -12,6 +12,7 @@ import Styles.ActionButton as ActionButton
 import Styles.Button as Button
 import Styles.Font as Font
 import Styles.Frame as Frame
+import Styles.PlayerField as PlayerField
 import Styles.Types exposing (Styles(..), Variation(..))
 import Types exposing (Suit(..))
 
@@ -43,6 +44,7 @@ styleSheet =
             , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
             ]
         , ActionButton.styles
+        , PlayerField.styles
         ]
 
 
