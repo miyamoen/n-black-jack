@@ -27,7 +27,6 @@ type Variation
     | HueVar Hue
     | ColorVar Colors
     | SubColorVar Colors
-    | AngleVar Angle
 
 
 type Shape
@@ -73,22 +72,4 @@ states =
     , Active
     , Selected
     , Confirmed
-    ]
-
-
-type Angle
-    = South
-    | Southeast
-    | East
-    | Southwest
-    | West
-
-
-angles : List Angle
-angles =
-    [ South
-    , Southeast
-    , Southwest
-    , East
-    , West
     ]

@@ -1,4 +1,4 @@
-module View.Organism.PlayerField exposing (Option, playerFieldDefault, view)
+module View.Organism.PlayerField exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
@@ -9,21 +9,11 @@ import View.Molecule.CardBox as CardBox
 import View.Molecule.ChipCircle as ChipCircle
 
 
-type alias Option =
-    { angle : Angle }
-
-
-playerFieldDefault : Option
-playerFieldDefault =
-    { angle = South }
-
-
-view : Option -> Maybe Player -> Element Styles Variation msg
-view { angle } player =
+view : Maybe Player -> Element Styles Variation msg
+view player =
     column PlayerField
         [ spacing 20
         , center
-        , vary (AngleVar angle) True
         ]
         [ player
             |> Maybe.map .cards
