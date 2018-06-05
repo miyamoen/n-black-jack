@@ -1,16 +1,4 @@
-module Styles.Types
-    exposing
-        ( Angle(..)
-        , FontSize(..)
-        , FontStyle(..)
-        , State(..)
-        , Styles(..)
-        , Variation(..)
-        , angles
-        , fontSizes
-        , fontStyles
-        , states
-        )
+module Styles.Types exposing (..)
 
 import Colors exposing (Colors, Hue, Shade)
 import Colors.Chip as Chip
@@ -34,12 +22,18 @@ type Styles
 
 
 type Variation
-    = CircleShape
+    = ShapeVar Shape
     | ShadeVar Shade
     | HueVar Hue
     | ColorVar Colors
     | SubColorVar Colors
     | AngleVar Angle
+
+
+type Shape
+    = Rectangle
+    | Circle
+    | Semicircle
 
 
 type FontSize

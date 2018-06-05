@@ -16,8 +16,14 @@ styles =
         , { hue = Orange, shade = Main }
             |> Colors.color
             |> Color.border
-        , variation CircleShape
+        , variation (ShapeVar Rectangle)
+            []
+        , variation (ShapeVar Circle)
             [ Border.rounded 2000 ]
+        , variation (ShapeVar Semicircle)
+            [ Border.roundBottomLeft 2000
+            , Border.roundBottomRight 2000
+            ]
         ]
             ++ List.map color Colors.shades
 

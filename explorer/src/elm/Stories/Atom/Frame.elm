@@ -6,34 +6,30 @@ import Element.Attributes exposing (..)
 import List.Extra exposing (lift2)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtml)
-import Styles.Types exposing (Styles(..), Variation(..))
+import Styles.Types exposing (Shape(..), Styles(..), Variation(..))
 import UIExplorer exposing (renderStories)
 
 
-view : ( Shade, Bool ) -> Element Styles Variation msg
-view ( shade, isCircle ) =
+view : ( Shade, Shape ) -> Element Styles Variation msg
+view ( shade, shape ) =
     el Frame
         [ vary (ShadeVar shade) True
-        , vary CircleShape isCircle
-        , width <| px 200
+        , vary (ShapeVar shape) True
+        , width <| px 400
         , height <| px 200
         ]
         empty
 
 
-stories : List ( String, ( Shade, Bool ) )
+stories : List ( String, ( Shade, Shape ) )
 stories =
     lift2
-        (\isCircle shade ->
+        (\shape shade ->
             toString shade
-                ++ (if isCircle then
-                        "Circle"
-                    else
-                        "Box"
-                   )
-                => ( shade, isCircle )
+                ++ toString shape
+                => ( shade, shape )
         )
-        [ False, True ]
+        [ Rectangle, Circle, Semicircle ]
         shades
 
 

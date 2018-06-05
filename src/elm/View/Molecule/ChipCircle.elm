@@ -3,7 +3,7 @@ module View.Molecule.ChipCircle exposing (view)
 import Colors exposing (Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (Styles(Frame), Variation(CircleShape, ShadeVar))
+import Styles.Types exposing (Shape(Circle), Styles(Frame), Variation(ShadeVar, ShapeVar))
 import View.Atom.Chip as Chip
 
 
@@ -24,7 +24,7 @@ circle : Shade -> Element Styles Variation msg -> Element Styles Variation msg
 circle shade content =
     column Frame
         [ vary (ShadeVar shade) True
-        , vary CircleShape True
+        , vary (ShapeVar Circle) True
         , width <| px 150
         , height <| px 150
         , center
