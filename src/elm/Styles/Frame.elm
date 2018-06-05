@@ -23,6 +23,7 @@ styles =
         , variation (ShapeVar Semicircle)
             [ Border.roundBottomLeft 2000
             , Border.roundBottomRight 2000
+            , Border.top 0
             ]
         ]
             ++ List.map color Colors.shades

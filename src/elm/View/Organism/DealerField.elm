@@ -10,18 +10,27 @@ import View.Atom.PointLabel as PointLabel exposing (pointLabelDefault)
 
 view : List Card -> Element Styles Variation msg
 view cards =
-    column Frame
-        [ center
-        , width <| px 200
-        , height <| px 160
-        , verticalSpread
+    el Frame
+        [ vary (ShapeVar Semicircle) True
+        , width <| px 400
+        , height <| px 200
         ]
-        [ align cards
-        , if List.isEmpty cards then
-            empty
-          else
-            PointLabel.view pointLabelDefault cards
-        ]
+        empty
+        |> within
+            [ el None [ center, alignTop ] <|
+                column None
+                    [ center
+                    , width <| px 200
+                    , height <| px 160
+                    , verticalSpread
+                    ]
+                    [ align cards
+                    , if List.isEmpty cards then
+                        empty
+                      else
+                        PointLabel.view pointLabelDefault cards
+                    ]
+            ]
 
 
 align : List Card -> Element Styles Variation msg
