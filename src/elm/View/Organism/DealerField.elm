@@ -1,4 +1,4 @@
-module View.Molecule.DealerHand exposing (view)
+module View.Organism.DealerField exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
@@ -10,7 +10,7 @@ import View.Atom.PointLabel as PointLabel exposing (pointLabelDefault)
 
 view : List Card -> Element Styles Variation msg
 view cards =
-    column None
+    column Frame
         [ center
         , width <| px 200
         , height <| px 160

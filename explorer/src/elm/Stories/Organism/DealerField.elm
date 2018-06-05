@@ -1,10 +1,10 @@
-module Stories.Molecule.DealerHand exposing (viewStories)
+module Stories.Organism.DealerField exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.DealerHand exposing (view)
+import View.Organism.DealerField exposing (view)
 
 
 cards : List Card
