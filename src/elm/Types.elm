@@ -21,6 +21,20 @@ type alias Player =
     }
 
 
+type alias Dealer =
+    { cards : List Card }
+
+
+type alias Table =
+    { dealer : Dealer
+    , first : Maybe Player
+    , second : Maybe Player
+    , third : Maybe Player
+    , fourth : Maybe Player
+    , fifth : Maybe Player
+    }
+
+
 type Suit
     = Spade
     | Heart

@@ -45,6 +45,8 @@ styleSheet =
             ]
         , ActionButton.styles
         , PlayerField.styles
+        , style Table
+            [ Color.background <| Colors.color { hue = Green, shade = Main } ]
         ]
 
 

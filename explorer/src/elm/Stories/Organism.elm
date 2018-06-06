@@ -10,4 +10,5 @@ uiCategory : List UI
 uiCategory =
     [ createUI "PlayerField" PlayerField.viewStories
     , createUI "DealerField" DealerField.viewStories
+    , createUI "Table" Table.viewStories
     ]

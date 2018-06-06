@@ -19,6 +19,7 @@ type Styles
     | Avatar
     | ActionButton State
     | PlayerField
+    | Table
 
 
 type Variation
