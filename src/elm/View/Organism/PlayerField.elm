@@ -11,7 +11,7 @@ import View.Molecule.ChipCircle as ChipCircle
 
 view : Maybe Player -> Element Styles Variation msg
 view player =
-    column PlayerField
+    column None
         [ spacing 20
         , center
         ]

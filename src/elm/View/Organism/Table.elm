@@ -4,9 +4,6 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import Styles.Types as Styles exposing (..)
 import Types exposing (..)
-import View.Molecule.AvatarWithLabel as AvatarWithLabel
-import View.Molecule.CardBox as CardBox
-import View.Molecule.ChipCircle as ChipCircle
 import View.Organism.DealerField as DealerField
 import View.Organism.PlayerField as PlayerField
 
@@ -21,7 +18,7 @@ view { dealer, first, second, third, fourth, fifth } =
         , spacing 30
         , padding 30
         ]
-        [ DealerField.view dealer.cards
+        [ DealerField.view dealer
         , row None
             [ spacing 30, spread ]
             [ PlayerField.view first

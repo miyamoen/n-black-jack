@@ -7,14 +7,12 @@ import Style exposing (..)
 import Style.Background as Background
 import Style.Border as Border
 import Style.Color as Color
-import Style.Filter as Filter
 import Style.Shadow as Shadow
 import Style.Sheet exposing (mix)
 import Styles.ActionButton as ActionButton
 import Styles.Button as Button
 import Styles.Font as Font
 import Styles.Frame as Frame
-import Styles.PlayerField as PlayerField
 import Styles.Types exposing (Styles(..), Variation(..))
 import Types exposing (Suit(..))
 
@@ -46,7 +44,6 @@ styleSheet =
             , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
             ]
         , ActionButton.styles
-        , PlayerField.styles
         , style Table
             [ Color.background <| Colors.color { hue = Green, shade = Main }
             , Background.imageWith

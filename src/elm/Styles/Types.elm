@@ -18,7 +18,6 @@ type Styles
     | AccountCard
     | Avatar
     | ActionButton State
-    | PlayerField
     | Table
 
 
