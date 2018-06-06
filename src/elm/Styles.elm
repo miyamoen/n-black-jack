@@ -4,8 +4,10 @@ import Color
 import Colors exposing (..)
 import Colors.Chip as Chip
 import Style exposing (..)
+import Style.Background as Background
 import Style.Border as Border
 import Style.Color as Color
+import Style.Filter as Filter
 import Style.Shadow as Shadow
 import Style.Sheet exposing (mix)
 import Styles.ActionButton as ActionButton
@@ -46,7 +48,14 @@ styleSheet =
         , ActionButton.styles
         , PlayerField.styles
         , style Table
-            [ Color.background <| Colors.color { hue = Green, shade = Main } ]
+            [ Color.background <| Colors.color { hue = Green, shade = Main }
+            , Background.imageWith
+                { src = "/argyle.png"
+                , position = ( 0, 0 )
+                , repeat = Background.repeat
+                , size = Background.natural
+                }
+            ]
         ]
 
 
