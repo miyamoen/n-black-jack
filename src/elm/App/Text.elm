@@ -13,7 +13,7 @@ dealerRule =
 
 payRule : String
 payRule =
-    "BLACKJACK PAYS ３ TO ２"
+    "BLACKJACK PAYS ３ TO ２ / OTHERS PAY 1 TO 1"
 
 
 

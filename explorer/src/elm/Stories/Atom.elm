@@ -12,6 +12,7 @@ import Stories.Atom.Icon as Icon
 import Stories.Atom.PlainChip as PlainChip
 import Stories.Atom.PointLabel as PointLabel
 import Stories.Atom.SimpleChipSvg as SimpleChipSvg
+import Stories.Atom.TableText as TableText
 import Stories.Atom.Text as Text
 import UIExplorer exposing (UI, createUI)
 
@@ -28,6 +29,7 @@ uiCategory =
     , createUI "SimpleChipSvg" SimpleChipSvg.viewStories
     , createUI "Card" Card.viewStories
     , createUI "PointLabel" PointLabel.viewStories
+    , createUI "TableText" TableText.viewStories
     , createUI "ChipLabel" ChipLabel.viewStories
     , createUI "Button" Button.viewStories
     , createUI "ActionButton" ActionButton.viewStories

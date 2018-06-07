@@ -1,7 +1,6 @@
 module Stories.Organism.Table exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Dummy exposing (accounts, cards)
 import Stories.Element exposing (toHtmlWithSymbol)
 import Types exposing (..)
 import UIExplorer exposing (renderStories)
@@ -30,8 +29,8 @@ player =
 
 stories : List ( String, Table )
 stories =
-    [ "Empty" => Table dealer Nothing Nothing Nothing Nothing Nothing
-    , "Full" => Table dealer player player player player player
+    [ "Empty" => Table dealer WaitingBet Nothing Nothing Nothing Nothing Nothing
+    , "Full" => Table dealer PlayerAction player player player player player
     ]
 
 

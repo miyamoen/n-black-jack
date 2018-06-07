@@ -25,8 +25,17 @@ type alias Dealer =
     { cards : List Card }
 
 
+type Phase
+    = WaitingBet
+    | DealingCards
+    | PlayerAction
+    | DealerAction
+    | WaitingNextGame
+
+
 type alias Table =
     { dealer : Dealer
+    , phase : Phase
     , first : Maybe Player
     , second : Maybe Player
     , third : Maybe Player
