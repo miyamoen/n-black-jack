@@ -38,8 +38,8 @@ chipLabel account =
 
 nameLabel : Account -> Element Styles Variation msg
 nameLabel account =
-    label { textDefault | size = Small, color = Colors Orange Lighten1 } <|
-        case account of
+    description { textDefault | size = Small, color = Colors Orange Lighten1 }
+        [ case account of
             Anonymous _ ->
                 "anonymous account"
 
@@ -48,3 +48,4 @@ nameLabel account =
 
             Unauthenticated ->
                 "unauthenticated account"
+        ]
