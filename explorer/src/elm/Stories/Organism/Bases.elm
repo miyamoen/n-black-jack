@@ -4,12 +4,7 @@ import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
 import Types exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Organism.Bases exposing (view)
-
-
-dealer : Dealer
-dealer =
-    { cards = [ Card Spade Ace Down, Card Spade Jack Up ] }
+import View.Organism.Bases exposing (Show, view)
 
 
 noName : Maybe Seating
@@ -53,14 +48,10 @@ me =
     }
 
 
-stories : List ( String, Table )
+stories : List ( String, Show {} )
 stories =
     [ "Empty"
-        => { id = "hogehoge"
-           , betLimit = { min = 5, max = 100 }
-           , dealer = dealer
-           , me = me
-           , phase = WaitingBet
+        => { me = me
            , bases =
                 FiveBases
                     { first = Nothing
@@ -71,11 +62,7 @@ stories =
                     }
            }
     , "Full"
-        => { id = "fogofogo"
-           , betLimit = { min = 5, max = 100 }
-           , dealer = dealer
-           , me = me
-           , phase = PlayerAction
+        => { me = me
            , bases =
                 FiveBases
                     { first = noName

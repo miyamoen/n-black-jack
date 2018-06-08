@@ -1,4 +1,4 @@
-module View.Organism.Bases exposing (view)
+module View.Organism.Bases exposing (Show, view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
@@ -7,7 +7,11 @@ import Types exposing (..)
 import View.Organism.PlayerField as PlayerField
 
 
-view : Table -> Element Styles Variation msg
+type alias Show a =
+    { a | bases : Bases, me : Player }
+
+
+view : Show a -> Element Styles Variation msg
 view { bases, me } =
     case bases of
         FiveBases { first, second, third, fourth, fifth } ->
