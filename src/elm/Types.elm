@@ -3,6 +3,10 @@ module Types exposing (..)
 import List.Extra exposing (lift2)
 
 
+type alias TableId =
+    String
+
+
 type Account
     = Authenticated
         { id : String
@@ -21,6 +25,11 @@ type alias Player =
     }
 
 
+type Seating
+    = Me
+    | Other Player
+
+
 type alias Dealer =
     { cards : List Card }
 
@@ -33,15 +42,38 @@ type Phase
     | WaitingNextGame
 
 
-type alias Table =
-    { dealer : Dealer
-    , phase : Phase
-    , first : Maybe Player
-    , second : Maybe Player
-    , third : Maybe Player
-    , fourth : Maybe Player
-    , fifth : Maybe Player
+{-| Table Infomation listed on Tables Route
+-}
+type alias TableInfo =
+    { id : TableId
+    , betLimit : BetLimit
+    , bases : Int
+    , presence : Int
     }
+
+
+type alias Table =
+    { id : TableId
+    , betLimit : BetLimit
+    , dealer : Dealer
+    , me : Player
+    , bases : Bases
+    , phase : Phase
+    }
+
+
+type Bases
+    = FiveBases
+        { first : Maybe Seating
+        , second : Maybe Seating
+        , third : Maybe Seating
+        , fourth : Maybe Seating
+        , fifth : Maybe Seating
+        }
+
+
+type alias BetLimit =
+    { min : Int, max : Int }
 
 
 type Suit
