@@ -5,12 +5,12 @@ import Element.Attributes exposing (..)
 import Styles.Types as Styles exposing (..)
 import Types exposing (..)
 import View.Atom.TableText as TableText
+import View.Organism.Bases as Bases
 import View.Organism.DealerField as DealerField
-import View.Organism.PlayerField as PlayerField
 
 
 view : Table -> Element Styles Variation msg
-view { dealer, phase, first, second, third, fourth, fifth } =
+view ({ id, betLimit, dealer, me, bases, phase } as table) =
     column Styles.Table
         [ center
         , alignTop
@@ -21,12 +21,5 @@ view { dealer, phase, first, second, third, fourth, fifth } =
         ]
         [ DealerField.view dealer
         , TableText.view phase
-        , row None
-            [ spacing 30, spread ]
-            [ PlayerField.view first
-            , PlayerField.view second
-            , PlayerField.view third
-            , PlayerField.view fourth
-            , PlayerField.view fifth
-            ]
+        , Bases.view table
         ]

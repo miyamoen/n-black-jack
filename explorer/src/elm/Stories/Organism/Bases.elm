@@ -1,10 +1,10 @@
-module Stories.Organism.Table exposing (viewStories)
+module Stories.Organism.Bases exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
 import Types exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Organism.Table exposing (view)
+import View.Organism.Bases exposing (view)
 
 
 dealer : Dealer
