@@ -1,4 +1,4 @@
-module View.Molecule.ChipCircle exposing (view)
+module View.Molecule.ChipBox exposing (view)
 
 import Colors exposing (Shade(..))
 import Element exposing (..)

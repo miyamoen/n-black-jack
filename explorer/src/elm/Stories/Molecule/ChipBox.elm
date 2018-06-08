@@ -1,9 +1,9 @@
-module Stories.Molecule.ChipCircle exposing (viewStories)
+module Stories.Molecule.ChipBox exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
 import UIExplorer exposing (renderStories)
-import View.Molecule.ChipCircle exposing (view)
+import View.Molecule.ChipBox exposing (view)
 
 
 stories : List ( String, Maybe Int )
