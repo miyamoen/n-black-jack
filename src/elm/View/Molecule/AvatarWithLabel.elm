@@ -27,10 +27,10 @@ chipLabel : Account -> Element Styles Variation msg
 chipLabel account =
     case account of
         Anonymous { chip } ->
-            ChipLabel.view { chipLabelDefault | color = Colors Mono Darken2 } chip
+            ChipLabel.view { chipLabelDefault | color = Colors Orange Lighten1 } chip
 
         Authenticated { chip } ->
-            ChipLabel.view { chipLabelDefault | color = Colors Mono Darken2 } chip
+            ChipLabel.view { chipLabelDefault | color = Colors Orange Lighten1 } chip
 
         Unauthenticated ->
             empty
@@ -38,7 +38,7 @@ chipLabel account =
 
 nameLabel : Account -> Element Styles Variation msg
 nameLabel account =
-    label { textDefault | size = Small } <|
+    label { textDefault | size = Small, color = Colors Orange Lighten1 } <|
         case account of
             Anonymous _ ->
                 "anonymous account"

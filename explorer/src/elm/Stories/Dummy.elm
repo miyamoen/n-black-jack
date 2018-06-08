@@ -23,7 +23,7 @@ accounts =
         => Authenticated
             { id = "5dMEzM1F71dmpAChHLhy0IGtd013"
             , chip = 1234567890
-            , name = Just "miyamoen"
+            , name = Just "この人生は刺繍をするには短すぎる"
             , iconUrl = Nothing
             }
     , "WithoutName"

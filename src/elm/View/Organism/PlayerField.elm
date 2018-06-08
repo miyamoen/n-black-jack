@@ -14,6 +14,7 @@ view player =
     column None
         [ spacing 20
         , center
+        , width <| px 180
         ]
         [ player
             |> Maybe.map .cards
