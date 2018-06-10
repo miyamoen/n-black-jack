@@ -14,6 +14,7 @@ import Styles.Button as Button
 import Styles.ChipButton as ChipButton
 import Styles.Font as Font
 import Styles.Frame as Frame
+import Styles.TableText as TableText
 import Styles.Types exposing (Styles(..), Variation(..))
 import Types exposing (Suit(..))
 
@@ -55,6 +56,7 @@ styleSheet =
                 , size = Background.natural
                 }
             ]
+        , TableText.styles
         ]
 
 

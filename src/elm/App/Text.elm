@@ -8,12 +8,12 @@ title =
 
 dealerRule : String
 dealerRule =
-    "Dealer must stand on 17 and must draw to 16"
+    "DEALER MUST STAND ON 17 AND MUST DRAW TO 16"
 
 
 payRule : String
 payRule =
-    "BLACKJACK PAYS ３ TO ２ / OTHERS PAY 1 TO 1"
+    "BLACKJACK PAYS 3 TO 2 / OTHERS PAY 1 TO 1"
 
 
 

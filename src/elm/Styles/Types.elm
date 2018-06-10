@@ -20,6 +20,7 @@ type Styles
     | ActionButton State
     | ChipButton State
     | Table
+    | TableText
 
 
 type Variation

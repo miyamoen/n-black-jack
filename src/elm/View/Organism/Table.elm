@@ -4,7 +4,7 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import Styles.Types as Styles exposing (..)
 import Types exposing (..)
-import View.Atom.TableText as TableText
+import View.Atom.TableRule as TableRule
 import View.Organism.Bases as Bases
 import View.Organism.DealerField as DealerField
 
@@ -20,6 +20,6 @@ view ({ id, betLimit, dealer, me, bases, phase } as table) =
         , padding 30
         ]
         [ DealerField.view dealer
-        , TableText.view phase
+        , TableRule.view phase
         , Bases.view table
         ]
