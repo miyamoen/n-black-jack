@@ -20,6 +20,14 @@ styles =
                 , color = Color.rgba 0 0 0 0.6
                 }
             , Transition.performant
+            , pseudo "hover"
+                [ translate 0 -5 0
+                , Shadow.drop
+                    { offset = ( 0, 5 )
+                    , blur = 2
+                    , color = Color.rgba 0 0 0 0.6
+                    }
+                ]
             , pseudo "active"
                 [ translate 0 0 0
                 , Shadow.drop

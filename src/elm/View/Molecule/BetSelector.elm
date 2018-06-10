@@ -1,12 +1,11 @@
 module View.Molecule.BetSelector exposing (Show, view)
 
-import Colors exposing (Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import List.Extra exposing (unique)
 import Styles.Types exposing (..)
 import Types exposing (BetLimit)
-import View.Atom.Chip as Chip
+import View.Atom.ChipButton as ChipButton
 
 
 type alias Show a b =
@@ -21,30 +20,39 @@ bets =
     [ 1, 5, 25, 100, 500, 1000 ]
 
 
-view : Show a b -> Element Styles Variation msg -> Element Styles Variation msg
-view { betLimit, me } centerElement =
-    centerElement
-        |> within
-            (List.concat [ bets, me.betHistory ]
-                |> unique
+view : Show a b -> Element Styles Variation msg
+view ({ betLimit, me } as show) =
+    let
+        filetered =
+            bets
                 |> List.filter (\bet -> bet <= betLimit.max)
-                |> List.take 8
-                |> List.indexedMap chipButton
-            )
-
-
-angle : Int -> Float
-angle index =
-    degrees <| toFloat index * (360 / 8)
-
-
-chipButton : Int -> Int -> Element Styles Variation msg
-chipButton index chip =
-    el None
-        [ center
-        , verticalCenter
-        , moveUp <| 130 * (cos <| angle index)
-        , moveRight <| 130 * (sin <| angle index)
+    in
+    column None
+        []
+        [ List.map (chipButton show) filetered
+            |> row None []
+        , me.betHistory
+            |> unique
+            |> List.take (List.length filetered)
+            |> List.map (chipButton show)
+            |> row None []
         ]
-    <|
-        Chip.view chip
+
+
+chipButton : Show a b -> Int -> Element Styles Variation msg
+chipButton { betLimit, me } chip =
+    column None
+        [ width <| px 120
+        , height <| px 120
+        , center
+        , verticalCenter
+        ]
+        [ ChipButton.view
+            { state =
+                if Maybe.withDefault 0 me.bet + chip <= betLimit.max then
+                    Active
+                else
+                    Inactive
+            }
+            chip
+        ]
