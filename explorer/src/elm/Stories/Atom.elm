@@ -5,6 +5,7 @@ import Stories.Atom.Avatar as Avatar
 import Stories.Atom.Button as Button
 import Stories.Atom.Card as Card
 import Stories.Atom.Chip as Chip
+import Stories.Atom.ChipButton as ChipButton
 import Stories.Atom.ChipLabel as ChipLabel
 import Stories.Atom.Colors as Colors
 import Stories.Atom.Frame as Frame
@@ -33,5 +34,6 @@ uiCategory =
     , createUI "ChipLabel" ChipLabel.viewStories
     , createUI "Button" Button.viewStories
     , createUI "ActionButton" ActionButton.viewStories
+    , createUI "ChipButton" ChipButton.viewStories
     , createUI "Avatar" Avatar.viewStories
     ]

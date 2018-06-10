@@ -11,6 +11,7 @@ import Style.Shadow as Shadow
 import Style.Sheet exposing (mix)
 import Styles.ActionButton as ActionButton
 import Styles.Button as Button
+import Styles.ChipButton as ChipButton
 import Styles.Font as Font
 import Styles.Frame as Frame
 import Styles.Types exposing (Styles(..), Variation(..))
@@ -44,6 +45,7 @@ styleSheet =
             , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
             ]
         , ActionButton.styles
+        , ChipButton.styles
         , style Table
             [ Color.background <| Colors.color { hue = Green, shade = Main }
             , Background.imageWith

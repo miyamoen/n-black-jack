@@ -18,6 +18,7 @@ type Styles
     | AccountCard
     | Avatar
     | ActionButton State
+    | ChipButton State
     | Table
 
 
