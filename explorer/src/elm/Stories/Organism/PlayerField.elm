@@ -15,7 +15,12 @@ stories =
         ++ List.map3
             (\( label, account ) bet ( _, cards ) ->
                 label
-                    => Just { cards = cards, bet = bet, account = account }
+                    => Just
+                        { cards = cards
+                        , bet = bet
+                        , account = account
+                        , betHistory = []
+                        }
             )
             accounts
             [ Nothing, Just 1000, Just 1, Just 50, Just 500 ]

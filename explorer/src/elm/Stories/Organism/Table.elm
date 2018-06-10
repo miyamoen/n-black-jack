@@ -25,6 +25,7 @@ noName =
                     }
             , cards = [ Card Spade Ace Up, Card Spade Jack Up ]
             , bet = Just 150
+            , betHistory = []
             }
 
 
@@ -36,6 +37,7 @@ anonymous =
                 Anonymous { id = "5dMEzM1F71dmpAChHLhy0IGtd013", chip = 100 }
             , cards = [ Card Spade Ace Up, Card Spade Jack Up ]
             , bet = Just 20
+            , betHistory = []
             }
 
 
@@ -50,6 +52,7 @@ me =
             }
     , cards = [ Card Spade Ace Up, Card Spade Jack Up ]
     , bet = Just 100
+    , betHistory = []
     }
 
 

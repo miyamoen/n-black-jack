@@ -22,6 +22,7 @@ type alias Player =
     { account : Account
     , cards : List Card
     , bet : Maybe Int
+    , betHistory : List Int
     }
 
 
