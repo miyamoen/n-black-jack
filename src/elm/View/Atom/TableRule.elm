@@ -1,7 +1,6 @@
 module View.Atom.TableRule exposing (view)
 
 import App.Text exposing (dealerRule, payRule)
-import Colors exposing (..)
 import Element exposing (..)
 import Styles.Types exposing (..)
 import Types exposing (Phase(..))

@@ -14,22 +14,11 @@ view : List Card -> Element Styles Variation msg
 view cards =
     case cards of
         [] ->
-            el Frame
-                [ vary (ShadeVar Darken1) True
-                , width <| px 180
-                , height <| px 190
-                ]
-                empty
+            layout Darken1 empty empty
 
         _ ->
-            column Frame
-                [ vary (ShadeVar Lighten2) True
-                , width <| px 180
-                , height <| px 190
-                , alignBottom
-                , center
-                ]
-                [ Cards.view
+            layout Lighten2
+                (Cards.view
                     (case point cards of
                         Bust ->
                             Folding
@@ -38,5 +27,27 @@ view cards =
                             Slanting
                     )
                     cards
-                , PointLabel.view pointLabelDefault cards
-                ]
+                )
+                (PointLabel.view pointLabelDefault cards)
+
+
+layout :
+    Shade
+    -> Element Styles Variation msg
+    -> Element Styles Variation msg
+    -> Element Styles Variation msg
+layout shade cardsView pointLabelView =
+    column None
+        [ center, width <| px 100 ]
+        [ column Frame
+            [ vary (ShadeVar shade) True
+            , width <| px 100
+            , height <| px 150
+            , verticalCenter
+            , center
+            ]
+            [ cardsView ]
+        , column None
+            [ height <| px 40, verticalCenter ]
+            [ pointLabelView ]
+        ]

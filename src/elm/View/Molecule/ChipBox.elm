@@ -3,7 +3,7 @@ module View.Molecule.ChipBox exposing (view)
 import Colors exposing (Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (Shape(Circle), Styles(Frame), Variation(ShadeVar, ShapeVar))
+import Styles.Types exposing (..)
 import View.Atom.Chip as Chip
 
 
@@ -25,9 +25,9 @@ circle shade content =
     column Frame
         [ vary (ShadeVar shade) True
         , vary (ShapeVar Circle) True
-        , width <| px 150
-        , height <| px 150
+        , width <| px 100
+        , height <| px 100
         , center
         , verticalCenter
         ]
-        [ content ]
+        [ el None [ moveUp 20, moveRight 10 ] content ]

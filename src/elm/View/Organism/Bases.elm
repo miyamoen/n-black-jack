@@ -16,7 +16,7 @@ view { bases, me } =
     case bases of
         FiveBases { first, second, third, fourth, fifth } ->
             row None
-                [ spacing 30, spread ]
+                [ spacing 100, spread ]
                 [ playerField me first
                 , playerField me second
                 , playerField me third
