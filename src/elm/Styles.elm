@@ -50,7 +50,7 @@ styleSheet =
         , style Table
             [ Color.background <| Colors.color { hue = Green, shade = Main }
             , Background.imageWith
-                { src = "/argyle.png"
+                { src = "./argyle.png"
                 , position = ( 0, 0 )
                 , repeat = Background.repeat
                 , size = Background.natural
