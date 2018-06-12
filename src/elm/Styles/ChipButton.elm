@@ -13,7 +13,8 @@ styles : Style Styles Variation
 styles =
     mix
         [ style (ChipButton Active)
-            [ translate 0 -3 0
+            [ cursor "pointer"
+            , translate 0 -3 0
             , Shadow.drop
                 { offset = ( 0, 3 )
                 , blur = 2

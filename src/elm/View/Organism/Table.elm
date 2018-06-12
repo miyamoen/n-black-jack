@@ -6,6 +6,7 @@ import Styles.Types as Styles exposing (..)
 import Types exposing (..)
 import View.Atom.TableRule as TableRule
 import View.Organism.Bases as Bases
+import View.Organism.BetSelector as BetSelector
 import View.Organism.DealerField as DealerField
 
 
@@ -22,4 +23,5 @@ view ({ id, betLimit, dealer, me, bases, phase } as table) =
         [ DealerField.view dealer
         , TableRule.view phase
         , Bases.view table
+        , BetSelector.view table
         ]

@@ -1,12 +1,9 @@
-module Stories.Molecule.BetSelector exposing (viewStories)
+module Stories.Organism.BetSelector exposing (viewStories)
 
-import Element exposing (Element)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toHtmlWithSymbol)
-import Styles.Types exposing (Styles, Variation)
 import UIExplorer exposing (renderStories)
-import View.Molecule.BetSelector as BetSelector exposing (Show, view)
-import View.Molecule.ChipBox as ChipBox
+import View.Organism.BetSelector as BetSelector exposing (Show, view)
 
 
 stories : List ( String, Show {} {} )
