@@ -21,6 +21,7 @@ type Styles
     | ChipButton State
     | Table
     | TableText
+    | ModalBack
 
 
 type Variation

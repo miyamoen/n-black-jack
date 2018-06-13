@@ -1,6 +1,6 @@
 module Styles exposing (styleSheet)
 
-import Color
+import Color exposing (rgba)
 import Colors exposing (..)
 import Colors.Chip as Chip
 import Style exposing (..)
@@ -57,6 +57,7 @@ styleSheet =
                 }
             ]
         , TableText.styles
+        , style ModalBack [ Color.background <| rgba 0 0 0 0.3 ]
         ]
 
 

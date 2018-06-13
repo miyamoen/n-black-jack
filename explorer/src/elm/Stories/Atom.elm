@@ -10,6 +10,7 @@ import Stories.Atom.ChipLabel as ChipLabel
 import Stories.Atom.Colors as Colors
 import Stories.Atom.Frame as Frame
 import Stories.Atom.Icon as Icon
+import Stories.Atom.Modal as Modal
 import Stories.Atom.PlainChip as PlainChip
 import Stories.Atom.PointLabel as PointLabel
 import Stories.Atom.SimpleChipSvg as SimpleChipSvg
@@ -22,6 +23,7 @@ import UIExplorer exposing (UI, createUI)
 uiCategory : List UI
 uiCategory =
     [ createUI "Colors" Colors.viewStories
+    , createUI "Modal" Modal.viewStories
     , createUI "Label" Text.viewLabelsStories
     , createUI "Description" Text.viewDescriptionsStories
     , createUI "Icon" Icon.viewStories
