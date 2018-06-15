@@ -8,6 +8,10 @@ service cloud.firestore {
       return request.auth.uid == userId;
     }
 
+    function isAdminUser() {
+      return request.auth.uid == "5dMEzM1F71dmpAChHLhy0IGtd013";
+    }
+
     match /version/{v} {
       match /requests/{userId} {
         allow read, write: if isUserAuthenticated(userId);
@@ -15,6 +19,7 @@ service cloud.firestore {
 
       match /tableInfos/{tableId} {
         allow read: if true;
+        allow write: if isAdminUser();
       }
 
       match /tables/{tableId} {
