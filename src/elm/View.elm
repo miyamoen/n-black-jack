@@ -17,4 +17,5 @@ view model =
         , button [ onClick SignIn ] [ text "twitter signIn" ]
         , button [ onClick SignOut ] [ text "signOut" ]
         , button [ onClick SignInAnonymously ] [ text "signIn Anonymously" ]
+        , button [ onClick CreateTable ] [ text "Create Test Table" ]
         ]

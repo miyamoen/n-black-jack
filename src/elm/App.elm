@@ -9,12 +9,12 @@ import Types exposing (..)
 
 
 type alias Model =
-    { identity : User }
+    { account : Account }
 
 
 init : ( Model, List (Cmd Msg) )
 init =
-    { identity = Unauthenticated } => []
+    { account = Unauthenticated } => []
 
 
 
@@ -26,6 +26,7 @@ type Msg
     | SignIn
     | SignInAnonymously
     | SignOut
+    | CreateTable
 
 
 update : Msg -> Model -> ( Model, List (Cmd Msg) )
@@ -42,3 +43,12 @@ update msg model =
 
         SignInAnonymously ->
             model => [ Firebase.signInAnonymously () ]
+
+        CreateTable ->
+            model
+                => [ Firebase.createTable
+                        { name = "Test Table"
+                        , betLimit = { min = 1, max = 25 }
+                        , baseNumber = 5
+                        }
+                   ]

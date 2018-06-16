@@ -47,9 +47,17 @@ type Phase
 -}
 type alias TableInfo =
     { id : TableId
+    , name : String
     , betLimit : BetLimit
     , bases : Int
     , presence : Int
+    }
+
+
+type alias CreateTable =
+    { name : String
+    , betLimit : BetLimit
+    , baseNumber : Int
     }
 
 

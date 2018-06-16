@@ -24,6 +24,7 @@ service cloud.firestore {
 
       match /tables/{tableId} {
         allow read: if true;
+        allow write: if isAdminUser();
       }
 
       match /players/{userId} {
