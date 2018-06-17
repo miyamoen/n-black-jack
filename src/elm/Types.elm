@@ -54,13 +54,6 @@ type alias TableInfo =
     }
 
 
-type alias CreateTable =
-    { name : String
-    , betLimit : BetLimit
-    , baseNumber : Int
-    }
-
-
 type alias Table =
     { id : TableId
     , betLimit : BetLimit

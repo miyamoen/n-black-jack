@@ -46,7 +46,7 @@ update msg model =
 
         CreateTable ->
             model
-                => [ Firebase.createTable
+                => [ Firebase.createTable_
                         { name = "Test Table"
                         , betLimit = { min = 1, max = 25 }
                         , baseNumber = 5
