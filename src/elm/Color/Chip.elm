@@ -1,9 +1,9 @@
-module Colors.Chip exposing (Colors(..), color, colors)
+module Color.Chip exposing (Pallet(..), color, pallets)
 
 import Color exposing (Color, rgb)
 
 
-type Colors
+type Pallet
     = Blue
     | Red
     | Green
@@ -13,14 +13,14 @@ type Colors
     | Gray
 
 
-colors : List Colors
-colors =
+pallets : List Pallet
+pallets =
     [ Blue, Red, Green, Black, Purple, Yellow, Gray ]
 
 
-color : Colors -> Color
-color colors =
-    case colors of
+color : Pallet -> Color
+color pallet =
+    case pallet of
         Blue ->
             rgb 81 187 254
 
