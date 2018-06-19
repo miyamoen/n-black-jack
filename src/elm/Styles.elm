@@ -1,8 +1,8 @@
 module Styles exposing (styleSheet)
 
-import Color exposing (rgba)
-import Colors exposing (..)
-import Colors.Chip as Chip
+import Color
+import Color.Chip as Chip
+import Color.Pallet as Pallet
 import Style exposing (..)
 import Style.Background as Background
 import Style.Border as Border
@@ -28,7 +28,6 @@ styleSheet =
         , Button.styles
         , chipStyles
         , cardStyles
-        , colorBoxStyles
         , iconStyles
         , style AccountCard
             [ Shadow.box
@@ -37,18 +36,18 @@ styleSheet =
                 , blur = 2
                 , color = Color.rgba 0 0 0 0.3
                 }
-            , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
+            , Color.background <| Pallet.color Pallet.White
             ]
         , style Avatar
             [ Border.rounded 50
             , Border.all 2
-            , Color.border <| Colors.color { hue = Mono, shade = Lighten2 }
-            , Color.background <| Colors.color { hue = Mono, shade = Lighten2 }
+            , Color.border <| Pallet.color Pallet.White
+            , Color.background <| Pallet.color Pallet.White
             ]
         , ActionButton.styles
         , ChipButton.styles
         , style Table
-            [ Color.background <| Colors.color { hue = Green, shade = Main }
+            [ Color.background <| Pallet.color_ Pallet.Green Pallet.Main
             , Background.imageWith
                 { src = "./argyle.png"
                 , position = ( 0, 0 )
@@ -57,7 +56,7 @@ styleSheet =
                 }
             ]
         , TableText.styles
-        , style ModalBack [ Color.background <| rgba 0 0 0 0.3 ]
+        , style ModalBack [ Color.background <| Color.rgba 0 0 0 0.3 ]
         ]
 
 
@@ -65,11 +64,11 @@ styleSheet =
 -}
 chipStyles : Style Styles variation
 chipStyles =
-    Chip.colors
+    Chip.pallets
         |> List.map
-            (\color ->
-                style (Chip color)
-                    [ Color.text <| Chip.color color ]
+            (\pallet ->
+                style (Chip pallet)
+                    [ Color.text <| Chip.color pallet ]
             )
         |> mix
 
@@ -83,44 +82,32 @@ cardStyles =
             (\suit ->
                 style (Card suit)
                     [ Color.text <|
-                        Colors.color <|
-                            { shade = Main
-                            , hue =
-                                case suit of
-                                    Spade ->
-                                        Blue
+                        Pallet.color_
+                            (case suit of
+                                Spade ->
+                                    Pallet.Blue
 
-                                    Heart ->
-                                        Red
+                                Heart ->
+                                    Pallet.Red
 
-                                    Club ->
-                                        Blue
+                                Club ->
+                                    Pallet.Blue
 
-                                    Diamond ->
-                                        Red
-                            }
+                                Diamond ->
+                                    Pallet.Red
+                            )
+                            Pallet.Main
                     ]
-            )
-        |> mix
-
-
-colorBoxStyles : Style Styles variation
-colorBoxStyles =
-    colors
-        |> List.map
-            (\color ->
-                style (ColorBox color)
-                    [ Color.background <| Colors.color color ]
             )
         |> mix
 
 
 iconStyles : Style Styles variation
 iconStyles =
-    colors
+    Pallet.pallets
         |> List.map
-            (\color ->
-                style (Icon color)
-                    [ Color.text <| Colors.color color ]
+            (\pallet ->
+                style (Icon pallet)
+                    [ Color.text <| Pallet.color pallet ]
             )
         |> mix

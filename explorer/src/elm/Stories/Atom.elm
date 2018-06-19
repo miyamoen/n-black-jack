@@ -7,7 +7,7 @@ import Stories.Atom.Card as Card
 import Stories.Atom.Chip as Chip
 import Stories.Atom.ChipButton as ChipButton
 import Stories.Atom.ChipLabel as ChipLabel
-import Stories.Atom.Colors as Colors
+import Stories.Atom.Color as Color
 import Stories.Atom.Frame as Frame
 import Stories.Atom.Icon as Icon
 import Stories.Atom.Modal as Modal
@@ -22,7 +22,7 @@ import UIExplorer exposing (UI, createUI)
 
 uiCategory : List UI
 uiCategory =
-    [ createUI "Colors" Colors.viewStories
+    [ createUI "Color" Color.viewStories
     , createUI "Modal" Modal.viewStories
     , createUI "Label" Text.viewLabelsStories
     , createUI "Description" Text.viewDescriptionsStories

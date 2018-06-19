@@ -1,20 +1,19 @@
 module Styles.Types exposing (..)
 
-import Colors exposing (Colors, Hue, Shade)
-import Colors.Chip as Chip
+import Color.Chip as Chip
+import Color.Pallet exposing (Hue, Pallet, Shade)
 import Types exposing (Suit)
 
 
 type Styles
     = None
-    | ColorBox Colors
     | Frame
     | Label FontStyle FontSize
     | Body FontStyle FontSize
-    | Chip Chip.Colors
+    | Chip Chip.Pallet
     | Card Suit
     | Button
-    | Icon Colors
+    | Icon Pallet
     | AccountCard
     | Avatar
     | ActionButton State
@@ -28,8 +27,8 @@ type Variation
     = ShapeVar Shape
     | ShadeVar Shade
     | HueVar Hue
-    | ColorVar Colors
-    | SubColorVar Colors
+    | PalletVar Pallet
+    | SubPalletVar Pallet
 
 
 type Shape
@@ -39,7 +38,8 @@ type Shape
 
 
 type FontSize
-    = Large
+    = Huge
+    | Large
     | Medium
     | Small
     | Tiny
@@ -47,7 +47,7 @@ type FontSize
 
 fontSizes : List FontSize
 fontSizes =
-    [ Large, Medium, Small, Tiny ]
+    [ Huge, Large, Medium, Small, Tiny ]
 
 
 type FontStyle
