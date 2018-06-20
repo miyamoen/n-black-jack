@@ -3,7 +3,7 @@ module Stories.Element exposing (..)
 import Element exposing (..)
 import Html exposing (Html, div)
 import Styles exposing (styleSheet)
-import Styles.Types exposing (Styles, Variation)
+import Types.Styles exposing (Styles, Variation)
 import UIExplorer exposing (addUICategory, app, createUI, emptyUICategories)
 import View.Symbols as Symbols
 

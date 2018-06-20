@@ -8,7 +8,7 @@ import Element exposing (..)
 import Element.Attributes exposing (height, inlineStyle, px, vary, width)
 import Rocket exposing ((=>))
 import Stories.Element exposing (toMain)
-import Styles.Types exposing (Styles(..), Variation(..))
+import Types.Styles exposing (Styles(..), Variation(..))
 import UIExplorer exposing (renderStories)
 
 

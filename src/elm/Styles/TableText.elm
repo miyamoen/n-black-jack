@@ -2,7 +2,7 @@ module Styles.TableText exposing (styles)
 
 import Style exposing (..)
 import Style.Filter as Filter
-import Styles.Types exposing (..)
+import Types.Styles exposing (..)
 
 
 styles : Style Styles Variation

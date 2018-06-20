@@ -1,10 +1,10 @@
 module Styles.Frame exposing (styles)
 
-import Colors exposing (Hue(Orange), Shade(Main))
+import Color.Pallet as Pallet exposing (Hue(Orange), Shade(Main))
 import Style exposing (Property, Style, style, variation)
 import Style.Border as Border
 import Style.Color as Color
-import Styles.Types exposing (..)
+import Types.Styles exposing (..)
 
 
 styles : Style Styles Variation
@@ -13,9 +13,7 @@ styles =
         [ Border.all 5
         , Border.rounded 10
         , Border.dashed
-        , { hue = Orange, shade = Main }
-            |> Colors.color
-            |> Color.border
+        , Color.border <| Pallet.color_ Orange Main
         , variation (ShapeVar Rectangle)
             []
         , variation (ShapeVar Circle)
@@ -26,13 +24,10 @@ styles =
             , Border.top 0
             ]
         ]
-            ++ List.map color Colors.shades
+            ++ List.map color Pallet.shades
 
 
 color : Shade -> Property class Variation
 color shade =
-    { hue = Orange, shade = shade }
-        |> Colors.color
-        |> Color.border
-        |> List.singleton
-        |> variation (ShadeVar shade)
+    variation (ShadeVar shade)
+        [ Color.border <| Pallet.color_ Orange shade ]

@@ -1,12 +1,12 @@
 module Styles.Button exposing (styles)
 
-import Colors exposing (Hue(Mono), Shade(Darken1))
+import Color.Pallet as Pallet exposing (Hue(Mono), Shade(Darken1))
 import Style exposing (..)
 import Style.Border as Border
 import Style.Color as Color
 import Style.Shadow as Shadow
 import Style.Transition as Transition
-import Styles.Types exposing (..)
+import Types.Styles exposing (..)
 
 
 styles : Style Styles Variation
@@ -28,21 +28,21 @@ styles =
 bgColors : List (Property style Variation)
 bgColors =
     List.map
-        (\color ->
-            variation (ColorVar color)
-                [ Color.background <| Colors.color color ]
+        (\pallet ->
+            variation (PalletVar pallet)
+                [ Color.background <| Pallet.color pallet ]
         )
-        Colors.colors
+        Pallet.pallets
 
 
 textColors : List (Property style Variation)
 textColors =
     List.map
-        (\color ->
-            variation (SubColorVar color)
-                [ Color.text <| Colors.color color ]
+        (\pallet ->
+            variation (SubPalletVar pallet)
+                [ Color.text <| Pallet.color pallet ]
         )
-        Colors.colors
+        Pallet.pallets
 
 
 buttonShadow : Float -> Property class variation
@@ -50,5 +50,5 @@ buttonShadow dy =
     Shadow.drop
         { offset = ( 0, dy )
         , blur = 0
-        , color = Colors.color { hue = Mono, shade = Darken1 }
+        , color = Pallet.color_ Mono Darken1
         }

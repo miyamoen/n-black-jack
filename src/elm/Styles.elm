@@ -15,8 +15,8 @@ import Styles.ChipButton as ChipButton
 import Styles.Font as Font
 import Styles.Frame as Frame
 import Styles.TableText as TableText
-import Styles.Types exposing (Styles(..), Variation(..))
 import Types exposing (Suit(..))
+import Types.Styles exposing (Styles(..), Variation(..))
 
 
 styleSheet : StyleSheet Styles Variation

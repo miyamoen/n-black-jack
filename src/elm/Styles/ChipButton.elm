@@ -6,7 +6,7 @@ import Style.Filter as Filter
 import Style.Shadow as Shadow
 import Style.Sheet exposing (mix)
 import Style.Transition as Transition
-import Styles.Types exposing (..)
+import Types.Styles exposing (..)
 
 
 styles : Style Styles Variation

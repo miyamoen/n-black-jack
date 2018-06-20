@@ -1,12 +1,12 @@
 module Styles.Font exposing (styles)
 
-import Colors
+import Color.Pallet as Pallet
 import List.Extra exposing (lift2)
 import Style exposing (..)
 import Style.Color as Color
 import Style.Font as Font
 import Style.Sheet exposing (mix)
-import Styles.Types exposing (..)
+import Types.Styles exposing (..)
 
 
 styles : Style Styles Variation
@@ -62,6 +62,9 @@ fontStyle fs =
 size : FontSize -> Property class variation
 size s =
     case s of
+        Huge ->
+            Font.size 60
+
         Large ->
             Font.size 40
 
@@ -78,8 +81,8 @@ size s =
 textColors : List (Property style Variation)
 textColors =
     List.map
-        (\color ->
-            variation (ColorVar color)
-                [ Color.text <| Colors.color color ]
+        (\pallet ->
+            variation (PalletVar pallet)
+                [ Color.text <| Pallet.color pallet ]
         )
-        Colors.colors
+        Pallet.pallets

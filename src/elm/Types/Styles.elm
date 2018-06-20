@@ -1,4 +1,4 @@
-module Styles.Types exposing (..)
+module Types.Styles exposing (..)
 
 import Color.Chip as Chip
 import Color.Pallet exposing (Hue, Pallet, Shade)

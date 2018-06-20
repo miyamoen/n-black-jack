@@ -1,4 +1,4 @@
-module Types.Player exposing (chip)
+module Model.Player exposing (chip)
 
 import Types exposing (..)
 

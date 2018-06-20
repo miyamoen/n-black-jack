@@ -1,18 +1,18 @@
 module Styles.ActionButton exposing (styles)
 
-import Colors exposing (Hue(Mono, Orange), Shade(..), hues)
+import Color.Pallet as Pallet exposing (Hue(..), Pallet(..), Shade(..))
 import List.Extra exposing (lift2)
 import Style exposing (Property, Style, style, variation)
 import Style.Animation as Animation exposing (animations, defaultAnimation)
 import Style.Border as Border
 import Style.Color as Color
 import Style.Sheet exposing (mix)
-import Styles.Types exposing (..)
+import Types.Styles exposing (..)
 
 
 styles : Style Styles Variation
 styles =
-    lift2 style hues states
+    lift2 style Pallet.hues states
         |> mix
 
 
@@ -46,7 +46,7 @@ color hue state =
             Inactive ->
                 let
                     color =
-                        Colors.color { hue = hue, shade = Darken2 }
+                        Pallet.color_ hue Darken2
                 in
                 [ Color.border color
                 , Color.text color
@@ -55,7 +55,7 @@ color hue state =
             Active ->
                 let
                     color =
-                        Colors.color { hue = hue, shade = Lighten2 }
+                        Pallet.color_ hue Lighten2
                 in
                 [ Color.border color
                 , Color.text color
@@ -64,19 +64,19 @@ color hue state =
             Selected ->
                 let
                     color =
-                        Colors.color { hue = hue, shade = Lighten2 }
+                        Pallet.color_ hue Lighten2
                 in
                 [ Color.border color
-                , Color.text <| Colors.color { hue = Mono, shade = Lighten2 }
+                , Color.text <| Pallet.color White
                 , Color.background color
                 ]
 
             Confirmed ->
                 let
                     color =
-                        Colors.color { hue = hue, shade = Lighten1 }
+                        Pallet.color_ hue Lighten1
                 in
                 [ Color.border color
-                , Color.text <| Colors.color { hue = Mono, shade = Lighten2 }
+                , Color.text <| Pallet.color White
                 , Color.background color
                 ]

@@ -1,4 +1,4 @@
-module Types.Card exposing (point)
+module Model.Card exposing (point)
 
 import Types exposing (..)
 
