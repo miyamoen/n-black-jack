@@ -1,40 +1,41 @@
-module View.Atom.Text exposing (Option, description, label, textDefault)
+module View.Atom.Text exposing (Config, view)
 
-import Colors exposing (Colors, Hue(Mono), Shade(Darken2))
+import Color.Pallet exposing (Pallet)
 import Element exposing (..)
 import Element.Attributes exposing (alignLeft, spacing, vary)
-import Styles.Types exposing (..)
+import Types.Styles as Root exposing (..)
+import Types.Styles.Text exposing (..)
 
 
-type alias Option =
-    { style : FontStyle
-    , size : FontSize
-    , color : Colors
+type alias Config a =
+    { a
+        | style : FontStyle
+        , size : Size
+        , align : Align
+        , line : Line
+        , pallet : Pallet
     }
 
 
-textDefault : Option
-textDefault =
-    { style = Regular
-    , size = Small
-    , color = Colors Mono Darken2
-    }
+view : Config a -> String -> RootElement msg
+view ({ line } as config) data =
+    case line of
+        OneLine ->
+            el Text (variations config) <|
+                text data
+
+        MultiLine ->
+            paragraph Text
+                (variations config)
+                [ text data ]
 
 
-label : Option -> String -> Element Styles Variation msg
-label { style, size, color } content =
-    node "label" <|
-        el (Label style size) [ vary (ColorVar color) True ] <|
-            text content
-
-
-description : Option -> List String -> Element Styles Variation msg
-description { style, size, color } contents =
-    contents
-        |> List.map
-            (\content ->
-                paragraph (Body style size)
-                    [ vary (ColorVar color) True ]
-                    [ text content ]
-            )
-        |> textLayout None [ spacing 10 ]
+variations :
+    { a | align : Align, pallet : Pallet, size : Size, style : FontStyle }
+    -> List (Attribute Root.Variation msg)
+variations { style, size, align, pallet } =
+    [ vary (TextVar <| StyleVar style) True
+    , vary (TextVar <| SizeVar size) True
+    , vary (TextVar <| AlignVar align) True
+    , vary (PalletVar pallet) True
+    ]

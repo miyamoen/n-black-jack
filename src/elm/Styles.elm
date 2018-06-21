@@ -12,9 +12,9 @@ import Style.Sheet exposing (mix)
 import Styles.ActionButton as ActionButton
 import Styles.Button as Button
 import Styles.ChipButton as ChipButton
-import Styles.Font as Font
 import Styles.Frame as Frame
 import Styles.TableText as TableText
+import Styles.Text as Text
 import Types exposing (Suit(..))
 import Types.Styles exposing (Styles(..), Variation(..))
 
@@ -24,7 +24,7 @@ styleSheet =
     Style.styleSheet
         [ style None []
         , Frame.styles
-        , Font.styles
+        , Text.styles
         , Button.styles
         , chipStyles
         , cardStyles

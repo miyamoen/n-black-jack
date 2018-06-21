@@ -2,14 +2,19 @@ module Types.Styles exposing (..)
 
 import Color.Chip as Chip
 import Color.Pallet exposing (Hue, Pallet, Shade)
+import Element exposing (Element)
 import Types exposing (Suit)
+import Types.Styles.Text as Text exposing (FontStyle)
+
+
+type alias RootElement msg =
+    Element Styles Variation msg
 
 
 type Styles
     = None
     | Frame
-    | Label FontStyle FontSize
-    | Body FontStyle FontSize
+    | Text
     | Chip Chip.Pallet
     | Card Suit
     | Button
@@ -18,13 +23,13 @@ type Styles
     | Avatar
     | ActionButton State
     | ChipButton State
-    | Table
-    | TableText
+    | TableBoard
     | ModalBack
 
 
 type Variation
-    = ShapeVar Shape
+    = TextVar Text.Variation
+    | ShapeVar Shape
     | ShadeVar Shade
     | HueVar Hue
     | PalletVar Pallet
@@ -35,31 +40,6 @@ type Shape
     = Rectangle
     | Circle
     | Semicircle
-
-
-type FontSize
-    = Huge
-    | Large
-    | Medium
-    | Small
-    | Tiny
-
-
-fontSizes : List FontSize
-fontSizes =
-    [ Huge, Large, Medium, Small, Tiny ]
-
-
-type FontStyle
-    = Regular
-    | RegularItaric
-    | Bold
-    | BoldItaric
-
-
-fontStyles : List FontStyle
-fontStyles =
-    [ Regular, RegularItaric, Bold, BoldItaric ]
 
 
 type State
