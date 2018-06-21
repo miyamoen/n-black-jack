@@ -1,10 +1,17 @@
-module Stories.Atom.TableRule exposing (viewStories)
+module Stories.Organism.TableRule exposing (viewStories)
 
+import Element exposing (el)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml)
+import Stories.Element exposing (toHtml, toMain)
 import Types exposing (Phase(..))
+import Types.Styles exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Atom.TableRule exposing (view)
+import View.Organism.TableRule as TableRule
+
+
+view : Phase -> RootElement msg
+view phase =
+    el TableBoard [] <| TableRule.view phase
 
 
 stories : List ( String, Phase )
@@ -20,3 +27,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtml) stories
+
+
+main =
+    toMain viewStories

@@ -13,7 +13,6 @@ import Styles.ActionButton as ActionButton
 import Styles.Button as Button
 import Styles.ChipButton as ChipButton
 import Styles.Frame as Frame
-import Styles.TableText as TableText
 import Styles.Text as Text
 import Types exposing (Suit(..))
 import Types.Styles exposing (Styles(..), Variation(..))
@@ -46,7 +45,7 @@ styleSheet =
             ]
         , ActionButton.styles
         , ChipButton.styles
-        , style Table
+        , style TableBoard
             [ Color.background <| Pallet.color_ Pallet.Green Pallet.Main
             , Background.imageWith
                 { src = "./argyle.png"
@@ -55,7 +54,6 @@ styleSheet =
                 , size = Background.natural
                 }
             ]
-        , TableText.styles
         , style ModalBack [ Color.background <| Color.rgba 0 0 0 0.3 ]
         ]
 
