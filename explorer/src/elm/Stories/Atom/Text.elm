@@ -1,6 +1,6 @@
 module Stories.Atom.Text exposing (viewStories)
 
-import Color.Pallet exposing (Pallet(..))
+import Color.Pallet exposing (Pallet(..), pallets)
 import Element exposing (Element, column, el)
 import Element.Attributes exposing (px, width)
 import Rocket exposing ((=>))
@@ -34,6 +34,7 @@ default =
     , line = OneLine
     , align = Center
     , pallet = Black
+    , onTable = False
     }
 
 
@@ -56,7 +57,14 @@ stories =
             aligns
         , [ "Ellipsis" => { default | width = Limited }
           , "Wrap" => { default | width = Limited, line = MultiLine }
+          , "OnTable" => { default | onTable = True }
           ]
+        , List.map
+            (\pallet ->
+                (toString pallet |> String.words |> String.concat)
+                    => { default | pallet = pallet }
+            )
+            pallets
         ]
 
 

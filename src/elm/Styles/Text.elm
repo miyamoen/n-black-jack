@@ -3,6 +3,7 @@ module Styles.Text exposing (styles)
 import Color.Pallet as Pallet
 import Style exposing (..)
 import Style.Color as Color
+import Style.Filter as Filter
 import Style.Font as Font
 import Types.Styles as Root exposing (..)
 import Types.Styles.Text exposing (..)
@@ -11,7 +12,13 @@ import Types.Styles.Text exposing (..)
 styles : Style Styles Root.Variation
 styles =
     style Text <|
-        List.concat [ styleVars, sizeVars, alignVars, textColorVars ]
+        List.concat
+            [ styleVars
+            , sizeVars
+            , alignVars
+            , textColorVars
+            , [ variation (TextVar OnTable) [ Filter.opacity 80 ] ]
+            ]
 
 
 styleVars : List (Property style Root.Variation)

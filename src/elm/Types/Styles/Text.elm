@@ -5,6 +5,7 @@ type Variation
     = StyleVar FontStyle
     | SizeVar Size
     | AlignVar Align
+    | OnTable
 
 
 type FontStyle

@@ -14,6 +14,7 @@ type alias Config a =
         , align : Align
         , line : Line
         , pallet : Pallet
+        , onTable : Bool
     }
 
 
@@ -31,11 +32,12 @@ view ({ line } as config) data =
 
 
 variations :
-    { a | align : Align, pallet : Pallet, size : Size, style : FontStyle }
+    { a | align : Align, pallet : Pallet, size : Size, style : FontStyle, onTable : Bool }
     -> List (Attribute Root.Variation msg)
-variations { style, size, align, pallet } =
+variations { style, size, align, pallet, onTable } =
     [ vary (TextVar <| StyleVar style) True
     , vary (TextVar <| SizeVar size) True
     , vary (TextVar <| AlignVar align) True
     , vary (PalletVar pallet) True
+    , vary (TextVar OnTable) onTable
     ]
