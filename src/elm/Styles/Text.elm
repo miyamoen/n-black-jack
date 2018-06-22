@@ -1,4 +1,4 @@
-module Styles.Text exposing (styles)
+module Styles.Text exposing (baseSize, styles)
 
 import Color.Pallet as Pallet
 import Style exposing (..)
@@ -52,23 +52,31 @@ sizeVars =
         sizes
 
 
-size : Size -> number
+size : Size -> Float
 size s =
     case s of
         Huge ->
-            60
+            baseSize * 5.8
 
         Large ->
-            40
+            baseSize * 3.8
 
         Medium ->
-            30
+            baseSize * 2.6
+
+        Normal ->
+            baseSize * 1.8
 
         Small ->
-            16
+            baseSize * 1.4
 
         Tiny ->
-            12
+            baseSize
+
+
+baseSize : number
+baseSize =
+    16
 
 
 alignVars : List (Property style Root.Variation)

@@ -24,13 +24,14 @@ type Size
     = Huge
     | Large
     | Medium
+    | Normal
     | Small
     | Tiny
 
 
 sizes : List Size
 sizes =
-    [ Huge, Large, Medium, Small, Tiny ]
+    [ Huge, Large, Medium, Normal, Small, Tiny ]
 
 
 type Align
