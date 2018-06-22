@@ -1,10 +1,24 @@
-module Stories.Atom.PointLabel exposing (viewStories)
+module Stories.Molecule.Text.Point exposing (viewStories)
 
+import Color.Pallet exposing (..)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml)
+import Stories.Element exposing (toHtml, toMain)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
+import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Atom.PointLabel as PointLabel exposing (pointLabelDefault, view)
+import View.Atom.Text exposing (Config)
+import View.Molecule.Text.Point as Point
+
+
+config : Config {}
+config =
+    { style = BoldItaric
+    , size = Medium
+    , line = OneLine
+    , align = Center
+    , pallet = Pallet Orange Lighten1
+    , onTable = True
+    }
 
 
 stories : List ( String, List Card )
@@ -50,4 +64,8 @@ stories =
 
 
 viewStories =
-    renderStories (view pointLabelDefault >> toHtml) stories
+    renderStories (Point.view config >> toHtml) stories
+
+
+main =
+    toMain viewStories

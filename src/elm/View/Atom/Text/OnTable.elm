@@ -1,4 +1,4 @@
-module View.Atom.Text.OnTable exposing (Config, view)
+module View.Atom.Text.OnTable exposing (Config, textConfig, view)
 
 import Color.Pallet exposing (..)
 import Types.Styles exposing (..)
@@ -11,13 +11,16 @@ type alias Config a =
 
 
 view : Config a -> String -> RootElement msg
-view { size, line, align } text =
-    Text.view
-        { style = BoldItaric
-        , size = size
-        , line = line
-        , align = align
-        , pallet = Pallet Orange Lighten1
-        , onTable = True
-        }
-        text
+view config text =
+    Text.view (textConfig config) text
+
+
+textConfig : Config a -> Text.Config {}
+textConfig { size, line, align } =
+    { style = BoldItaric
+    , size = size
+    , line = line
+    , align = align
+    , pallet = Pallet Orange Lighten1
+    , onTable = True
+    }
