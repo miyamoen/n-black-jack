@@ -1,9 +1,9 @@
-module Stories.Atom.Chip exposing (viewStories)
+module Stories.Molecule.Chip exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
+import Stories.Element exposing (toHtmlWithSymbol, toMain)
 import UIExplorer exposing (renderStories)
-import View.Atom.Chip exposing (view)
+import View.Molecule.Chip exposing (view)
 
 
 stories : List ( String, Int )
@@ -21,3 +21,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    toMain viewStories

@@ -1,7 +1,6 @@
 module Styles exposing (styleSheet)
 
 import Color
-import Color.Chip as Chip
 import Color.Pallet as Pallet
 import Style exposing (..)
 import Style.Background as Background
@@ -13,8 +12,8 @@ import Styles.ActionButton as ActionButton
 import Styles.Button as Button
 import Styles.ChipButton as ChipButton
 import Styles.Frame as Frame
+import Styles.Symbol as Symbol
 import Styles.Text as Text
-import Types exposing (Suit(..))
 import Types.Styles exposing (Styles(..), Variation(..))
 
 
@@ -24,9 +23,8 @@ styleSheet =
         [ style None []
         , Frame.styles
         , Text.styles
+        , Symbol.styles
         , Button.styles
-        , chipStyles
-        , cardStyles
         , iconStyles
         , style AccountCard
             [ Shadow.box
@@ -56,48 +54,6 @@ styleSheet =
             ]
         , style ModalBack [ Color.background <| Color.rgba 0 0 0 0.3 ]
         ]
-
-
-{-| to fill Svg
--}
-chipStyles : Style Styles variation
-chipStyles =
-    Chip.pallets
-        |> List.map
-            (\pallet ->
-                style (Chip pallet)
-                    [ Color.text <| Chip.color pallet ]
-            )
-        |> mix
-
-
-{-| to fill Svg
--}
-cardStyles : Style Styles variation
-cardStyles =
-    Types.suits
-        |> List.map
-            (\suit ->
-                style (Card suit)
-                    [ Color.text <|
-                        Pallet.color_
-                            (case suit of
-                                Spade ->
-                                    Pallet.Blue
-
-                                Heart ->
-                                    Pallet.Red
-
-                                Club ->
-                                    Pallet.Blue
-
-                                Diamond ->
-                                    Pallet.Red
-                            )
-                            Pallet.Main
-                    ]
-            )
-        |> mix
 
 
 iconStyles : Style Styles variation

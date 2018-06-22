@@ -1,10 +1,9 @@
 module Types.Styles exposing (..)
 
-import Color.Chip as Chip
 import Color.Pallet exposing (Hue, Pallet, Shade)
 import Element exposing (Element)
-import Types exposing (Suit)
-import Types.Styles.Text as Text exposing (FontStyle)
+import Types.Styles.Symbol as Symbol
+import Types.Styles.Text as Text
 
 
 type alias RootElement msg =
@@ -15,8 +14,7 @@ type Styles
     = None
     | Frame
     | Text
-    | Chip Chip.Pallet
-    | Card Suit
+    | Symbol
     | Button
     | Icon Pallet
     | AccountCard
@@ -29,6 +27,7 @@ type Styles
 
 type Variation
     = TextVar Text.Variation
+    | SymbolVar Symbol.Variation
     | ShapeVar Shape
     | ShadeVar Shade
     | HueVar Hue

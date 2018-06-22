@@ -1,38 +1,37 @@
-module View.Atom.Chip exposing (color, view)
+module View.Molecule.Chip exposing (pallet, view)
 
-import Colors exposing (Hue(Mono), Shade(Darken1))
-import Colors.Chip as Colors exposing (Colors(..))
+import Color.Chip as Chip exposing (Pallet(..))
+import Color.Pallet exposing (Hue(Mono), Pallet(Pallet), Shade(Darken2))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (FontSize(..), FontStyle(..), Styles(..), Variation)
-import View.Atom.Text exposing (label, textDefault)
+import Types.Styles exposing (..)
+import Types.Styles.Symbol exposing (..)
+import Types.Styles.Text exposing (..)
+import View.Atom.Text as Text
 import View.Symbol as Symbol
 
 
-view : Int -> Element Styles Variation msg
+view : Int -> RootElement msg
 view price =
     let
         size_ =
             size price
     in
     Symbol.element size_ size_ Symbol.Chip
-        |> el (Chip <| color price)
-            [ width <| px size_, height <| px size_ ]
+        |> el Symbol
+            [ width <| px size_
+            , height <| px size_
+            , vary (SymbolVar <| ChipPalletVar <| pallet price) True
+            ]
         |> within
             [ el None [ center, verticalCenter ] <|
-                label
-                    { textDefault
-                        | style = RegularItaric
-                        , size = Medium
-                        , color = { hue = Mono, shade = Darken1 }
-                    }
-                <|
+                Text.view textConfig <|
                     toString price
             ]
 
 
-color : Int -> Colors
-color price =
+pallet : Int -> Chip.Pallet
+pallet price =
     if price <= 0 then
         Gray
     else if price < 5 then
@@ -61,3 +60,14 @@ size price =
         100
     else
         120
+
+
+textConfig : Text.Config {}
+textConfig =
+    { style = RegularItaric
+    , size = Normal
+    , align = Center
+    , line = OneLine
+    , pallet = Pallet Mono Darken2
+    , onTable = False
+    }
