@@ -1,13 +1,13 @@
-module Stories.Atom.Card exposing (viewStories)
+module Stories.Molecule.Card exposing (viewStories)
 
-import Element exposing (Element, column, empty, row, text, wrappedRow)
+import Element exposing (..)
 import Element.Attributes exposing (spacing)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
-import Styles.Types exposing (Styles(None), Variation)
-import Types exposing (Card, Face(..), Number(..), Suit(..), numbers, suits)
+import Stories.Element exposing (toHtmlWithSymbol, toMain)
+import Types exposing (..)
+import Types.Styles exposing (Styles(None), Variation)
 import UIExplorer exposing (renderStories)
-import View.Atom.Card as Card
+import View.Molecule.Card as Card
 
 
 view : List (List Card) -> Element Styles Variation msg
@@ -41,3 +41,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    toMain viewStories
