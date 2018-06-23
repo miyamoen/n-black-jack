@@ -1,4 +1,4 @@
-module Styles.Text exposing (baseSize, styles)
+module Styles.Text exposing (baseSize, size, styles)
 
 import Color.Pallet as Pallet
 import Style exposing (..)
