@@ -1,10 +1,11 @@
 module Stories.Atom.Icon exposing (viewStories)
 
-import FontAwesome as FA exposing (Icon, Option)
+import Color.Pallet exposing (..)
+import FontAwesome as FA exposing (Icon)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml)
+import Stories.Element exposing (toHtml, toMain)
 import UIExplorer exposing (renderStories)
-import View.Atom.Icon exposing (iconDefault, view)
+import View.Atom.Icon exposing (view)
 
 
 stories : List ( String, Icon )
@@ -15,4 +16,15 @@ stories =
 
 
 viewStories =
-    renderStories (view iconDefault >> toHtml) stories
+    renderStories
+        (view
+            { options = []
+            , pallet = Pallet Blue Lighten1
+            }
+            >> toHtml
+        )
+        stories
+
+
+main =
+    toMain viewStories

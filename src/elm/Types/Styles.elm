@@ -19,7 +19,7 @@ type Styles
     | Text
     | Symbol
     | Button Button.State
-    | Icon Pallet
+    | Icon
     | AccountCard
     | Avatar
     | ActionButton ActionButton.State

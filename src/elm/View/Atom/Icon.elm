@@ -1,29 +1,24 @@
-module View.Atom.Icon exposing (Option, iconDefault, view)
+module View.Atom.Icon exposing (Config, view)
 
-import Colors exposing (Colors, Hue(Mono), Shade(Darken1))
+import Color.Pallet exposing (Pallet)
 import Element exposing (..)
+import Element.Attributes exposing (vary)
 import FontAwesome as FA exposing (Icon)
 import Html.Keyed
 import Rocket exposing ((=>))
-import Styles.Types as Styles exposing (Styles(..), Variation(ColorVar))
+import Types.Styles as Styles exposing (RootElement, Styles(..), Variation(PalletVar))
 
 
-type alias Option =
-    { options : List FA.Option
-    , color : Colors
+type alias Config a =
+    { a
+        | options : List FA.Option
+        , pallet : Pallet
     }
 
 
-iconDefault : Option
-iconDefault =
-    { options = []
-    , color = Colors Mono Darken1
-    }
-
-
-view : Option -> Icon -> Element Styles variation msg
-view { options, color } icon =
-    el (Styles.Icon color) [] <|
+view : Config a -> Icon -> RootElement msg
+view { options, pallet } icon =
+    el Styles.Icon [ vary (PalletVar pallet) True ] <|
         html <|
             Html.Keyed.node "div"
                 []

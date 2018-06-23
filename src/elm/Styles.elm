@@ -54,12 +54,12 @@ styleSheet =
         ]
 
 
-iconStyles : Style Styles variation
+iconStyles : Style Styles Variation
 iconStyles =
-    Pallet.pallets
-        |> List.map
+    style Icon <|
+        List.map
             (\pallet ->
-                style (Icon pallet)
+                variation (PalletVar pallet)
                     [ Color.text <| Pallet.color pallet ]
             )
-        |> mix
+            Pallet.pallets
