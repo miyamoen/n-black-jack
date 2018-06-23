@@ -1,40 +1,24 @@
-module View.Atom.Button exposing (Option, buttonDefault, view)
+module View.Atom.Button exposing (Config, view)
 
-import Colors exposing (Colors, Hue(..), Shade(..))
+import Color.Pallet exposing (Pallet)
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import FontAwesome exposing (Icon)
-import Styles.Types exposing (..)
-import View.Atom.Icon as Icon exposing (iconDefault)
+import Element.Utils exposing (maybeVary)
+import Types.Styles exposing (..)
+import Types.Styles.Button exposing (..)
 
 
-type alias Option =
-    { color : Colors
-    , labelColor : Colors
-    , icon : Maybe Icon
-    }
+type alias Config a =
+    { a | pallet : Maybe Pallet }
 
 
-buttonDefault : Option
-buttonDefault =
-    { color = Colors Mono Darken1
-    , labelColor = Colors Mono Lighten2
-    , icon = Nothing
-    }
-
-
-view : Option -> String -> Element Styles Variation msg
-view { color, labelColor, icon } label =
+view : Config a -> State -> RootElement msg -> RootElement msg
+view { pallet } state element =
     node "button" <|
-        row Button
-            [ spacing 10
-            , padding 10
+        row (Button state)
+            [ padding 10
+            , center
             , verticalCenter
-            , vary (ColorVar color) True
-            , vary (SubColorVar labelColor) True
+            , maybeVary PalletVar pallet
             ]
-            [ icon
-                |> Maybe.map (\icon -> Icon.view { iconDefault | color = labelColor } icon)
-                |> Maybe.withDefault empty
-            , el (Label Regular Small) [] <| text label
-            ]
+            [ element ]

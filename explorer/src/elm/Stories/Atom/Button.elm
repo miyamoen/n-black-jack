@@ -1,25 +1,33 @@
 module Stories.Atom.Button exposing (viewStories)
 
-import Colors exposing (Colors, Hue(..), Shade(..))
-import FontAwesome as FA exposing (Icon)
+import Color.Pallet exposing (..)
+import Element exposing (..)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml)
+import Stories.Element exposing (toHtml, toMain)
+import Types.Styles exposing (RootElement)
+import Types.Styles.Button exposing (State(..))
 import UIExplorer exposing (renderStories)
-import View.Atom.Button exposing (Option, buttonDefault, view)
+import View.Atom.Button as Button exposing (Config)
 
 
-stories : List ( String, ( Option, String ) )
+view : ( Config a, State, RootElement msg ) -> RootElement msg
+view ( config, state, element ) =
+    Button.view config state element
+
+
+stories : List ( String, ( Config {}, State, RootElement msg ) )
 stories =
-    [ "default" => ( buttonDefault, "default" )
-    , "twitter"
-        => ( { icon = Just FA.twitter
-             , color = { hue = Blue, shade = Lighten2 }
-             , labelColor = { hue = Mono, shade = Lighten2 }
-             }
-           , "sign in"
-           )
+    [ "text" => ( { pallet = Just (Pallet Orange Main) }, Enable, text "button" )
+    , "empty" => ( { pallet = Just Black }, Enable, empty )
+    , "Disable" => ( { pallet = Just (Pallet Orange Main) }, Disable, text "button" )
+    , "NoColor" => ( { pallet = Nothing }, Enable, text "button" )
+    , "NoColorDisable" => ( { pallet = Nothing }, Disable, text "button" )
     ]
 
 
 viewStories =
-    renderStories (uncurry view >> toHtml) stories
+    renderStories (view >> Stories.Element.toHtml) stories
+
+
+main =
+    toMain viewStories

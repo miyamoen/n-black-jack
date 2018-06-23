@@ -2,6 +2,8 @@ module Types.Styles exposing (..)
 
 import Color.Pallet exposing (Hue, Pallet, Shade)
 import Element exposing (Element)
+import Types.Styles.ActionButton as ActionButton
+import Types.Styles.Button as Button
 import Types.Styles.Frame as Frame
 import Types.Styles.Symbol as Symbol
 import Types.Styles.Text as Text
@@ -16,12 +18,11 @@ type Styles
     | Frame
     | Text
     | Symbol
-    | Button
+    | Button Button.State
     | Icon Pallet
     | AccountCard
     | Avatar
-    | ActionButton State
-    | ChipButton State
+    | ActionButton ActionButton.State
     | TableBoard
     | ModalBack
 
@@ -34,19 +35,3 @@ type Variation
     | HueVar Hue
     | PalletVar Pallet
     | SubPalletVar Pallet
-
-
-type State
-    = Inactive
-    | Active
-    | Selected
-    | Confirmed
-
-
-states : List State
-states =
-    [ Inactive
-    , Active
-    , Selected
-    , Confirmed
-    ]

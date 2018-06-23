@@ -8,6 +8,12 @@ import Style.Border as Border
 import Style.Color as Color
 import Style.Sheet exposing (mix)
 import Types.Styles exposing (..)
+import Types.Styles.ActionButton exposing (State(..))
+
+
+states : List State
+states =
+    [ Inactive, Active, Selected, Confirmed ]
 
 
 styles : Style Styles Variation

@@ -10,7 +10,6 @@ import Style.Shadow as Shadow
 import Style.Sheet exposing (mix)
 import Styles.ActionButton as ActionButton
 import Styles.Button as Button
-import Styles.ChipButton as ChipButton
 import Styles.Frame as Frame
 import Styles.Symbol as Symbol
 import Styles.Text as Text
@@ -42,7 +41,6 @@ styleSheet =
             , Color.background <| Pallet.color Pallet.White
             ]
         , ActionButton.styles
-        , ChipButton.styles
         , style TableBoard
             [ Color.background <| Pallet.color_ Pallet.Green Pallet.Main
             , Background.imageWith
