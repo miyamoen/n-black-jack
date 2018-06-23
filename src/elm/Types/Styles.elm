@@ -2,6 +2,7 @@ module Types.Styles exposing (..)
 
 import Color.Pallet exposing (Hue, Pallet, Shade)
 import Element exposing (Element)
+import Types.Styles.Frame as Frame
 import Types.Styles.Symbol as Symbol
 import Types.Styles.Text as Text
 
@@ -28,17 +29,11 @@ type Styles
 type Variation
     = TextVar Text.Variation
     | SymbolVar Symbol.Variation
-    | ShapeVar Shape
+    | FrameVar Frame.Variation
     | ShadeVar Shade
     | HueVar Hue
     | PalletVar Pallet
     | SubPalletVar Pallet
-
-
-type Shape
-    = Rectangle
-    | Circle
-    | Semicircle
 
 
 type State
