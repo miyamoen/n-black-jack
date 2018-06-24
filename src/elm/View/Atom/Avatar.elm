@@ -1,49 +1,18 @@
-module View.Atom.Avatar exposing (view)
+module View.Atom.Avatar exposing (Config, view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import FontAwesome as FA
-import Styles.Types exposing (..)
-import Types exposing (Account(..))
-import View.Atom.Icon as Icon exposing (iconDefault)
+import Types.Styles exposing (..)
 
 
-view : Account -> Element Styles Variation msg
-view user =
-    case user of
-        Unauthenticated ->
-            frame (Just "Unauthenticated") <| icon FA.userSlash
-
-        Anonymous _ ->
-            frame (Just "Anonymous user") <| icon FA.user
-
-        Authenticated { iconUrl, name } ->
-            case iconUrl of
-                Just url ->
-                    frame name <|
-                        decorativeImage None
-                            [ width <| px 80
-                            , height <| px 80
-                            ]
-                            { src = url }
-
-                Nothing ->
-                    frame name <| icon FA.user
+type alias Config a =
+    { a | width : Length, height : Length }
 
 
-frame : Maybe String -> Element Styles variation msg -> Element Styles variation msg
-frame name image =
-    column Avatar
-        [ width <| px 80
-        , height <| px 80
-        , clip
-        , attribute "title" <| Maybe.withDefault "no name" name
-        , center
-        , verticalCenter
+view : Config a -> String -> Element Styles Variation msg
+view config url =
+    decorativeImage None
+        [ width config.width
+        , height config.height
         ]
-        [ image ]
-
-
-icon : FA.Icon -> Element Styles variation msg
-icon =
-    Icon.view { iconDefault | options = [ FA.Size <| FA.Mult 4 ] }
+        { src = url }

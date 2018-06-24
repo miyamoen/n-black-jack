@@ -1,29 +1,29 @@
 module Stories.Atom.Avatar exposing (viewStories)
 
+import Element.Attributes exposing (..)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml)
-import Types exposing (Account(..))
+import Stories.Element exposing (toHtml, toMain)
 import UIExplorer exposing (renderStories)
-import View.Atom.Avatar exposing (view)
+import View.Atom.Avatar exposing (Config, view)
 
 
-stories : List ( String, Account )
+me : String
+me =
+    "https://pbs.twimg.com/profile_images/438670444409806849/Vnzne20N_normal.jpeg"
+
+
+stories : List ( String, ( Config {}, String ) )
 stories =
-    [ "Unauthenticated" => Unauthenticated
-    , "me"
-        => Authenticated
-            { id = "5dMEzM1F71dmpAChHLhy0IGtd013"
-            , chip = 1000
-            , name = Just "この人生は刺繍をするには短すぎる"
-            , iconUrl = Just "https://pbs.twimg.com/profile_images/438670444409806849/Vnzne20N_normal.jpeg"
-            }
-    , "Anonymous"
-        => Anonymous
-            { id = "5dMEzM1F71dmpAChHLhy0IGtd013"
-            , chip = 0
-            }
+    [ "fill" => ( { width = fill, height = fill }, me )
+    , "content" => ( { width = content, height = content }, me )
+    , "80" => ( { width = px 80, height = px 80 }, me )
+    , "invalid" => ( { width = px 80, height = px 80 }, "" )
     ]
 
 
 viewStories =
-    renderStories (view >> toHtml) stories
+    renderStories (uncurry view >> toHtml) stories
+
+
+main =
+    toMain viewStories
