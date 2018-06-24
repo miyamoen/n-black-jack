@@ -2,11 +2,11 @@ module View.Atom.Modal exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (Styles(..))
+import Types.Styles exposing (Styles(..))
 
 
 view : Element Styles variation msg -> Element Styles variation msg
-view content =
+view element =
     screen <|
         column ModalBack
             [ center
@@ -14,4 +14,4 @@ view content =
             , width fill
             , height fill
             ]
-            [ content ]
+            [ element ]

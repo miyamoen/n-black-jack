@@ -1,21 +1,38 @@
 module Stories.Atom.Modal exposing (viewStories)
 
+import Color.Pallet exposing (..)
 import Element exposing (Element, empty, text)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
-import Styles.Types exposing (State(Active), Styles, Variation)
+import Stories.Element exposing (toHtml, toMain)
+import Types.Styles exposing (RootElement)
+import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Atom.ChipButton as ChipButton
 import View.Atom.Modal exposing (view)
+import View.Atom.Text as Text
 
 
-stories : List ( String, Element Styles Variation msg )
+textConfig : Text.Config {}
+textConfig =
+    { style = BoldItaric
+    , size = Medium
+    , line = OneLine
+    , align = Center
+    , pallet = Pallet Orange Lighten1
+    , onTable = False
+    }
+
+
+stories : List ( String, RootElement msg )
 stories =
-    [ "ChipButton" => ChipButton.view { state = Active } 25
+    [ "Textview" => Text.view textConfig "Modal Text"
     , "text" => text "test"
     , "empty" => empty
     ]
 
 
 viewStories =
-    renderStories (view >> toHtmlWithSymbol) stories
+    renderStories (view >> toHtml) stories
+
+
+main =
+    toMain viewStories
