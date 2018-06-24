@@ -17,11 +17,11 @@ view ( config, state, element ) =
 
 stories : List ( String, ( Config {}, State, RootElement msg ) )
 stories =
-    [ "text" => ( { pallet = Just (Pallet Orange Main) }, Enable, text "button" )
-    , "empty" => ( { pallet = Just Black }, Enable, empty )
-    , "Disable" => ( { pallet = Just (Pallet Orange Main) }, Disable, text "button" )
-    , "NoColor" => ( { pallet = Nothing }, Enable, text "button" )
-    , "NoColorDisable" => ( { pallet = Nothing }, Disable, text "button" )
+    [ "text" => ( { bgPallet = Just (Pallet Orange Main) }, Enable, text "button" )
+    , "empty" => ( { bgPallet = Just Black }, Enable, empty )
+    , "Disable" => ( { bgPallet = Just (Pallet Orange Main) }, Disable, text "button" )
+    , "NoColor" => ( { bgPallet = Nothing }, Enable, text "button" )
+    , "NoColorDisable" => ( { bgPallet = Nothing }, Disable, text "button" )
     ]
 
 

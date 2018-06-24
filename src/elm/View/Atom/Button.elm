@@ -9,16 +9,16 @@ import Types.Styles.Button exposing (..)
 
 
 type alias Config a =
-    { a | pallet : Maybe Pallet }
+    { a | bgPallet : Maybe Pallet }
 
 
 view : Config a -> State -> RootElement msg -> RootElement msg
-view { pallet } state element =
+view { bgPallet } state element =
     node "button" <|
         row (Button state)
             [ padding 10
             , center
             , verticalCenter
-            , maybeVary PalletVar pallet
+            , maybeVary PalletVar bgPallet
             ]
             [ element ]

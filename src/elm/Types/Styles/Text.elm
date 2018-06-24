@@ -1,4 +1,15 @@
-module Types.Styles.Text exposing (..)
+module Types.Styles.Text
+    exposing
+        ( Align(..)
+        , FontStyle(..)
+        , Line(..)
+        , Size(..)
+        , Variation(..)
+        , aligns
+        , fontStyles
+        , lines
+        , sizes
+        )
 
 
 type Variation
