@@ -15,7 +15,7 @@ import View.Symbol as Symbol
 type alias Config a =
     { a
         | size : Size
-        , pallet : Pallet
+        , pallet : Maybe Pallet
         , onTable : Bool
     }
 

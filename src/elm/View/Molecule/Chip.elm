@@ -68,6 +68,6 @@ textConfig =
     , size = Normal
     , align = Center
     , line = OneLine
-    , pallet = Pallet Mono Darken2
+    , pallet = Just <| Pallet Mono Darken2
     , onTable = False
     }

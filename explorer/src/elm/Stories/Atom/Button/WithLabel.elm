@@ -20,7 +20,7 @@ iconConfig : Config {}
 iconConfig =
     { icon = Just FA.twitter
     , bgPallet = Nothing
-    , pallet = Pallet Blue Main
+    , pallet = Just <| Pallet Blue Main
     , size = Medium
     , style = Regular
     }
@@ -30,7 +30,7 @@ config : Config {}
 config =
     { icon = Nothing
     , bgPallet = Just <| Pallet Blue Lighten1
-    , pallet = White
+    , pallet = Just White
     , size = Medium
     , style = Regular
     }

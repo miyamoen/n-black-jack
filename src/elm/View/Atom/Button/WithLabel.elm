@@ -16,7 +16,7 @@ type alias Config a =
     { a
         | bgPallet : Maybe Pallet
         , icon : Maybe Icon
-        , pallet : Pallet
+        , pallet : Maybe Pallet
         , size : Size
         , style : FontStyle
     }
@@ -35,7 +35,10 @@ view ({ pallet, icon } as config) state label =
                 |> Maybe.map
                     (\icon ->
                         Icon.view
-                            { pallet = pallet, options = [] }
+                            { pallet =
+                                Maybe.withDefault (Pallet Mono Lighten1) pallet
+                            , options = []
+                            }
                             icon
                     )
                 |> Maybe.withDefault empty

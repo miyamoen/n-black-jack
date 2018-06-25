@@ -33,7 +33,7 @@ default =
     , size = Medium
     , line = OneLine
     , align = Center
-    , pallet = Black
+    , pallet = Nothing
     , onTable = False
     }
 
@@ -62,7 +62,7 @@ stories =
         , List.map
             (\pallet ->
                 (toString pallet |> String.words |> String.concat)
-                    => { default | pallet = pallet }
+                    => { default | pallet = Just pallet }
             )
             pallets
         ]

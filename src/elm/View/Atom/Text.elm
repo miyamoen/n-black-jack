@@ -3,6 +3,7 @@ module View.Atom.Text exposing (Config, view)
 import Color.Pallet exposing (Pallet)
 import Element exposing (..)
 import Element.Attributes exposing (alignLeft, spacing, vary)
+import Element.Utils exposing (maybeVary)
 import Types.Styles as Root exposing (..)
 import Types.Styles.Text exposing (..)
 
@@ -13,7 +14,7 @@ type alias Config a =
         , size : Size
         , align : Align
         , line : Line
-        , pallet : Pallet
+        , pallet : Maybe Pallet
         , onTable : Bool
     }
 
@@ -32,12 +33,12 @@ view ({ line } as config) data =
 
 
 variations :
-    { a | align : Align, pallet : Pallet, size : Size, style : FontStyle, onTable : Bool }
+    { a | align : Align, pallet : Maybe Pallet, size : Size, style : FontStyle, onTable : Bool }
     -> List (Attribute Root.Variation msg)
 variations { style, size, align, pallet, onTable } =
     [ vary (TextVar <| StyleVar style) True
     , vary (TextVar <| SizeVar size) True
     , vary (TextVar <| AlignVar align) True
-    , vary (PalletVar pallet) True
+    , maybeVary PalletVar pallet
     , vary (TextVar OnTable) onTable
     ]

@@ -21,6 +21,6 @@ textConfig { size, line, align } =
     , size = size
     , line = line
     , align = align
-    , pallet = Pallet Orange Lighten1
+    , pallet = Just <| Pallet Orange Lighten1
     , onTable = True
     }

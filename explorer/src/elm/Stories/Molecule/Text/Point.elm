@@ -16,7 +16,7 @@ config =
     , size = Medium
     , line = OneLine
     , align = Center
-    , pallet = Pallet Orange Lighten1
+    , pallet = Just <| Pallet Orange Lighten1
     , onTable = True
     }
 
