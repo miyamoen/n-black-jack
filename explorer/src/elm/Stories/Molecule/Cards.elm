@@ -2,7 +2,7 @@ module Stories.Molecule.Cards exposing (viewStories)
 
 import Element exposing (Element)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (toHtmlWithSymbol)
 import Styles.Types exposing (Styles, Variation)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)

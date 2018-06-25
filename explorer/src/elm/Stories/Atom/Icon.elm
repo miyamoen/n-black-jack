@@ -3,7 +3,7 @@ module Stories.Atom.Icon exposing (viewStories)
 import Color.Pallet exposing (..)
 import FontAwesome as FA exposing (Icon)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import UIExplorer exposing (renderStories)
 import View.Atom.Icon exposing (view)
 
@@ -27,4 +27,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

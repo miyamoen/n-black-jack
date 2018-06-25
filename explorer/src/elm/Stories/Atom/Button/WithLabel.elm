@@ -1,10 +1,9 @@
 module Stories.Atom.Button.WithLabel exposing (viewStories)
 
 import Color.Pallet exposing (..)
-import Element exposing (..)
 import FontAwesome as FA exposing (Icon)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import Types.Styles exposing (RootElement)
 import Types.Styles.Button exposing (State(..))
 import Types.Styles.Text exposing (..)
@@ -47,8 +46,8 @@ stories =
 
 
 viewStories =
-    renderStories (view >> Stories.Element.toHtml) stories
+    renderStories (view >> Stories.Utils.toHtml) stories
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

@@ -3,7 +3,7 @@ module Stories.Atom.Modal exposing (viewStories)
 import Color.Pallet exposing (..)
 import Element exposing (Element, empty, text)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import Types.Styles exposing (RootElement)
 import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
@@ -17,7 +17,7 @@ textConfig =
     , size = Medium
     , line = OneLine
     , align = Center
-    , pallet = Pallet Orange Lighten1
+    , pallet = Just <| Pallet Orange Lighten1
     , onTable = False
     }
 
@@ -35,4 +35,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

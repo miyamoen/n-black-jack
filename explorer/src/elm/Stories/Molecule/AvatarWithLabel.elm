@@ -1,7 +1,7 @@
 module Stories.Molecule.AvatarWithLabel exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (toHtmlWithSymbol)
 import Types exposing (Account(..))
 import UIExplorer exposing (renderStories)
 import View.Molecule.AvatarWithLabel exposing (view)

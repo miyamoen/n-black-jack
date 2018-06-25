@@ -1,7 +1,7 @@
 module Stories.Organism.Table exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (toHtmlWithSymbol)
 import Types exposing (..)
 import UIExplorer exposing (renderStories)
 import View.Organism.Table exposing (view)

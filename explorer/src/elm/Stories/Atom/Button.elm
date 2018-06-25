@@ -3,7 +3,7 @@ module Stories.Atom.Button exposing (viewStories)
 import Color.Pallet exposing (..)
 import Element exposing (..)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import Types.Styles exposing (RootElement)
 import Types.Styles.Button exposing (State(..))
 import UIExplorer exposing (renderStories)
@@ -26,8 +26,8 @@ stories =
 
 
 viewStories =
-    renderStories (view >> Stories.Element.toHtml) stories
+    renderStories (view >> Stories.Utils.toHtml) stories
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

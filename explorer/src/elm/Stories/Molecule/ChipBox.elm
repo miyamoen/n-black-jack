@@ -1,7 +1,7 @@
 module Stories.Molecule.ChipBox exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (toHtmlWithSymbol)
 import UIExplorer exposing (renderStories)
 import View.Molecule.ChipBox exposing (view)
 

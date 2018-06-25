@@ -1,7 +1,7 @@
 module Stories.Molecule.Avatar exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import Types exposing (Account(..))
 import UIExplorer exposing (renderStories)
 import View.Molecule.Avatar exposing (view)
@@ -30,4 +30,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

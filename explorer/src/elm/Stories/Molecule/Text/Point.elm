@@ -2,7 +2,7 @@ module Stories.Molecule.Text.Point exposing (viewStories)
 
 import Color.Pallet exposing (..)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
@@ -68,4 +68,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

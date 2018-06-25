@@ -4,7 +4,7 @@ import Color.Pallet exposing (Pallet(..), pallets)
 import Element exposing (Element, column, el)
 import Element.Attributes exposing (px, width)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import Types.Styles exposing (..)
 import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
@@ -73,4 +73,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

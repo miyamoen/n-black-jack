@@ -3,7 +3,7 @@ module Stories.Molecule.Card exposing (viewStories)
 import Element exposing (..)
 import Element.Attributes exposing (spacing)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol, toMain)
+import Stories.Utils exposing (toHtmlWithSymbol, fromStories)
 import Types exposing (..)
 import Types.Styles exposing (Styles(None), Variation)
 import UIExplorer exposing (renderStories)
@@ -44,4 +44,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

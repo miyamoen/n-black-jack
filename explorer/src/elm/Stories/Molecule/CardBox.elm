@@ -1,7 +1,7 @@
 module Stories.Molecule.CardBox exposing (viewStories)
 
 import Stories.Dummy as Dummy
-import Stories.Element exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (toHtmlWithSymbol)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
 import View.Molecule.CardBox exposing (view)

@@ -5,7 +5,7 @@ import Element exposing (Element, el, empty)
 import Element.Attributes exposing (..)
 import List.Extra exposing (lift2)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (toHtml, fromStories)
 import Types.Styles as Root exposing (Styles(..), Variation(..))
 import Types.Styles.Frame exposing (Shape(..), Variation(..))
 import UIExplorer exposing (renderStories)
@@ -43,4 +43,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

@@ -1,7 +1,7 @@
 module Stories.Organism.DealerField exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (toHtmlWithSymbol)
 import Types exposing (Card, Dealer, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
 import View.Organism.DealerField exposing (view)

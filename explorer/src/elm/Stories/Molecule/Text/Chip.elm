@@ -2,7 +2,7 @@ module Stories.Molecule.Text.Chip exposing (viewStories)
 
 import Color.Pallet exposing (Pallet(Black))
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtmlWithSymbol, toMain)
+import Stories.Utils exposing (toHtmlWithSymbol, fromStories)
 import Types.Styles.Text exposing (Size(Medium), sizes)
 import UIExplorer exposing (renderStories)
 import View.Molecule.Text.Chip exposing (Config, view)
@@ -33,4 +33,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

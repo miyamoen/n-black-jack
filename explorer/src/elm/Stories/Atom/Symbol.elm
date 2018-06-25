@@ -1,8 +1,8 @@
-module Stories.Atom.PlainChip exposing (viewStories)
+module Stories.Atom.Symbol exposing (viewStories)
 
 import Element exposing (Element)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toHtmlWithSymbol, toMain)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import UIExplorer exposing (renderStories)
 import View.Symbol as Symbol exposing (Symbol(..))
 
@@ -28,4 +28,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

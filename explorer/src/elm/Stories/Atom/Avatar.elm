@@ -2,7 +2,7 @@ module Stories.Atom.Avatar exposing (viewStories)
 
 import Element.Attributes exposing (..)
 import Rocket exposing ((=>))
-import Stories.Element exposing (toHtml, toMain)
+import Stories.Utils exposing (fromStories, toHtml)
 import UIExplorer exposing (renderStories)
 import View.Atom.Avatar exposing (Config, view)
 
@@ -26,4 +26,4 @@ viewStories =
 
 
 main =
-    toMain viewStories
+    fromStories viewStories

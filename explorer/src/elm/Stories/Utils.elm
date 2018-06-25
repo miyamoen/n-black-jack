@@ -1,4 +1,4 @@
-module Stories.Element exposing (..)
+module Stories.Utils exposing (..)
 
 import Element exposing (..)
 import Html exposing (Html, div)
@@ -21,7 +21,11 @@ toHtmlWithSymbol element =
         ]
 
 
-toMain stories =
+fromStories stories =
+    fromUIs [ createUI "Main" stories ]
+
+
+fromUIs uis =
     emptyUICategories
-        |> addUICategory "Main" [ createUI "Main" stories ]
+        |> addUICategory "Main" uis
         |> app
