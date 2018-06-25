@@ -11,4 +11,4 @@ maybeVary tagger maybe =
             vary (tagger a) True
 
         Nothing ->
-            attribute "" ""
+            classList []
