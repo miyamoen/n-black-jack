@@ -7,10 +7,9 @@ import Style.Background as Background
 import Style.Border as Border
 import Style.Color as Color
 import Style.Shadow as Shadow
-import Style.Sheet exposing (mix)
-import Styles.ActionButton as ActionButton
 import Styles.Button as Button
 import Styles.Frame as Frame
+import Styles.Selector as Selector
 import Styles.Symbol as Symbol
 import Styles.Text as Text
 import Types.Styles exposing (Styles(..), Variation(..))
@@ -24,6 +23,7 @@ styleSheet =
         , Text.styles
         , Symbol.styles
         , Button.styles
+        , Selector.styles
         , iconStyles
         , style AccountCard
             [ Shadow.box
@@ -40,7 +40,6 @@ styleSheet =
             , Color.border <| Pallet.color Pallet.White
             , Color.background <| Pallet.color Pallet.White
             ]
-        , ActionButton.styles
         , style TableBoard
             [ Color.background <| Pallet.color_ Pallet.Green Pallet.Main
             , Background.imageWith
