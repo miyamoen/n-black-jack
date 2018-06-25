@@ -16,32 +16,28 @@ import Types.Styles.Button exposing (..)
 styles : Style Styles Variation
 styles =
     Sheet.mix
-        [ style (Button Enable)
-            ([ cursor "pointer"
-             , Border.rounded 5
-             , Color.background <| Color.rgba 0 0 0 0
-             , translate 0 -3 0
-             , dropShadow { dy = 3, blur = 2 }
-             , Transition.performant
-             , pseudo "hover"
+        [ style (Button Enable) <|
+            [ cursor "pointer"
+            , Border.rounded 5
+            , Color.background <| Color.rgba 0 0 0 0
+            , translate 0 -3 0
+            , dropShadow { dy = 3, blur = 2 }
+            , Transition.performant
+            , pseudo "hover"
                 [ translate 0 -5 0
                 , dropShadow { dy = 5, blur = 2 }
                 ]
-             , pseudo "active"
+            , pseudo "active"
                 [ translate 0 0 0
                 , dropShadow { dy = 0, blur = 0.5 }
                 ]
-             ]
+            ]
                 ++ bgColors
-            )
-        , style (Button Disable)
-            ([ Filter.grayscale 80
-             , Filter.brightness 80
-             , Border.rounded 5
-             , Color.background <| Color.rgba 0 0 0 0.2
-             ]
+        , style (Button Disable) <|
+            [ Filter.brightness 80
+            , Border.rounded 5
+            ]
                 ++ bgColors
-            )
         ]
 
 
