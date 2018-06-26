@@ -1,10 +1,10 @@
-module Stories.Molecule.AvatarWithLabel exposing (viewStories)
+module Stories.Molecule.Avatar.WithLabel exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (Account(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.AvatarWithLabel exposing (view)
+import View.Molecule.Avatar.WithLabel exposing (view)
 
 
 stories : List ( String, Account )
@@ -20,10 +20,14 @@ stories =
     , "Anonymous"
         => Anonymous
             { id = "5dMEzM1F71dmpAChHLhy0IGtd013"
-            , chip = 0
+            , chip = 100
             }
     ]
 
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories
