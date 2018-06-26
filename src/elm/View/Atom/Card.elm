@@ -1,4 +1,4 @@
-module View.Molecule.Card exposing (view)
+module View.Atom.Card exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)

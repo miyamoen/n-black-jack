@@ -2,11 +2,12 @@ module Stories.Molecule.Cards exposing (viewStories)
 
 import Element exposing (Element)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol)
-import Styles.Types exposing (Styles, Variation)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
+import Types.Styles exposing (Styles, Variation)
+import Types.Styles.Cards exposing (Align(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.Cards as Cards exposing (Align(..))
+import View.Molecule.Cards as Cards exposing (Config)
 
 
 cards : List Card
@@ -14,19 +15,23 @@ cards =
     [ Card Spade Ace Up, Card Club Ten Up, Card Heart Four Up ]
 
 
-view : Align -> Element Styles Variation msg
-view align =
-    Cards.view align cards
+view : Config a -> Element Styles Variation msg
+view config =
+    Cards.view config cards
 
 
-stories : List ( String, Align )
+stories : List ( String, Config {} )
 stories =
-    [ "Slanting" => Slanting
-    , "Horizontal" => Horizontal
-    , "Vertical" => Vertical
-    , "Folding" => Folding
+    [ "Slanting" => { align = Slanting }
+    , "Horizontal" => { align = Horizontal }
+    , "Vertical" => { align = Vertical }
+    , "Folding" => { align = Folding }
     ]
 
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories

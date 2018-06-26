@@ -1,21 +1,19 @@
-module View.Molecule.Cards exposing (Align(..), view)
+module View.Molecule.Cards exposing (Config, view)
 
 import Element exposing (..)
 import Element.Attributes exposing (height, moveRight, moveUp, px, width)
-import Styles.Types exposing (Styles(..), Variation)
 import Types exposing (Card)
+import Types.Styles exposing (RootElement, Styles(..))
+import Types.Styles.Cards exposing (Align(..))
 import View.Atom.Card as Card
 
 
-type Align
-    = Slanting
-    | Vertical
-    | Horizontal
-    | Folding
+type alias Config a =
+    { a | align : Align }
 
 
-view : Align -> List Card -> Element Styles Variation msg
-view align cards =
+view : Config a -> List Card -> RootElement msg
+view { align } cards =
     let
         ( dRight, dUp ) =
             case align of
