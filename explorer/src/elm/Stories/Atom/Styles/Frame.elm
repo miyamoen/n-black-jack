@@ -1,11 +1,11 @@
-module Stories.Atom.Frame exposing (viewStories)
+module Stories.Atom.Styles.Frame exposing (viewStories)
 
 import Color.Pallet exposing (Shade, shades)
 import Element exposing (Element, el, empty)
 import Element.Attributes exposing (..)
 import List.Extra exposing (lift2)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtml, fromStories)
+import Stories.Utils exposing (fromStories, toHtml)
 import Types.Styles as Root exposing (Styles(..), Variation(..))
 import Types.Styles.Frame exposing (Shape(..), Variation(..))
 import UIExplorer exposing (renderStories)

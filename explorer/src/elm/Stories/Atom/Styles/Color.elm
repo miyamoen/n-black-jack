@@ -1,4 +1,4 @@
-module Stories.Atom.Color exposing (viewStories)
+module Stories.Atom.Styles.Color exposing (viewStories)
 
 import Color exposing (Color)
 import Color.Chip as Chip

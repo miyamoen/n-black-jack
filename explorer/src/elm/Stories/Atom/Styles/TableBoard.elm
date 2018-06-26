@@ -1,9 +1,9 @@
-module Stories.Atom.TableBoard exposing (viewStories)
+module Stories.Atom.Styles.TableBoard exposing (viewStories)
 
 import Element exposing (Element, el, empty)
 import Element.Attributes exposing (height, px, width)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtml, fromStories)
+import Stories.Utils exposing (fromStories, toHtml)
 import Types.Styles exposing (Styles(TableBoard))
 import UIExplorer exposing (renderStories)
 

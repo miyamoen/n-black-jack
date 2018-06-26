@@ -1,4 +1,4 @@
-module View.Atom.Modal exposing (view)
+module View.Atom.Layout.Modal exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)

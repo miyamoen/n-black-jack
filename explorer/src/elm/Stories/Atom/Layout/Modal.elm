@@ -1,13 +1,13 @@
-module Stories.Atom.Modal exposing (viewStories)
+module Stories.Atom.Layout.Modal exposing (viewStories)
 
 import Color.Pallet exposing (..)
 import Element exposing (Element, empty, text)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtml, fromStories)
+import Stories.Utils exposing (fromStories, toHtml)
 import Types.Styles exposing (RootElement)
 import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Atom.Modal exposing (view)
+import View.Atom.Layout.Modal exposing (view)
 import View.Atom.Text as Text
 
 

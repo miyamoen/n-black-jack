@@ -3,13 +3,13 @@ module Stories.Atom exposing (..)
 import Stories.Atom.Avatar as Avatar
 import Stories.Atom.Button as Button
 import Stories.Atom.Button.WithLabel as ButtonWithLabel
-import Stories.Atom.Color as Color
-import Stories.Atom.Frame as Frame
 import Stories.Atom.Icon as Icon
-import Stories.Atom.Modal as Modal
+import Stories.Atom.Layout.Modal as Modal
 import Stories.Atom.Selector as Selector
+import Stories.Atom.Styles.Color as Color
+import Stories.Atom.Styles.Frame as Frame
+import Stories.Atom.Styles.TableBoard as TableBoard
 import Stories.Atom.Symbol as Symbol
-import Stories.Atom.TableBoard as TableBoard
 import Stories.Atom.Text as Text
 import Stories.Atom.Text.OnTable as TextOnTable
 import Stories.Utils exposing (fromUIs)
