@@ -2,7 +2,7 @@ module Stories.Molecule.Text.Chip exposing (viewStories)
 
 import Color.Pallet exposing (Pallet(Black))
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol, fromStories)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types.Styles.Text exposing (Size(Medium), sizes)
 import UIExplorer exposing (renderStories)
 import View.Molecule.Text.Chip exposing (Config, view)
@@ -25,7 +25,7 @@ stories =
 
 default : Size -> Config {}
 default size =
-    { size = size, pallet = Black, onTable = False }
+    { size = size, pallet = Just Black, onTable = False }
 
 
 viewStories =
