@@ -1,7 +1,7 @@
 module Stories.Molecule.Button.Chip exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtml, fromStories)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types.Styles.Button exposing (..)
 import UIExplorer exposing (renderStories)
 import View.Molecule.Button.Chip exposing (view)
@@ -20,7 +20,7 @@ stories =
 
 
 viewStories =
-    renderStories (uncurry view >> toHtml) stories
+    renderStories (uncurry view >> toHtmlWithSymbol) stories
 
 
 main =

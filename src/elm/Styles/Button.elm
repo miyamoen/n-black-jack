@@ -36,6 +36,7 @@ styles =
         , style (Button Disable) <|
             [ Filter.brightness 80
             , Border.rounded 5
+            , Color.background <| Color.rgba 0 0 0 0
             ]
                 ++ bgColors
         ]

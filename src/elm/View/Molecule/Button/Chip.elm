@@ -9,5 +9,5 @@ import View.Molecule.Chip as Chip
 
 view : State -> Int -> Element Styles Variation msg
 view state price =
-    Button.view { pallet = Nothing } state <|
+    Button.view { bgPallet = Nothing } state <|
         Chip.view price
