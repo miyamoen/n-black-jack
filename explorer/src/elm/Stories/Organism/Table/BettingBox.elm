@@ -1,9 +1,9 @@
-module Stories.Molecule.ChipBox exposing (viewStories)
+module Stories.Organism.Table.BettingBox exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import UIExplorer exposing (renderStories)
-import View.Molecule.ChipBox exposing (view)
+import View.Organism.Table.BettingBox exposing (view)
 
 
 stories : List ( String, Maybe Int )
@@ -22,3 +22,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories

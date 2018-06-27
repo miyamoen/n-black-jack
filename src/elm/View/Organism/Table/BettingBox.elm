@@ -1,13 +1,14 @@
-module View.Molecule.ChipBox exposing (view)
+module View.Organism.Table.BettingBox exposing (view)
 
-import Colors exposing (Shade(..))
+import Color.Pallet exposing (Shade(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (..)
-import View.Atom.Chip as Chip
+import Types.Styles exposing (..)
+import Types.Styles.Frame exposing (..)
+import View.Molecule.Chip as Chip
 
 
-view : Maybe Int -> Element Styles Variation msg
+view : Maybe Int -> RootElement msg
 view mPrice =
     case mPrice of
         Just price ->
@@ -20,11 +21,11 @@ view mPrice =
             circle Darken1 empty
 
 
-circle : Shade -> Element Styles Variation msg -> Element Styles Variation msg
+circle : Shade -> RootElement msg -> RootElement msg
 circle shade content =
     column Frame
         [ vary (ShadeVar shade) True
-        , vary (ShapeVar Circle) True
+        , vary (FrameVar <| ShapeVar Circle) True
         , width <| px 100
         , height <| px 100
         , center

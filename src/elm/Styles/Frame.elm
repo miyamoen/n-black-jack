@@ -11,7 +11,7 @@ import Types.Styles.Frame exposing (..)
 styles : Style Styles Root.Variation
 styles =
     style Frame <|
-        [ Border.all 5
+        [ Border.all 3
         , Border.rounded 10
         , Border.dashed
         , Color.border <| Pallet.color_ Orange Main
