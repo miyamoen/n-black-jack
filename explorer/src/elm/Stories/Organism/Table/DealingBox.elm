@@ -1,15 +1,10 @@
-module Stories.Molecule.CardBox exposing (viewStories)
+module Stories.Organism.Table.DealingBox exposing (viewStories)
 
 import Stories.Dummy as Dummy
-import Stories.Utils exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.CardBox exposing (view)
-
-
-cards : List Card
-cards =
-    [ Card Spade Ace Up, Card Club Ten Up, Card Heart Four Up ]
+import View.Organism.Table.DealingBox exposing (view)
 
 
 stories : List ( String, List Card )
@@ -19,3 +14,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories

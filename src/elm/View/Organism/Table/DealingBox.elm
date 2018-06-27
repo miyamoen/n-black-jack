@@ -1,16 +1,19 @@
-module View.Molecule.CardBox exposing (view)
+module View.Organism.Table.DealingBox exposing (view)
 
-import Colors exposing (Hue(Orange), Shade(..))
+import Color.Pallet exposing (..)
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (..)
+import Model.Card exposing (point)
 import Types exposing (Card, Point(..))
-import Types.Card exposing (point)
-import View.Atom.PointLabel as PointLabel exposing (pointLabelDefault)
-import View.Molecule.Cards as Cards exposing (Align(..))
+import Types.Styles exposing (..)
+import Types.Styles.Cards exposing (..)
+import Types.Styles.Text exposing (..)
+import View.Atom.Text as Text
+import View.Molecule.Cards as Cards
+import View.Molecule.Text.Point as Point
 
 
-view : List Card -> Element Styles Variation msg
+view : List Card -> RootElement msg
 view cards =
     case cards of
         [] ->
@@ -21,21 +24,17 @@ view cards =
                 (Cards.view
                     (case point cards of
                         Bust ->
-                            Folding
+                            { align = Folding }
 
                         _ ->
-                            Slanting
+                            { align = Slanting }
                     )
                     cards
                 )
-                (PointLabel.view pointLabelDefault cards)
+                (Point.view textConfig cards)
 
 
-layout :
-    Shade
-    -> Element Styles Variation msg
-    -> Element Styles Variation msg
-    -> Element Styles Variation msg
+layout : Shade -> RootElement msg -> RootElement msg -> RootElement msg
 layout shade cardsView pointLabelView =
     column None
         [ center, width <| px 100 ]
@@ -51,3 +50,14 @@ layout shade cardsView pointLabelView =
             [ height <| px 40, verticalCenter ]
             [ pointLabelView ]
         ]
+
+
+textConfig : Text.Config {}
+textConfig =
+    { style = BoldItaric
+    , size = Medium
+    , line = OneLine
+    , align = Center
+    , pallet = Just <| Pallet Orange Lighten1
+    , onTable = True
+    }

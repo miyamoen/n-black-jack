@@ -3,6 +3,7 @@ module Stories.Atom exposing (..)
 import Stories.Atom.Avatar as Avatar
 import Stories.Atom.Button as Button
 import Stories.Atom.Button.WithLabel as ButtonWithLabel
+import Stories.Atom.Card as Card
 import Stories.Atom.Icon as Icon
 import Stories.Atom.Layout.Modal as Modal
 import Stories.Atom.Selector as Selector
@@ -23,6 +24,7 @@ uiCategory =
     , createUI "TableBoard" TableBoard.viewStories
     , createUI "Modal" Modal.viewStories
     , createUI "Symbol" Symbol.viewStories
+    , createUI "Card" Card.viewStories
     , createUI "Text" Text.viewStories
     , createUI "TextOnTable" TextOnTable.viewStories
     , createUI "Button" Button.viewStories
