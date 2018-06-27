@@ -1,10 +1,10 @@
-module Stories.Molecule.DealerHand exposing (viewStories)
+module Stories.Molecule.Cards.Dealer exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.DealerHand exposing (view)
+import View.Molecule.Cards.Dealer exposing (view)
 
 
 cards : List Card
@@ -16,11 +16,7 @@ stories : List ( String, List Card )
 stories =
     [ "Empty" => []
     , "One" => [ Card Spade Ace Up ]
-    , "FaceDown"
-        => [ Card Spade Ten Down
-           , Card Spade King Up
-           ]
-    , "BlackJack" => [ Card Spade Ace Up, Card Spade Ten Up ]
+    , "BlackJack" => [ Card Spade Ten Up, Card Spade Ace Up ]
     , "TwentyOne"
         => [ Card Spade Ace Up
            , Card Spade Ten Up
@@ -81,3 +77,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories
