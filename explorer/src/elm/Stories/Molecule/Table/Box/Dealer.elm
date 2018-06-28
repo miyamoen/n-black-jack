@@ -1,15 +1,10 @@
-module Stories.Organism.DealerField exposing (viewStories)
+module Stories.Molecule.Table.Box.Dealer exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (Card, Dealer, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Organism.DealerField exposing (view)
-
-
-cards : List Card
-cards =
-    [ Card Spade Ace Up, Card Club Ten Up, Card Heart Four Up ]
+import View.Molecule.Table.Box.Dealer exposing (view)
 
 
 stories : List ( String, Dealer )
@@ -85,7 +80,7 @@ stories =
                 , Card Spade Six Up
                 ]
            }
-    , "Seven}"
+    , "Seven"
         => { cards =
                 [ Card Spade Ace Up
                 , Card Heart Ace Up
@@ -101,3 +96,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories

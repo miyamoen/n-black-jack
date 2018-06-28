@@ -1,4 +1,4 @@
-module View.Organism.Table.DealingBox exposing (view)
+module View.Molecule.Table.Box.Dealing exposing (view)
 
 import Color.Pallet exposing (..)
 import Element exposing (..)

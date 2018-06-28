@@ -1,4 +1,4 @@
-module View.Organism.Table.BettingBox exposing (view)
+module View.Molecule.Table.Box.Betting exposing (view)
 
 import Color.Pallet exposing (Shade(..))
 import Element exposing (..)
