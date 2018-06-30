@@ -23,7 +23,7 @@ type Styles
     | AccountCard
     | Avatar
     | Selector Selector.State
-    | TableBoard
+    | Board
     | ModalBack
 
 

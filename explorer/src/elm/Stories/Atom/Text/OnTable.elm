@@ -2,7 +2,7 @@ module Stories.Atom.Text.OnTable exposing (viewStories)
 
 import Element exposing (el)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtml, fromStories)
+import Stories.Utils exposing (fromStories, toHtml)
 import Types.Styles exposing (..)
 import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
@@ -11,7 +11,7 @@ import View.Atom.Text.OnTable as TextOnTable exposing (Config, view)
 
 view : () -> RootElement msg
 view _ =
-    el TableBoard [] <| TextOnTable.view default "Black Jack"
+    el Board [] <| TextOnTable.view default "Black Jack"
 
 
 default : Config {}

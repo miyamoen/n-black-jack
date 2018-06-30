@@ -7,6 +7,7 @@ import Style.Background as Background
 import Style.Border as Border
 import Style.Color as Color
 import Style.Shadow as Shadow
+import Styles.Board as Board
 import Styles.Button as Button
 import Styles.Frame as Frame
 import Styles.Selector as Selector
@@ -40,15 +41,7 @@ styleSheet =
             , Color.border <| Pallet.color Pallet.White
             , Color.background <| Pallet.color Pallet.White
             ]
-        , style TableBoard
-            [ Color.background <| Pallet.color_ Pallet.Green Pallet.Main
-            , Background.imageWith
-                { src = "./argyle.png"
-                , position = ( 0, 0 )
-                , repeat = Background.repeat
-                , size = Background.natural
-                }
-            ]
+        , Board.styles
         , style ModalBack [ Color.background <| Color.rgba 0 0 0 0.3 ]
         ]
 
