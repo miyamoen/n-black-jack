@@ -48,7 +48,7 @@ type Phase
 type alias TableInfo =
     { id : TableId
     , name : String
-    , betLimit : BetLimit
+    , betLimit : Limit
     , bases : Int
     , presence : Int
     }
@@ -56,7 +56,7 @@ type alias TableInfo =
 
 type alias Table =
     { id : TableId
-    , betLimit : BetLimit
+    , betLimit : Limit
     , dealer : Dealer
     , me : Player
     , bases : Bases
@@ -74,7 +74,7 @@ type Bases
         }
 
 
-type alias BetLimit =
+type alias Limit =
     { min : Int, max : Int }
 
 

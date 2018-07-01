@@ -41,6 +41,6 @@ type alias CreateTable =
 
 type alias TableInfo =
     { name : String
-    , betLimit : BetLimit
+    , betLimit : Limit
     , baseNumber : Int
     }
