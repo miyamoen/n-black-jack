@@ -1,15 +1,15 @@
-module View.Organism.PlayerField exposing (view)
+module View.Organism.Table.Base exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Styles.Types exposing (..)
 import Types exposing (Player)
-import View.Molecule.AvatarWithLabel as AvatarWithLabel
-import View.Molecule.CardBox as CardBox
-import View.Molecule.ChipBox as ChipBox
+import Types.Styles exposing (..)
+import View.Molecule.Avatar.WithLabel as Avatar
+import View.Molecule.Table.Box.Betting as BettingBox
+import View.Molecule.Table.Box.Dealing as DealingBox
 
 
-view : Maybe Player -> Element Styles Variation msg
+view : Maybe Player -> RootElement msg
 view player =
     column None
         [ spacing 20
@@ -19,11 +19,11 @@ view player =
         [ player
             |> Maybe.map .cards
             |> Maybe.withDefault []
-            |> CardBox.view
+            |> DealingBox.view
         , player
             |> Maybe.andThen .bet
-            |> ChipBox.view
+            |> BettingBox.view
         , player
-            |> Maybe.map (.account >> AvatarWithLabel.view)
+            |> Maybe.map (.account >> Avatar.view)
             |> Maybe.withDefault empty
         ]

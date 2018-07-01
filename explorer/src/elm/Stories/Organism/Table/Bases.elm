@@ -1,10 +1,10 @@
-module Stories.Organism.Bases exposing (viewStories)
+module Stories.Organism.Table.Bases exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Organism.Bases exposing (Show, view)
+import View.Organism.Table.Bases exposing (Show, view)
 
 
 noName : Maybe Seating
@@ -80,3 +80,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories

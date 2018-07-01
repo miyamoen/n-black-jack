@@ -1,11 +1,11 @@
-module Stories.Organism.PlayerField exposing (viewStories)
+module Stories.Organism.Table.Base exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Dummy exposing (accounts, cards)
-import Stories.Utils exposing (toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (Player)
 import UIExplorer exposing (renderStories)
-import View.Organism.PlayerField exposing (view)
+import View.Organism.Table.Base exposing (view)
 
 
 stories : List ( String, Maybe Player )
@@ -29,3 +29,7 @@ stories =
 
 viewStories =
     renderStories (view >> toHtmlWithSymbol) stories
+
+
+main =
+    fromStories viewStories
