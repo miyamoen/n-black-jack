@@ -16,9 +16,7 @@ view : Config a -> State -> RootElement msg -> RootElement msg
 view { bgPallet } state element =
     node "button" <|
         row (Button state)
-            [ padding 10
-            , center
-            , verticalCenter
+            [ padding 5
             , maybeVary PalletVar bgPallet
             ]
             [ element ]

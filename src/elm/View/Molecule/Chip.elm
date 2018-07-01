@@ -25,7 +25,7 @@ view price =
             ]
         |> within
             [ el None [ center, verticalCenter ] <|
-                Text.view textConfig <|
+                Text.view (textConfig price) <|
                     toString price
             ]
 
@@ -50,22 +50,28 @@ pallet price =
 
 size : Int -> number
 size price =
-    if price <= 0 then
-        100
-    else if price < 5 then
+    if 0 < price && price < 5 then
         60
-    else if price < 100 then
-        80
-    else if price < 1000 then
-        100
     else
-        120
+        80
 
 
-textConfig : Text.Config {}
-textConfig =
+textSize : Int -> Size
+textSize price =
+    if price <= 0 then
+        Tiny
+    else if 0 < price && price < 100 then
+        Normal
+    else if price < 1000 then
+        Small
+    else
+        Tiny
+
+
+textConfig : Int -> Text.Config {}
+textConfig price =
     { style = RegularItaric
-    , size = Normal
+    , size = textSize price
     , align = Center
     , line = OneLine
     , pallet = Just <| Pallet Mono Darken2
