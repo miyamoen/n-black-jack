@@ -1,9 +1,22 @@
-module PushableData exposing (..)
+module PushableData
+    exposing
+        ( PushableData(..)
+        , isPushable
+        , isResetable
+        , local
+        , pushValue
+        , remote
+        , reset
+        , resetValue
+        )
 
 
 type PushableData data error
-    = NotPushed data
-    | FirstPushing { local : data, pushing : data }
+    = NotPushed { local : data, previous : data }
+    | FirstPushing
+        { local : data
+        , pushing : data
+        }
     | FirstFailure
         { local : data
         , failed : data
@@ -30,11 +43,15 @@ type PushableData data error
     | Previous data
 
 
+
+-- get
+
+
 local : PushableData data error -> data
 local pushable =
     case pushable of
-        NotPushed data ->
-            data
+        NotPushed { local } ->
+            local
 
         FirstPushing { local } ->
             local
@@ -92,11 +109,15 @@ remote pushable =
             Nothing
 
 
+
+-- update
+
+
 update : (data -> data) -> PushableData data error -> PushableData data error
 update func pushable =
     case pushable of
-        NotPushed data ->
-            NotPushed <| func data
+        NotPushed record ->
+            NotPushed { record | local = func record.local }
 
         FirstPushing record ->
             FirstPushing { record | local = func record.local }
@@ -126,3 +147,104 @@ update func pushable =
 replace : data -> PushableData data error -> PushableData data error
 replace data pushable =
     update (always data) pushable
+
+
+
+-- reset
+
+
+resetValue : PushableData data error -> Maybe data
+resetValue pushable =
+    case pushable of
+        NotPushed { local, previous } ->
+            notEqualValue local [ previous ]
+
+        FirstPushing { local, pushing } ->
+            notEqualValue local [ pushing ]
+
+        FirstFailure { local, failed } ->
+            notEqualValue local [ failed ]
+
+        Pushing { local, remote, pushing } ->
+            notEqualValue local [ pushing, remote ]
+
+        Failure { local, remote, failed } ->
+            notEqualValue local [ failed, remote ]
+
+        Pushed { local, remote } ->
+            notEqualValue local [ remote ]
+
+        Deleting { local, remote } ->
+            notEqualValue local [ remote ]
+
+        DeleteFailure { local, remote } ->
+            notEqualValue local [ remote ]
+
+        Previous data ->
+            Nothing
+
+
+isResetable : PushableData data error -> Bool
+isResetable pushable =
+    resetValue pushable
+        |> Maybe.map (always True)
+        |> Maybe.withDefault False
+
+
+reset : PushableData data error -> PushableData data error
+reset pushable =
+    resetValue pushable
+        |> Maybe.withDefault (local pushable)
+        |> (\val -> replace val pushable)
+
+
+
+-- push
+
+
+pushValue : PushableData data error -> Maybe data
+pushValue pushable =
+    case pushable of
+        NotPushed { local } ->
+            Just local
+
+        FirstPushing { local, pushing } ->
+            notEqualValue pushing [ local ]
+
+        FirstFailure { local, failed } ->
+            Just local
+
+        Pushing { local, pushing } ->
+            notEqualValue pushing [ local ]
+
+        Failure { local, remote, failed } ->
+            notEqualValue remote [ local ]
+
+        Pushed { local, remote } ->
+            notEqualValue remote [ local ]
+
+        Deleting { local } ->
+            Just local
+
+        DeleteFailure { local, remote } ->
+            notEqualValue remote [ local ]
+
+        Previous data ->
+            Nothing
+
+
+isPushable : PushableData data error -> Bool
+isPushable pushable =
+    pushValue pushable
+        |> Maybe.map (always True)
+        |> Maybe.withDefault False
+
+
+
+-- helper
+
+
+notEqualValue : a -> List a -> Maybe a
+notEqualValue pivot values =
+    List.filter ((==) pivot) values
+        |> List.head
