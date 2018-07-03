@@ -1,18 +1,21 @@
 module Stories.Organism exposing (..)
 
-import Stories.Organism.Bases as Bases
-import Stories.Organism.BetSelector as BetSelector
-import Stories.Organism.DealerField as DealerField
-import Stories.Organism.PlayerField as PlayerField
+import Stories.Organism.Betting as Betting
 import Stories.Organism.Table as Table
+import Stories.Organism.Table.Base as Base
+import Stories.Organism.Table.Bases as Bases
+import Stories.Utils exposing (fromUIs)
 import UIExplorer exposing (UI, createUI)
 
 
 uiCategory : List UI
 uiCategory =
-    [ createUI "PlayerField" PlayerField.viewStories
+    [ createUI "Base" Base.viewStories
     , createUI "Bases" Bases.viewStories
-    , createUI "BetSelector" BetSelector.viewStories
-    , createUI "DealerField" DealerField.viewStories
+    , createUI "Betting" Betting.viewStories
     , createUI "Table" Table.viewStories
     ]
+
+
+main =
+    fromUIs uiCategory

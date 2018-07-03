@@ -1,5 +1,6 @@
 module View.Organism.Betting exposing (Data, view)
 
+import Color.Pallet exposing (Hue(..))
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import PushableData as PD exposing (PushableData)
@@ -21,8 +22,8 @@ type alias Data a =
 
 view : Data a -> RootElement msg
 view data =
-    row None
-        []
+    row Board
+        [ vary (HueVar Orange) True ]
         [ column None
             [ alignLeft ]
             [ Reset.view data
