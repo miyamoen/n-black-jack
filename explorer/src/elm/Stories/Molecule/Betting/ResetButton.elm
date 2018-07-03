@@ -2,7 +2,7 @@ module Stories.Molecule.Betting.ResetButton exposing (viewStories)
 
 import PushableData as PD exposing (PushableData)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
+import Stories.Utils exposing (fromStories, toHtml)
 import UIExplorer exposing (renderStories)
 import View.Molecule.Betting.ResetButton exposing (Data, view)
 
@@ -28,7 +28,7 @@ stories =
 
 
 viewStories =
-    renderStories (view >> toHtmlWithSymbol) stories
+    renderStories (view >> toHtml) stories
 
 
 main =
