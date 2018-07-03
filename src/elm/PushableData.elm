@@ -246,5 +246,5 @@ isPushable pushable =
 
 notEqualValue : a -> List a -> Maybe a
 notEqualValue pivot values =
-    List.filter ((==) pivot) values
+    List.filter ((/=) pivot) values
         |> List.head

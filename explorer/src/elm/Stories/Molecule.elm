@@ -4,6 +4,7 @@ import Stories.Molecule.Avatar as Avatar
 import Stories.Molecule.Avatar.WithLabel as AvatarWithLabel
 import Stories.Molecule.Betting.Button as BettingButton
 import Stories.Molecule.Betting.Buttons as BettingButtons
+import Stories.Molecule.Betting.ResetButton as BettingResetButton
 import Stories.Molecule.Button.Chip as ChipButton
 import Stories.Molecule.Cards as Cards
 import Stories.Molecule.Cards.Dealer as DealerCards
@@ -34,6 +35,7 @@ uiCategory =
     , createUI "DealerBox" DealerBox.viewStories
     , createUI "BettingButton" BettingButton.viewStories
     , createUI "BettingButtons" BettingButtons.viewStories
+    , createUI "BettingResetButton" BettingResetButton.viewStories
     ]
 
 

@@ -29,7 +29,7 @@ color pallet =
             rgb 30 30 30
 
         White ->
-            rgb 225 225 225
+            rgb 235 235 235
 
         Pallet Mono Main ->
             rgb 157 157 157

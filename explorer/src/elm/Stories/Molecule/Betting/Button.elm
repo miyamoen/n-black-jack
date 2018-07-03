@@ -12,17 +12,17 @@ stories =
     [ "default"
         => { price = 5
            , bettingLimit = { max = 20, min = 1 }
-           , betting = PD.NotPushed 5
+           , betting = PD.NotPushed { local = 5, previous = 20 }
            }
     , "Enable"
         => { price = 5
            , bettingLimit = { max = 20, min = 1 }
-           , betting = PD.NotPushed 15
+           , betting = PD.NotPushed { local = 15, previous = 20 }
            }
     , "Disable"
         => { price = 5
            , bettingLimit = { max = 20, min = 1 }
-           , betting = PD.NotPushed 17
+           , betting = PD.NotPushed { local = 17, previous = 20 }
            }
     ]
 
