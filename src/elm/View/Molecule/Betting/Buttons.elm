@@ -16,7 +16,7 @@ type alias Data a =
     }
 
 
-view : Data a -> Element Styles Variation msg
+view : Data a -> RootElement msg
 view { bettingLimit, betting } =
     availablePrices bettingLimit
         |> List.map
