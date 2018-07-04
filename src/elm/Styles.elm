@@ -3,7 +3,6 @@ module Styles exposing (styleSheet)
 import Color
 import Color.Pallet as Pallet
 import Style exposing (..)
-import Style.Background as Background
 import Style.Border as Border
 import Style.Color as Color
 import Style.Shadow as Shadow
@@ -25,7 +24,6 @@ styleSheet =
         , Symbol.styles
         , Button.styles
         , Selector.styles
-        , iconStyles
         , style AccountCard
             [ Shadow.box
                 { offset = ( 0, 1 )
@@ -44,14 +42,3 @@ styleSheet =
         , Board.styles
         , style ModalBack [ Color.background <| Color.rgba 0 0 0 0.3 ]
         ]
-
-
-iconStyles : Style Styles Variation
-iconStyles =
-    style Icon <|
-        List.map
-            (\pallet ->
-                variation (PalletVar pallet)
-                    [ Color.text <| Pallet.color pallet ]
-            )
-            Pallet.pallets

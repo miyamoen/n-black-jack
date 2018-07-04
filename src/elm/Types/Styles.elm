@@ -19,7 +19,6 @@ type Styles
     | Text
     | Symbol
     | Button Button.State
-    | Icon
     | AccountCard
     | Avatar
     | Selector Selector.State

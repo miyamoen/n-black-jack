@@ -18,7 +18,7 @@ type alias Config a =
 
 view : Config a -> Icon -> RootElement msg
 view { options, pallet } icon =
-    el Styles.Icon [ vary (PalletVar pallet) True ] <|
+    el Text [ vary (PalletVar pallet) True ] <|
         html <|
             Html.Keyed.node "div"
                 []
