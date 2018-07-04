@@ -23,7 +23,7 @@ type alias Data a =
 view : Data a -> RootElement msg
 view data =
     row Board
-        [ vary (HueVar Orange) True ]
+        [ vary (HueVar Orange) True, width content ]
         [ column None
             [ alignLeft ]
             [ Reset.view data

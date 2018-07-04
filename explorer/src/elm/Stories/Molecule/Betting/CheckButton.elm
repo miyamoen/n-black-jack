@@ -16,8 +16,8 @@ stories =
            }
     , "SameDisable"
         => { betting =
-                PD.NotPushed
-                    { local = 20, previous = 20 }
+                PD.Pushing
+                    { local = 20, pushing = 20, remote = 10 }
            }
     , "Disable"
         => { betting =

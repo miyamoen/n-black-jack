@@ -36,9 +36,9 @@ state { betting } =
 
 buttonConfig : Button.Config {}
 buttonConfig =
-    { bgPallet = Just <| Pallet Blue Main
+    { bgPallet = Just <| Pallet Blue Lighten2
     , icon = Just <| FA.redo
     , pallet = Just <| White
-    , size = Normal
+    , size = Tiny
     , style = Regular
     }

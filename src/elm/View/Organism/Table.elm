@@ -9,7 +9,7 @@ import View.Molecule.Text.TableRule as TableRule
 import View.Organism.Table.Bases as Bases
 
 
-view : Table -> Element Styles Variation msg
+view : Table -> RootElement msg
 view ({ id, betLimit, dealer, me, bases, phase } as table) =
     column Board
         [ center

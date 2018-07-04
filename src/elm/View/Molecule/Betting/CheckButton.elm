@@ -29,7 +29,7 @@ state { betting } =
 
 buttonConfig : Button.Config {}
 buttonConfig =
-    { bgPallet = Nothing
+    { bgPallet = Just White
     , icon = Just <| FA.checkCircle
     , pallet = Just <| Pallet Green Lighten2
     , size = Normal
