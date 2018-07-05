@@ -1,7 +1,7 @@
 module Stories.Atom exposing (..)
 
 import Stories.Atom.Avatar as Avatar
-import Stories.Atom.Button.WithLabel as ButtonWithLabel
+import Stories.Atom.Button as Button
 import Stories.Atom.Card as Card
 import Stories.Atom.Clickable as Clickable
 import Stories.Atom.Icon as Icon
@@ -29,7 +29,7 @@ uiCategory =
     , createUI "Text" Text.viewStories
     , createUI "TextOnTable" TextOnTable.viewStories
     , createUI "Clickable" Clickable.viewStories
-    , createUI "ButtonWithLabel" ButtonWithLabel.viewStories
+    , createUI "Button" Button.viewStories
     , createUI "Selector" Selector.viewStories
     , createUI "Avatar" Avatar.viewStories
     , createUI "Icon" Icon.viewStories

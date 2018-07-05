@@ -1,4 +1,4 @@
-module View.Atom.Button.WithLabel exposing (Config, view)
+module View.Atom.Button exposing (Config, view)
 
 import Color.Pallet exposing (..)
 import Element exposing (..)

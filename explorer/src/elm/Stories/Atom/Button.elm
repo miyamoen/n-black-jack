@@ -1,4 +1,4 @@
-module Stories.Atom.Button.WithLabel exposing (viewStories)
+module Stories.Atom.Button exposing (viewStories)
 
 import Color.Pallet exposing (..)
 import FontAwesome as FA exposing (Icon)
@@ -8,7 +8,7 @@ import Types.Styles exposing (RootElement)
 import Types.Styles.Clickable exposing (State(..))
 import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Atom.Button.WithLabel as Button exposing (Config)
+import View.Atom.Button as Button exposing (Config)
 
 
 view : ( Config a, State, String ) -> RootElement msg
