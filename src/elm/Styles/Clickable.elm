@@ -1,4 +1,4 @@
-module Styles.Button exposing (styles)
+module Styles.Clickable exposing (styles)
 
 import Color
 import Color.Pallet as Pallet exposing (Hue(Mono), Shade(..))
@@ -10,13 +10,13 @@ import Style.Shadow as Shadow
 import Style.Sheet as Sheet
 import Style.Transition as Transition
 import Types.Styles exposing (..)
-import Types.Styles.Button exposing (..)
+import Types.Styles.Clickable exposing (..)
 
 
 styles : Style Styles Variation
 styles =
     Sheet.mix
-        [ style (Button Enable) <|
+        [ style (Clickable Enable) <|
             [ cursor "pointer"
             , Border.rounded 5
             , Color.background <| Color.rgba 0 0 0 0
@@ -33,7 +33,7 @@ styles =
                 ]
             ]
                 ++ bgColors
-        , style (Button Disable) <|
+        , style (Clickable Disable) <|
             [ Filter.brightness 80
             , Border.rounded 5
             , Color.background <| Color.rgba 0 0 0 0

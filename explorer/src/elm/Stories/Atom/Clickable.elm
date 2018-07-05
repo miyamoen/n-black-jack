@@ -1,18 +1,18 @@
-module Stories.Atom.Button exposing (viewStories)
+module Stories.Atom.Clickable exposing (viewStories)
 
 import Color.Pallet exposing (..)
 import Element exposing (..)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtml, fromStories)
+import Stories.Utils exposing (fromStories, toHtml)
 import Types.Styles exposing (RootElement)
-import Types.Styles.Button exposing (State(..))
+import Types.Styles.Clickable exposing (State(..))
 import UIExplorer exposing (renderStories)
-import View.Atom.Button as Button exposing (Config)
+import View.Atom.Clickable as Clickable exposing (Config)
 
 
 view : ( Config a, State, RootElement msg ) -> RootElement msg
 view ( config, state, element ) =
-    Button.view config state element
+    Clickable.view config state element
 
 
 stories : List ( String, ( Config {}, State, RootElement msg ) )

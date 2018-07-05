@@ -1,11 +1,10 @@
-module View.Atom.Button exposing (Config, view)
+module View.Atom.Clickable exposing (Config, view)
 
 import Color.Pallet exposing (Pallet)
 import Element exposing (..)
-import Element.Attributes exposing (..)
 import Element.Utils exposing (maybeVary)
 import Types.Styles exposing (..)
-import Types.Styles.Button exposing (..)
+import Types.Styles.Clickable exposing (..)
 
 
 type alias Config a =
@@ -15,8 +14,6 @@ type alias Config a =
 view : Config a -> State -> RootElement msg -> RootElement msg
 view { bgPallet } state element =
     node "button" <|
-        row (Button state)
-            [ padding 5
-            , maybeVary PalletVar bgPallet
-            ]
+        row (Clickable state)
+            [ maybeVary PalletVar bgPallet ]
             [ element ]

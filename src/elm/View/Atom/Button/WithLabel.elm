@@ -5,9 +5,9 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import FontAwesome exposing (Icon)
 import Types.Styles exposing (..)
-import Types.Styles.Button exposing (..)
+import Types.Styles.Clickable exposing (..)
 import Types.Styles.Text exposing (..)
-import View.Atom.Button as Button
+import View.Atom.Clickable as Clickable
 import View.Atom.Icon as Icon
 import View.Atom.Text as Text
 
@@ -24,12 +24,10 @@ type alias Config a =
 
 view : Config a -> State -> String -> RootElement msg
 view ({ pallet, icon } as config) state label =
-    Button.view config state <|
+    Clickable.view config state <|
         row None
             [ spacing 10
-
-            -- ,center
-            -- , verticalCenter
+            , padding 5
             ]
             [ icon
                 |> Maybe.map

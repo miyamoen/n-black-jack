@@ -7,7 +7,7 @@ import Style.Border as Border
 import Style.Color as Color
 import Style.Shadow as Shadow
 import Styles.Board as Board
-import Styles.Button as Button
+import Styles.Clickable as Clickable
 import Styles.Frame as Frame
 import Styles.Selector as Selector
 import Styles.Symbol as Symbol
@@ -22,7 +22,7 @@ styleSheet =
         , Frame.styles
         , Text.styles
         , Symbol.styles
-        , Button.styles
+        , Clickable.styles
         , Selector.styles
         , style AccountCard
             [ Shadow.box

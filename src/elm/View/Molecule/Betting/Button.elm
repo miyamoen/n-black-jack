@@ -5,7 +5,7 @@ import PushableData as PD exposing (PushableData)
 import Types exposing (Limit)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
-import Types.Styles.Button exposing (..)
+import Types.Styles.Clickable exposing (..)
 import View.Molecule.Button.Chip as ChipButton
 
 

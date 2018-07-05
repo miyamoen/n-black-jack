@@ -5,7 +5,7 @@ import FontAwesome as FA
 import PushableData as PD exposing (PushableData)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
-import Types.Styles.Button exposing (..)
+import Types.Styles.Clickable exposing (..)
 import Types.Styles.Text exposing (..)
 import View.Atom.Button.WithLabel as Button
 
