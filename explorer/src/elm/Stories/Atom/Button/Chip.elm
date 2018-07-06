@@ -1,10 +1,10 @@
-module Stories.Molecule.Button.Chip exposing (viewStories)
+module Stories.Atom.Button.Chip exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types.Styles.Clickable exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Molecule.Button.Chip exposing (view)
+import View.Atom.Button.Chip exposing (view)
 
 
 stories : List ( String, ( State, Int ) )

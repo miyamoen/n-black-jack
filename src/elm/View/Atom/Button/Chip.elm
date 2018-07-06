@@ -1,9 +1,9 @@
-module View.Molecule.Button.Chip exposing (view)
+module View.Atom.Button.Chip exposing (view)
 
 import Types.Styles exposing (..)
 import Types.Styles.Clickable exposing (..)
+import View.Atom.Chip as Chip
 import View.Atom.Clickable as Clickable
-import View.Molecule.Chip as Chip
 
 
 view : State -> Int -> RootElement msg

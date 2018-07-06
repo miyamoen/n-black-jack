@@ -5,7 +5,7 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import Types.Styles exposing (..)
 import Types.Styles.Frame exposing (..)
-import View.Molecule.Chip as Chip
+import View.Atom.Chip as Chip
 
 
 view : Maybe Int -> RootElement msg

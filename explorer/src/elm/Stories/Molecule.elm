@@ -7,10 +7,8 @@ import Stories.Molecule.Betting.Buttons as BettingButtons
 import Stories.Molecule.Betting.CancelButton as BettingCancelButton
 import Stories.Molecule.Betting.CheckButton as BettingCheckButton
 import Stories.Molecule.Betting.ResetButton as BettingResetButton
-import Stories.Molecule.Button.Chip as ChipButton
 import Stories.Molecule.Cards as Cards
 import Stories.Molecule.Cards.Dealer as DealerCards
-import Stories.Molecule.Chip as Chip
 import Stories.Molecule.Table.Box.Betting as BettingBox
 import Stories.Molecule.Table.Box.Dealer as DealerBox
 import Stories.Molecule.Table.Box.Dealing as DealingBox
@@ -26,8 +24,6 @@ uiCategory =
     [ createUI "ChipText" ChipText.viewStories
     , createUI "PointText" PointText.viewStories
     , createUI "TableRuleText" TableRuleText.viewStories
-    , createUI "ChipButton" ChipButton.viewStories
-    , createUI "Chip" Chip.viewStories
     , createUI "Cards" Cards.viewStories
     , createUI "DealerCards" DealerCards.viewStories
     , createUI "Avatar" Avatar.viewStories

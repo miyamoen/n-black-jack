@@ -1,4 +1,4 @@
-module View.Molecule.Chip exposing (pallet, view)
+module View.Atom.Chip exposing (pallet, view)
 
 import Color.Chip as Chip exposing (Pallet(..))
 import Color.Pallet exposing (Hue(Mono), Pallet(Pallet), Shade(Darken2))

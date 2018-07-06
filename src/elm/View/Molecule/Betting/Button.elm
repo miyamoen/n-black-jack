@@ -6,7 +6,7 @@ import Types exposing (Limit)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
 import Types.Styles.Clickable exposing (..)
-import View.Molecule.Button.Chip as ChipButton
+import View.Atom.Button.Chip as ChipButton
 
 
 type alias Data a =

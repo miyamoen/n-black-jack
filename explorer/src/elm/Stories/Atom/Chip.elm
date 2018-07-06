@@ -1,9 +1,9 @@
-module Stories.Molecule.Chip exposing (viewStories)
+module Stories.Atom.Chip exposing (viewStories)
 
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtmlWithSymbol, fromStories)
+import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import UIExplorer exposing (renderStories)
-import View.Molecule.Chip exposing (view)
+import View.Atom.Chip exposing (view)
 
 
 stories : List ( String, Int )

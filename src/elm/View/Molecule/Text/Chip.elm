@@ -8,7 +8,7 @@ import Types.Styles exposing (..)
 import Types.Styles.Symbol exposing (..)
 import Types.Styles.Text exposing (..)
 import View.Atom.Text as Text
-import View.Molecule.Chip exposing (pallet)
+import View.Atom.Chip exposing (pallet)
 import View.Symbol as Symbol
 
 
