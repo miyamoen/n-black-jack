@@ -4,11 +4,13 @@ import Stories.Atom.Avatar as Avatar
 import Stories.Atom.Button as Button
 import Stories.Atom.Button.Bet as BetButton
 import Stories.Atom.Button.Chip as ChipButton
+import Stories.Atom.Button.Close as CloseButton
 import Stories.Atom.Card as Card
 import Stories.Atom.Chip as Chip
 import Stories.Atom.Clickable as Clickable
 import Stories.Atom.Icon as Icon
 import Stories.Atom.Icon.Bet as BetIcon
+import Stories.Atom.Icon.Close as CloseIcon
 import Stories.Atom.Layout.Modal as Modal
 import Stories.Atom.Selector as Selector
 import Stories.Atom.Styles.Board as Board
@@ -38,6 +40,8 @@ uiCategory =
     , createUI "Icon" Icon.viewStories
     , createUI "BetIcon" BetIcon.viewStories
     , createUI "BetButton" BetButton.viewStories
+    , createUI "CloseIcon" CloseIcon.viewStories
+    , createUI "CloseButton" CloseButton.viewStories
     , createUI "Chip" Chip.viewStories
     , createUI "ChipButton" ChipButton.viewStories
     ]

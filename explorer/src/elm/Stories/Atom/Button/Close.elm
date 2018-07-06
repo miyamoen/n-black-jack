@@ -1,4 +1,4 @@
-module Stories.Atom.Button.Bet exposing (viewStories)
+module Stories.Atom.Button.Close exposing (viewStories)
 
 import Color.Pallet exposing (..)
 import Rocket exposing ((=>))
@@ -6,7 +6,7 @@ import Stories.Utils exposing (fromStories, toHtml)
 import Types.Styles.Clickable exposing (..)
 import Types.Styles.Text exposing (Size(..))
 import UIExplorer exposing (renderStories)
-import View.Atom.Button.Bet exposing (Config, view)
+import View.Atom.Button.Close exposing (Config, view)
 
 
 stories : List ( String, ( Config {}, State ) )
