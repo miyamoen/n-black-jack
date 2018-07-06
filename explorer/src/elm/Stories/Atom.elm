@@ -2,6 +2,7 @@ module Stories.Atom exposing (..)
 
 import Stories.Atom.Avatar as Avatar
 import Stories.Atom.Button as Button
+import Stories.Atom.Button.Bet as BetButton
 import Stories.Atom.Card as Card
 import Stories.Atom.Clickable as Clickable
 import Stories.Atom.Icon as Icon
@@ -34,6 +35,7 @@ uiCategory =
     , createUI "Avatar" Avatar.viewStories
     , createUI "Icon" Icon.viewStories
     , createUI "BetIcon" BetIcon.viewStories
+    , createUI "BetButton" BetButton.viewStories
     ]
 
 

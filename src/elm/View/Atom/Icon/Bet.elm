@@ -5,6 +5,7 @@ import Element exposing (..)
 import Element.Attributes exposing (vary)
 import FontAwesome as FA exposing (..)
 import FontAwesome.Layers exposing (..)
+import Html.Attributes exposing (style)
 import Html.Keyed
 import Rocket exposing ((=>))
 import Types.Styles as Styles exposing (..)
@@ -26,18 +27,23 @@ view { pallet, size } =
                 []
                 [ toString "bet-icon"
                     => layers
-                        [ IconLayer FA.coins
+                        [ IconLayer FA.circle
+                            Solid
+                            [ Size <| Mult 2 ]
+                            [ style [ "color" => "rgb(235,235,235)" ] ]
+                        , IconLayer FA.coins
                             Solid
                             [ Transform
-                                [ ShiftLeft 4
+                                [ ShiftRight 2
+                                , ShiftDown 1.5
                                 ]
                             ]
                             []
                         , IconLayer FA.levelUpAlt
                             Solid
                             [ Transform
-                                [ ShiftRight 6.5
-                                , ShiftUp 4
+                                [ ShiftRight 12.5
+                                , ShiftUp 2.5
                                 , Grow 3
                                 ]
                             ]
