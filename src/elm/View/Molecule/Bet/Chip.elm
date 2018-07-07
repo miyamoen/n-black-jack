@@ -1,4 +1,4 @@
-module View.Molecule.Betting.Button exposing (Data, view)
+module View.Molecule.Bet.Chip exposing (Data, view)
 
 import Element exposing (..)
 import PushableData as PD exposing (PushableData)
@@ -12,8 +12,8 @@ import View.Atom.Button.Chip as ChipButton
 type alias Data a =
     { a
         | price : Int
-        , bettingLimit : Limit
-        , betting : PushableData Int Firebase.Error
+        , limit : Limit
+        , chip : PushableData Int Firebase.Error
     }
 
 
@@ -23,8 +23,8 @@ view data =
 
 
 state : Data a -> State
-state { price, bettingLimit, betting } =
-    if PD.local betting + price <= bettingLimit.max then
+state { price, limit, chip } =
+    if PD.local chip + price <= limit.max then
         Enable
     else
         Disable

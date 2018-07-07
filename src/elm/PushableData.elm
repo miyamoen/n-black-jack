@@ -6,8 +6,7 @@ module PushableData
         , local
         , pushValue
         , remote
-        , reset
-        , resetValue
+        , resetValues
         )
 
 
@@ -153,49 +152,42 @@ replace data pushable =
 -- reset
 
 
-resetValue : PushableData data error -> Maybe data
-resetValue pushable =
+resetValues : PushableData data error -> List data
+resetValues pushable =
     case pushable of
         NotPushed { local, previous } ->
-            notEqualValue local [ previous ]
+            notEqualValues local [ previous ]
 
         FirstPushing { local, pushing } ->
-            notEqualValue local [ pushing ]
+            notEqualValues local [ pushing ]
 
         FirstFailure { local, failed } ->
-            notEqualValue local [ failed ]
+            notEqualValues local [ failed ]
 
         Pushing { local, remote, pushing } ->
-            notEqualValue local [ pushing, remote ]
+            notEqualValues local [ pushing, remote ]
 
         Failure { local, remote, failed } ->
-            notEqualValue local [ failed, remote ]
+            notEqualValues local [ failed, remote ]
 
         Pushed { local, remote } ->
-            notEqualValue local [ remote ]
+            notEqualValues local [ remote ]
 
         Deleting { local, remote } ->
-            notEqualValue local [ remote ]
+            notEqualValues local [ remote ]
 
         DeleteFailure { local, remote } ->
-            notEqualValue local [ remote ]
+            notEqualValues local [ remote ]
 
         Previous data ->
-            Nothing
+            [ data ]
 
 
 isResetable : PushableData data error -> Bool
 isResetable pushable =
-    resetValue pushable
-        |> Maybe.map (always True)
-        |> Maybe.withDefault False
-
-
-reset : PushableData data error -> PushableData data error
-reset pushable =
-    resetValue pushable
-        |> Maybe.withDefault (local pushable)
-        |> (\val -> replace val pushable)
+    resetValues pushable
+        |> List.isEmpty
+        |> not
 
 
 
@@ -209,25 +201,25 @@ pushValue pushable =
             Just local
 
         FirstPushing { local, pushing } ->
-            notEqualValue pushing [ local ]
+            notEqualTo pushing local
 
         FirstFailure { local, failed } ->
             Just local
 
         Pushing { local, pushing } ->
-            notEqualValue pushing [ local ]
+            notEqualTo pushing local
 
         Failure { local, remote, failed } ->
-            notEqualValue remote [ local ]
+            notEqualTo remote local
 
         Pushed { local, remote } ->
-            notEqualValue remote [ local ]
+            notEqualTo remote local
 
         Deleting { local } ->
             Just local
 
         DeleteFailure { local, remote } ->
-            notEqualValue remote [ local ]
+            notEqualTo remote local
 
         Previous data ->
             Nothing
@@ -244,7 +236,14 @@ isPushable pushable =
 -- helper
 
 
-notEqualValue : a -> List a -> Maybe a
-notEqualValue pivot values =
+notEqualTo : a -> a -> Maybe a
+notEqualTo compare value =
+    if compare == value then
+        Nothing
+    else
+        Just value
+
+
+notEqualValues : a -> List a -> List a
+notEqualValues pivot values =
     List.filter ((/=) pivot) values
-        |> List.head

@@ -1,4 +1,4 @@
-module View.Molecule.Betting.Buttons exposing (Data, view)
+module View.Molecule.Bet.Chips exposing (Data, view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
@@ -6,32 +6,28 @@ import PushableData as PD exposing (PushableData)
 import Types exposing (Limit)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
-import View.Molecule.Betting.Button as BettingButton
+import View.Molecule.Bet.Chip as Chip
 
 
 type alias Data a =
     { a
-        | bettingLimit : Limit
-        , betting : PushableData Int Firebase.Error
+        | limit : Limit
+        , chip : PushableData Int Firebase.Error
     }
 
 
 view : Data a -> RootElement msg
-view { bettingLimit, betting } =
-    availablePrices bettingLimit
+view { limit, chip } =
+    availablePrices limit
         |> List.map
             (\price ->
-                BettingButton.view
+                Chip.view
                     { price = price
-                    , bettingLimit = bettingLimit
-                    , betting = betting
+                    , limit = limit
+                    , chip = chip
                     }
             )
-        |> row None
-            [ alignBottom
-            , padding 10
-            , spacing 10
-            ]
+        |> row None [ alignBottom, spacing 10 ]
 
 
 availablePrices : Limit -> List Int
