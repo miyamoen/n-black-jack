@@ -2,11 +2,10 @@ module Stories.Molecule exposing (..)
 
 import Stories.Molecule.Avatar as Avatar
 import Stories.Molecule.Avatar.WithLabel as AvatarWithLabel
-import Stories.Molecule.Betting.Button as BettingButton
-import Stories.Molecule.Betting.Buttons as BettingButtons
-import Stories.Molecule.Betting.CancelButton as BettingCancelButton
-import Stories.Molecule.Betting.CheckButton as BettingCheckButton
-import Stories.Molecule.Betting.ResetButton as BettingResetButton
+import Stories.Molecule.Bet.Board as BetBoard
+import Stories.Molecule.Bet.Chip as BetChip
+import Stories.Molecule.Bet.Chips as BetChips
+import Stories.Molecule.Bet.Undos as BetUndos
 import Stories.Molecule.Cards as Cards
 import Stories.Molecule.Cards.Dealer as DealerCards
 import Stories.Molecule.Table.Box.Betting as BettingBox
@@ -31,11 +30,10 @@ uiCategory =
     , createUI "BettingBox" BettingBox.viewStories
     , createUI "DealingBox" DealingBox.viewStories
     , createUI "DealerBox" DealerBox.viewStories
-    , createUI "BettingButton" BettingButton.viewStories
-    , createUI "BettingButtons" BettingButtons.viewStories
-    , createUI "BettingCheckButton" BettingCheckButton.viewStories
-    , createUI "BettingResetButton" BettingResetButton.viewStories
-    , createUI "BettingCancelButton" BettingCancelButton.viewStories
+    , createUI "BetChip" BetChip.viewStories
+    , createUI "BetChips" BetChips.viewStories
+    , createUI "BetUndos" BetUndos.viewStories
+    , createUI "BetBoard" BetBoard.viewStories
     ]
 
 
