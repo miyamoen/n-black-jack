@@ -27,7 +27,7 @@ view ({ pallet, icon } as config) state label =
     Clickable.view config state <|
         row None
             [ spacing 10
-            , padding 5
+            , paddingXY 20 1
             ]
             [ icon
                 |> Maybe.map

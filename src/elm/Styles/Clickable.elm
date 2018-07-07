@@ -18,17 +18,17 @@ styles =
     Sheet.mix
         [ style (Clickable Enable) <|
             [ cursor "pointer"
-            , Border.rounded 5
+            , Border.rounded 10
             , Color.background <| Color.rgba 0 0 0 0
-            , translate 0 -3 0
+            , translate 0 -1 0
             , dropShadow { dy = 3, blur = 2 }
             , Transition.performant
             , pseudo "hover"
-                [ translate 0 -5 0
+                [ translate 0 -3 0
                 , dropShadow { dy = 5, blur = 2 }
                 ]
             , pseudo "active"
-                [ translate 0 0 0
+                [ translate 0 2 0
                 , dropShadow { dy = 0, blur = 0.5 }
                 ]
             ]
@@ -36,6 +36,7 @@ styles =
         , style (Clickable Disable) <|
             [ Filter.brightness 80
             , Border.rounded 5
+            , translate 0 2 0
             , Color.background <| Color.rgba 0 0 0 0
             ]
                 ++ bgColors

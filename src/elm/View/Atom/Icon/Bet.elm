@@ -27,27 +27,25 @@ view { pallet, size } =
                 []
                 [ toString "bet-icon"
                     => layers
-                        [ IconLayer FA.circle
-                            Solid
-                            [ Size <| Mult 2 ]
-                            [ style [ "color" => "rgb(235,235,235)" ] ]
+                        [ IconLayer FA.circle Solid [] []
                         , IconLayer FA.coins
                             Solid
                             [ Transform
-                                [ ShiftRight 2
-                                , ShiftDown 1.5
+                                [ ShiftRight -1.5
+                                , ShiftDown 1
+                                , Shrink 8
                                 ]
                             ]
-                            []
+                            [ style [ "color" => "rgb(235,235,235)" ] ]
                         , IconLayer FA.levelUpAlt
                             Solid
                             [ Transform
-                                [ ShiftRight 12.5
-                                , ShiftUp 2.5
-                                , Grow 3
+                                [ ShiftRight 3.5
+                                , ShiftDown -1
+                                , Shrink 7.5
                                 ]
                             ]
-                            []
+                            [ style [ "color" => "rgb(235,235,235)" ] ]
                         ]
                         [ LayerHasFixedWidth ]
                 ]
