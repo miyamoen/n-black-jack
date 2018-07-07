@@ -1,4 +1,4 @@
-module View.Atom.Icon.Close exposing (Config, view)
+module View.Atom.Icon.Undo exposing (Config, view)
 
 import Color.Pallet exposing (Pallet)
 import Element exposing (..)
@@ -25,12 +25,14 @@ view { pallet, size } =
         html <|
             Html.Keyed.node "div"
                 []
-                [ toString "close-icon"
+                [ toString "undo-icon"
                     => layers
                         [ IconLayer FA.circle Solid [] []
-                        , IconLayer FA.times
+                        , IconLayer FA.undoAlt
                             Solid
-                            [ Size ExtraSmall ]
+                            [ Size ExtraSmall
+                            , Transform [ ShiftRight 0.5, ShiftDown 0.2 ]
+                            ]
                             [ style [ "color" => "rgb(235,235,235)" ] ]
                         ]
                         [ LayerHasFixedWidth ]

@@ -11,6 +11,7 @@ import Stories.Atom.Clickable as Clickable
 import Stories.Atom.Icon as Icon
 import Stories.Atom.Icon.Bet as BetIcon
 import Stories.Atom.Icon.Close as CloseIcon
+import Stories.Atom.Icon.Undo as UndoIcon
 import Stories.Atom.Layout.Modal as Modal
 import Stories.Atom.Selector as Selector
 import Stories.Atom.Styles.Board as Board
@@ -44,6 +45,7 @@ uiCategory =
     , createUI "CloseButton" CloseButton.viewStories
     , createUI "Chip" Chip.viewStories
     , createUI "ChipButton" ChipButton.viewStories
+    , createUI "UndoIcon" UndoIcon.viewStories
     ]
 
 
