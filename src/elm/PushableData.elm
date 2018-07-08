@@ -1,9 +1,14 @@
 module PushableData
     exposing
         ( PushableData(..)
+        , error
+        , failedValue
+        , isError
+        , isProcessing
         , isPushable
         , isResetable
         , local
+        , processValue
         , pushValue
         , remote
         , resetValues
@@ -230,6 +235,85 @@ isPushable pushable =
     pushValue pushable
         |> Maybe.map (always True)
         |> Maybe.withDefault False
+
+
+
+-- process
+
+
+processValue : PushableData data error -> Maybe data
+processValue pushable =
+    case pushable of
+        FirstPushing { pushing } ->
+            Just pushing
+
+        Pushing { pushing } ->
+            Just pushing
+
+        Deleting _ ->
+            Nothing
+
+        _ ->
+            Nothing
+
+
+isProcessing : PushableData data error -> Bool
+isProcessing pushable =
+    case pushable of
+        FirstPushing _ ->
+            True
+
+        Pushing _ ->
+            True
+
+        Deleting _ ->
+            True
+
+        _ ->
+            False
+
+
+
+-- error
+
+
+error : PushableData data error -> Maybe error
+error pushable =
+    case pushable of
+        FirstFailure { error } ->
+            Just error
+
+        Failure { error } ->
+            Just error
+
+        DeleteFailure { error } ->
+            Just error
+
+        _ ->
+            Nothing
+
+
+isError : PushableData data error -> Bool
+isError pushable =
+    error pushable
+        |> Maybe.map (always True)
+        |> Maybe.withDefault False
+
+
+failedValue : PushableData data error -> Maybe data
+failedValue pushable =
+    case pushable of
+        FirstFailure { failed } ->
+            Just failed
+
+        Failure { failed } ->
+            Just failed
+
+        DeleteFailure _ ->
+            Nothing
+
+        _ ->
+            Nothing
 
 
 

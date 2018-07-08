@@ -6,6 +6,7 @@ import Element.Attributes exposing (..)
 import FontAwesome as FA
 import Types exposing (Account(..))
 import Types.Styles exposing (..)
+import Types.Styles.Text exposing (Size(..))
 import View.Atom.Avatar as Avatar
 import View.Atom.Icon as Icon
 
@@ -49,4 +50,8 @@ frame name image =
 
 icon : FA.Icon -> RootElement msg
 icon =
-    Icon.view { pallet = Pallet Mono Lighten2, options = [ FA.Size <| FA.Mult 4 ] }
+    Icon.view
+        { pallet = Pallet Mono Lighten2
+        , options = [ FA.Size <| FA.Mult 4 ]
+        , size = Tiny
+        }

@@ -23,23 +23,22 @@ type alias Config a =
 
 
 view : Config a -> State -> String -> RootElement msg
-view ({ pallet, icon } as config) state label =
+view ({ pallet, icon, size } as config) state label =
     Clickable.view config state <|
         row None
             [ spacing 10
             , paddingXY 20 1
             ]
-            [ icon
-                |> Maybe.map
-                    (\icon ->
-                        Icon.view
-                            { pallet =
-                                Maybe.withDefault (Pallet Mono Lighten1) pallet
-                            , options = []
-                            }
-                            icon
-                    )
-                |> Maybe.withDefault empty
+            [ whenJust icon
+                (\icon ->
+                    Icon.view
+                        { pallet =
+                            Maybe.withDefault (Pallet Mono Lighten1) pallet
+                        , size = size
+                        , options = []
+                        }
+                        icon
+                )
             , Text.view (textConfig config) label
             ]
 
