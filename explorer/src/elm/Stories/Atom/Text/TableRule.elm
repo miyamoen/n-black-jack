@@ -1,4 +1,4 @@
-module Stories.Molecule.Text.TableRule exposing (viewStories)
+module Stories.Atom.Text.TableRule exposing (viewStories)
 
 import Element exposing (el)
 import Rocket exposing ((=>))
@@ -6,7 +6,7 @@ import Stories.Utils exposing (fromStories, toHtml)
 import Types exposing (Phase(..))
 import Types.Styles exposing (..)
 import UIExplorer exposing (renderStories)
-import View.Molecule.Text.TableRule as TableRule
+import View.Atom.Text.TableRule as TableRule
 
 
 view : Phase -> RootElement msg

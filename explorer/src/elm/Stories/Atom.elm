@@ -20,6 +20,8 @@ import Stories.Atom.Styles.Frame as Frame
 import Stories.Atom.Symbol as Symbol
 import Stories.Atom.Text as Text
 import Stories.Atom.Text.OnTable as TextOnTable
+import Stories.Atom.Text.Point as PointText
+import Stories.Atom.Text.TableRule as TableRuleText
 import Stories.Utils exposing (fromUIs)
 import UIExplorer exposing (UI, createUI)
 
@@ -34,6 +36,8 @@ uiCategory =
     , createUI "Card" Card.viewStories
     , createUI "Text" Text.viewStories
     , createUI "TextOnTable" TextOnTable.viewStories
+    , createUI "PointText" PointText.viewStories
+    , createUI "TableRuleText" TableRuleText.viewStories
     , createUI "Clickable" Clickable.viewStories
     , createUI "Button" Button.viewStories
     , createUI "Selector" Selector.viewStories

@@ -1,4 +1,4 @@
-module View.Molecule.Text.TableRule exposing (view)
+module View.Atom.Text.TableRule exposing (view)
 
 import App.Text exposing (dealerRule, payRule)
 import Types exposing (Phase(..))

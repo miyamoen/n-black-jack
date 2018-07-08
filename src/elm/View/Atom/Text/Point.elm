@@ -1,4 +1,4 @@
-module View.Molecule.Text.Point exposing (view)
+module View.Atom.Text.Point exposing (view)
 
 import Model.Card as Card
 import Types exposing (Card, Face(..), Point(..))
@@ -20,9 +20,7 @@ view config cards =
 
         PointOr high low ->
             Text.view config <|
-                toString high
-                    ++ "/"
-                    ++ toString low
+                String.join "/" [ toString high, toString low ]
 
         Bust ->
             Text.view config "Bust"

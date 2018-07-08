@@ -5,6 +5,9 @@ import Svg.Attributes exposing (cx, cy, d, fill, r, viewBox)
 import View.Symbol exposing (Symbol(Chip), id)
 
 
+-- https://www.shareicon.net/cards-poker-casino-gambling-gambler-841511
+
+
 symbol : Svg msg
 symbol =
     Svg.symbol

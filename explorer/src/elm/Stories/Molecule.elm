@@ -14,8 +14,6 @@ import Stories.Molecule.Cards.Dealer as DealerCards
 import Stories.Molecule.Table.Box.Dealer as DealerBox
 import Stories.Molecule.Table.Box.Dealing as DealingBox
 import Stories.Molecule.Text.Chip as ChipText
-import Stories.Molecule.Text.Point as PointText
-import Stories.Molecule.Text.TableRule as TableRuleText
 import Stories.Utils exposing (fromUIs)
 import UIExplorer exposing (UI, createUI)
 
@@ -23,8 +21,6 @@ import UIExplorer exposing (UI, createUI)
 uiCategory : List UI
 uiCategory =
     [ createUI "ChipText" ChipText.viewStories
-    , createUI "PointText" PointText.viewStories
-    , createUI "TableRuleText" TableRuleText.viewStories
     , createUI "Cards" Cards.viewStories
     , createUI "DealerCards" DealerCards.viewStories
     , createUI "Avatar" Avatar.viewStories

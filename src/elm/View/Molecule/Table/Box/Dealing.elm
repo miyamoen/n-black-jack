@@ -10,7 +10,7 @@ import Types.Styles.Cards exposing (..)
 import Types.Styles.Text exposing (..)
 import View.Atom.Text as Text
 import View.Molecule.Cards as Cards
-import View.Molecule.Text.Point as Point
+import View.Atom.Text.Point as Point
 
 
 view : List Card -> RootElement msg

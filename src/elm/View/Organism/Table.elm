@@ -5,7 +5,7 @@ import Element.Attributes exposing (..)
 import Types exposing (..)
 import Types.Styles as Styles exposing (..)
 import View.Molecule.Table.Box.Dealer as DealerBox
-import View.Molecule.Text.TableRule as TableRule
+import View.Atom.Text.TableRule as TableRule
 import View.Organism.Table.Bases as Bases
 
 

@@ -9,7 +9,7 @@ import Types.Styles.Frame exposing (..)
 import Types.Styles.Text exposing (..)
 import View.Atom.Text as Text
 import View.Molecule.Cards.Dealer as Cards
-import View.Molecule.Text.Point as Point
+import View.Atom.Text.Point as Point
 
 
 view : Dealer -> RootElement msg

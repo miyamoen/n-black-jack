@@ -1,13 +1,13 @@
-module Stories.Molecule.Text.Point exposing (viewStories)
+module Stories.Atom.Text.Point exposing (viewStories)
 
 import Color.Pallet exposing (..)
 import Rocket exposing ((=>))
-import Stories.Utils exposing (toHtml, fromStories)
+import Stories.Utils exposing (fromStories, toHtml)
 import Types exposing (Card, Face(..), Number(..), Suit(..))
 import Types.Styles.Text exposing (..)
 import UIExplorer exposing (renderStories)
 import View.Atom.Text exposing (Config)
-import View.Molecule.Text.Point as Point
+import View.Atom.Text.Point as Point
 
 
 config : Config {}
