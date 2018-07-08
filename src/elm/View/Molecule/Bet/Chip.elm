@@ -1,11 +1,11 @@
 module View.Molecule.Bet.Chip exposing (Data, view)
 
 import Element exposing (..)
-import PushableData as PD exposing (PushableData)
 import Types exposing (Limit)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
 import Types.Styles.Clickable exposing (..)
+import UpdatableData as UD exposing (UpdatableData)
 import View.Atom.Button.Chip as ChipButton
 
 
@@ -13,7 +13,7 @@ type alias Data a =
     { a
         | price : Int
         , limit : Limit
-        , chip : PushableData Int Firebase.Error
+        , chip : UpdatableData Int Firebase.Error
     }
 
 
@@ -24,7 +24,7 @@ view data =
 
 state : Data a -> State
 state { price, limit, chip } =
-    if PD.local chip + price <= limit.max then
+    if UD.local chip + price <= limit.max then
         Enable
     else
         Disable

@@ -1,6 +1,6 @@
-module PushableData
+module UpdatableData
     exposing
-        ( PushableData(..)
+        ( UpdatableData(..)
         , error
         , failedValue
         , isError
@@ -15,23 +15,23 @@ module PushableData
         )
 
 
-type PushableData data error
+type UpdatableData data error
     = NotPushed { local : data, previous : data }
-    | FirstPushing
+    | Pushing
         { local : data
         , pushing : data
         }
-    | FirstFailure
+    | PushFailure
         { local : data
         , failed : data
         , error : error
         }
-    | Pushing
+    | Updating
         { local : data
         , remote : data
         , pushing : data
         }
-    | Failure
+    | UpdateFailure
         { local : data
         , remote : data
         , failed : data
@@ -51,22 +51,22 @@ type PushableData data error
 -- get
 
 
-local : PushableData data error -> data
-local pushable =
-    case pushable of
+local : UpdatableData data error -> data
+local updatable =
+    case updatable of
         NotPushed { local } ->
-            local
-
-        FirstPushing { local } ->
-            local
-
-        FirstFailure { local } ->
             local
 
         Pushing { local } ->
             local
 
-        Failure { local } ->
+        PushFailure { local } ->
+            local
+
+        Updating { local } ->
+            local
+
+        UpdateFailure { local } ->
             local
 
         Pushed { local } ->
@@ -82,22 +82,22 @@ local pushable =
             data
 
 
-remote : PushableData data error -> Maybe data
-remote pushable =
-    case pushable of
+remote : UpdatableData data error -> Maybe data
+remote updatable =
+    case updatable of
         NotPushed _ ->
             Nothing
 
-        FirstPushing _ ->
+        Pushing _ ->
             Nothing
 
-        FirstFailure _ ->
+        PushFailure _ ->
             Nothing
 
-        Pushing { remote } ->
+        Updating { remote } ->
             Just remote
 
-        Failure { remote } ->
+        UpdateFailure { remote } ->
             Just remote
 
         Pushed { remote } ->
@@ -117,23 +117,23 @@ remote pushable =
 -- update
 
 
-update : (data -> data) -> PushableData data error -> PushableData data error
-update func pushable =
-    case pushable of
+update : (data -> data) -> UpdatableData data error -> UpdatableData data error
+update func updatable =
+    case updatable of
         NotPushed record ->
             NotPushed { record | local = func record.local }
-
-        FirstPushing record ->
-            FirstPushing { record | local = func record.local }
-
-        FirstFailure record ->
-            FirstFailure { record | local = func record.local }
 
         Pushing record ->
             Pushing { record | local = func record.local }
 
-        Failure record ->
-            Failure { record | local = func record.local }
+        PushFailure record ->
+            PushFailure { record | local = func record.local }
+
+        Updating record ->
+            Updating { record | local = func record.local }
+
+        UpdateFailure record ->
+            UpdateFailure { record | local = func record.local }
 
         Pushed record ->
             Pushed { record | local = func record.local }
@@ -148,31 +148,31 @@ update func pushable =
             Previous <| func data
 
 
-replace : data -> PushableData data error -> PushableData data error
-replace data pushable =
-    update (always data) pushable
+replace : data -> UpdatableData data error -> UpdatableData data error
+replace data updatable =
+    update (always data) updatable
 
 
 
 -- reset
 
 
-resetValues : PushableData data error -> List data
-resetValues pushable =
-    case pushable of
+resetValues : UpdatableData data error -> List data
+resetValues updatable =
+    case updatable of
         NotPushed { local, previous } ->
             notEqualValues local [ previous ]
 
-        FirstPushing { local, pushing } ->
+        Pushing { local, pushing } ->
             notEqualValues local [ pushing ]
 
-        FirstFailure { local, failed } ->
+        PushFailure { local, failed } ->
             notEqualValues local [ failed ]
 
-        Pushing { local, remote, pushing } ->
+        Updating { local, remote, pushing } ->
             notEqualValues local [ pushing, remote ]
 
-        Failure { local, remote, failed } ->
+        UpdateFailure { local, remote, failed } ->
             notEqualValues local [ failed, remote ]
 
         Pushed { local, remote } ->
@@ -188,9 +188,9 @@ resetValues pushable =
             [ data ]
 
 
-isResetable : PushableData data error -> Bool
-isResetable pushable =
-    resetValues pushable
+isResetable : UpdatableData data error -> Bool
+isResetable updatable =
+    resetValues updatable
         |> List.isEmpty
         |> not
 
@@ -199,22 +199,22 @@ isResetable pushable =
 -- push
 
 
-pushValue : PushableData data error -> Maybe data
-pushValue pushable =
-    case pushable of
+pushValue : UpdatableData data error -> Maybe data
+pushValue updatable =
+    case updatable of
         NotPushed { local } ->
-            Just local
-
-        FirstPushing { local, pushing } ->
-            notEqualTo pushing local
-
-        FirstFailure { local, failed } ->
             Just local
 
         Pushing { local, pushing } ->
             notEqualTo pushing local
 
-        Failure { local, remote, failed } ->
+        PushFailure { local, failed } ->
+            Just local
+
+        Updating { local, pushing } ->
+            notEqualTo pushing local
+
+        UpdateFailure { local, remote, failed } ->
             notEqualTo remote local
 
         Pushed { local, remote } ->
@@ -230,9 +230,9 @@ pushValue pushable =
             Nothing
 
 
-isPushable : PushableData data error -> Bool
-isPushable pushable =
-    pushValue pushable
+isPushable : UpdatableData data error -> Bool
+isPushable updatable =
+    pushValue updatable
         |> Maybe.map (always True)
         |> Maybe.withDefault False
 
@@ -241,13 +241,13 @@ isPushable pushable =
 -- process
 
 
-processValue : PushableData data error -> Maybe data
-processValue pushable =
-    case pushable of
-        FirstPushing { pushing } ->
+processValue : UpdatableData data error -> Maybe data
+processValue updatable =
+    case updatable of
+        Pushing { pushing } ->
             Just pushing
 
-        Pushing { pushing } ->
+        Updating { pushing } ->
             Just pushing
 
         Deleting _ ->
@@ -257,13 +257,13 @@ processValue pushable =
             Nothing
 
 
-isProcessing : PushableData data error -> Bool
-isProcessing pushable =
-    case pushable of
-        FirstPushing _ ->
+isProcessing : UpdatableData data error -> Bool
+isProcessing updatable =
+    case updatable of
+        Pushing _ ->
             True
 
-        Pushing _ ->
+        Updating _ ->
             True
 
         Deleting _ ->
@@ -277,13 +277,13 @@ isProcessing pushable =
 -- error
 
 
-error : PushableData data error -> Maybe error
-error pushable =
-    case pushable of
-        FirstFailure { error } ->
+error : UpdatableData data error -> Maybe error
+error updatable =
+    case updatable of
+        PushFailure { error } ->
             Just error
 
-        Failure { error } ->
+        UpdateFailure { error } ->
             Just error
 
         DeleteFailure { error } ->
@@ -293,20 +293,20 @@ error pushable =
             Nothing
 
 
-isError : PushableData data error -> Bool
-isError pushable =
-    error pushable
+isError : UpdatableData data error -> Bool
+isError updatable =
+    error updatable
         |> Maybe.map (always True)
         |> Maybe.withDefault False
 
 
-failedValue : PushableData data error -> Maybe data
-failedValue pushable =
-    case pushable of
-        FirstFailure { failed } ->
+failedValue : UpdatableData data error -> Maybe data
+failedValue updatable =
+    case updatable of
+        PushFailure { failed } ->
             Just failed
 
-        Failure { failed } ->
+        UpdateFailure { failed } ->
             Just failed
 
         DeleteFailure _ ->

@@ -2,17 +2,17 @@ module View.Molecule.Bet.Chips exposing (Data, view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import PushableData as PD exposing (PushableData)
 import Types exposing (Limit)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
+import UpdatableData exposing (UpdatableData)
 import View.Molecule.Bet.Chip as Chip
 
 
 type alias Data a =
     { a
         | limit : Limit
-        , chip : PushableData Int Firebase.Error
+        , chip : UpdatableData Int Firebase.Error
     }
 
 

@@ -2,11 +2,11 @@ module View.Molecule.Bet.Box exposing (Data, view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import PushableData as PD exposing (PushableData)
 import Types exposing (..)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
 import Types.Styles.Bet exposing (State(..))
+import UpdatableData exposing (UpdatableData)
 import View.Molecule.Bet.Board as Board
 import View.Molecule.Bet.Frame as Frame
 
@@ -14,7 +14,7 @@ import View.Molecule.Bet.Frame as Frame
 type alias Data a =
     { a
         | limit : Limit
-        , chip : PushableData Int Firebase.Error
+        , chip : UpdatableData Int Firebase.Error
     }
 
 
