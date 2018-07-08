@@ -1,9 +1,9 @@
-module Stories.Molecule.Table.Box.Betting exposing (viewStories)
+module Stories.Molecule.Bet.Circle exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import UIExplorer exposing (renderStories)
-import View.Molecule.Table.Box.Betting exposing (view)
+import View.Molecule.Bet.Circle exposing (view)
 
 
 stories : List ( String, Maybe Int )

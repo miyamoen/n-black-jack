@@ -1,4 +1,4 @@
-module View.Molecule.Table.Box.Betting exposing (view)
+module View.Molecule.Bet.Circle exposing (view)
 
 import Color.Pallet exposing (Shade(..))
 import Element exposing (..)
@@ -12,8 +12,10 @@ view : Maybe Int -> RootElement msg
 view mPrice =
     case mPrice of
         Just price ->
-            if price <= 0 then
+            if price < 0 then
                 circle Darken2 <| Chip.view price
+            else if price == 0 then
+                circle Darken1 empty
             else
                 circle Lighten2 <| Chip.view price
 
@@ -26,8 +28,8 @@ circle shade content =
     column Frame
         [ vary (ShadeVar shade) True
         , vary (FrameVar <| ShapeVar Circle) True
-        , width <| px 100
-        , height <| px 100
+        , width <| px 85
+        , height <| px 85
         , center
         , verticalCenter
         ]
