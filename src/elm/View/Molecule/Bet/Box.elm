@@ -5,7 +5,7 @@ import Element.Attributes exposing (..)
 import Types exposing (..)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
-import Types.Styles.Bet exposing (State(..))
+import Types.Styles.PlayBoard exposing (State(..))
 import UpdatableData exposing (UpdatableData)
 import View.Molecule.Bet.Board as Board
 import View.Molecule.Bet.Frame as Frame

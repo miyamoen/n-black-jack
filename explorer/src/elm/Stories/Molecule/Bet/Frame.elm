@@ -2,7 +2,7 @@ module Stories.Molecule.Bet.Frame exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
-import Types.Styles.Bet exposing (State(..))
+import Types.Styles.PlayBoard exposing (State(..))
 import UIExplorer exposing (renderStories)
 import UpdatableData as UD exposing (UpdatableData)
 import View.Molecule.Bet.Frame exposing (Data, view)

@@ -1,15 +1,16 @@
 module View.Molecule.Bet.Frame exposing (Data, view)
 
-import Color.Pallet exposing (..)
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import FontAwesome as FA
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
-import Types.Styles.Bet exposing (State(..))
+import Types.Styles.PlayBoard exposing (State(..))
 import Types.Styles.Text exposing (Size(..))
 import UpdatableData as UD exposing (UpdatableData)
-import View.Atom.Icon as Icon
+import View.Atom.Icon.Check as CheckIcon
+import View.Atom.Icon.Edit as EditIcon
+import View.Atom.Icon.Error as ErrorIcon
+import View.Atom.Icon.Loading as LoadingIcon
 import View.Molecule.Bet.Circle as Circle
 
 
@@ -32,31 +33,16 @@ view state { chip } =
         |> onLeft
             [ el None [ moveUp 10 ] <|
                 if state == Open then
-                    Icon.view
-                        { pallet = Pallet Green Lighten1
-                        , options = []
-                        , size = Normal
-                        }
-                        FA.edit
+                    EditIcon.view iconConfig
                 else if UD.isProcessing chip then
-                    Icon.view
-                        { pallet = Pallet Orange Lighten1
-                        , options = [ FA.Animation FA.Pulse ]
-                        , size = Normal
-                        }
-                        FA.spinner
+                    LoadingIcon.view iconConfig
                 else if UD.isError chip then
-                    Icon.view
-                        { pallet = Pallet Red Lighten1
-                        , options = []
-                        , size = Normal
-                        }
-                        FA.exclamationSquare
+                    ErrorIcon.view iconConfig
                 else
-                    Icon.view
-                        { pallet = Pallet Green Lighten1
-                        , options = []
-                        , size = Normal
-                        }
-                        FA.checkCircle
+                    CheckIcon.view iconConfig
             ]
+
+
+iconConfig : { size : Size }
+iconConfig =
+    { size = Normal }
