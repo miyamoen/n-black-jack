@@ -12,27 +12,28 @@ import View.Atom.Text as Text
 type alias Config a =
     { a
         | hue : Hue
+        , size : Size
+        , boxSize : Length
     }
 
 
 view : Config a -> State -> String -> RootElement msg
-view { hue } state label =
+view { hue, size, boxSize } state label =
     node "button" <|
         row (Selector state)
-            [ width <| px 100
-            , height <| px 100
-            , padding 10
+            [ width boxSize
+            , height boxSize
             , verticalCenter
             , center
             , vary (HueVar hue) True
             ]
-            [ Text.view textConfig label ]
+            [ Text.view (textConfig size) label ]
 
 
-textConfig : Text.Config {}
-textConfig =
+textConfig : Size -> Text.Config {}
+textConfig size =
     { style = RegularItaric
-    , size = Medium
+    , size = size
     , line = OneLine
     , align = Center
     , pallet = Nothing

@@ -48,7 +48,7 @@ style_ hue =
             [ variation (HueVar hue)
                 [ Color.border <| toColor Lighten2
                 , Color.background <| toColor Lighten2
-                , Color.text <| Pallet.color_ Mono Lighten2
+                , Color.text <| Pallet.color White
                 ]
             ]
                 ++ commonStyle
@@ -56,7 +56,7 @@ style_ hue =
             [ variation (HueVar hue)
                 [ Color.border <| toColor Main
                 , Color.background <| toColor Main
-                , Color.text <| Pallet.color_ Mono Lighten2
+                , Color.text <| Pallet.color White
                 ]
             ]
                 ++ commonStyle
