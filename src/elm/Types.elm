@@ -35,6 +35,11 @@ type alias Dealer =
     { cards : List Card }
 
 
+type Action
+    = Hit
+    | Stand
+
+
 type Phase
     = WaitingBet
     | DealingCards
