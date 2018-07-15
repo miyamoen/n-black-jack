@@ -24,17 +24,17 @@ type alias Data a =
 
 view : Data a -> RootElement msg
 view ({ limit, chip } as data) =
-    row Board
-        [ vary (HueVar Orange) True, width content, spacing 20, paddingXY 10 5 ]
-        [ column None
-            [ alignLeft, spacing 10, verticalSpread ]
+    column Board
+        [ vary (HueVar Orange) True, spacing 10, paddingXY 10 5 ]
+        [ row None
+            [ spacing 10, spread, alignBottom ]
             [ Undos.view { size = Tiny } <| 0 :: UD.resetValues chip
-            , Chips.view data
-            ]
-        , column None
-            [ alignRight, spacing 20, verticalSpread ]
-            [ CloseButton.view { size = Small, pallet = Pallet Red Main }
+            , CloseButton.view { size = Small, pallet = Pallet Red Main }
                 Enable
+            ]
+        , row None
+            [ spacing 10, spread, alignBottom ]
+            [ Chips.view data
             , BetButton.view { size = Large, pallet = Pallet Green Main } <|
                 if UD.isPushable chip then
                     Enable

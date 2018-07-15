@@ -22,6 +22,16 @@ stories =
     , "PushingStand" => data (Pushing Stand)
     , "PushedHit" => data (Pushed Hit)
     , "PushedStand" => data (Pushed Stand)
+    , "PushFailureHit"
+        => data
+            (PushFailure
+                { failed = Hit
+                , error =
+                    { code = "errorcode"
+                    , message = "errormsg"
+                    }
+                }
+            )
     ]
 
 

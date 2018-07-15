@@ -30,11 +30,15 @@ view data =
     column None
         [ center
         , spacing 5
+        , inlineStyle [ ( "z-index", "20" ) ]
         ]
         [ Cards.view data
             |> onLeft [ el None [ moveLeft 5 ] <| icon data ]
         , el None [ height <| px 50 ] <|
-            Point.view textConfig data.cards
+            if List.isEmpty data.cards then
+                empty
+            else
+                Point.view textConfig data.cards
         ]
 
 
@@ -63,7 +67,7 @@ icon { action } =
 
 textConfig : Text.Config {}
 textConfig =
-    { style = BoldItaric
+    { style = Regular
     , size = Medium
     , line = OneLine
     , align = Center

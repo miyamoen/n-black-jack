@@ -4,6 +4,7 @@ module UpdatableData
         , error
         , failedValue
         , isError
+        , isNotActive
         , isProcessing
         , isPushable
         , isResetable
@@ -314,6 +315,16 @@ failedValue updatable =
 
         _ ->
             Nothing
+
+
+isNotActive : UpdatableData data error -> Bool
+isNotActive updatable =
+    case updatable of
+        Previous _ ->
+            True
+
+        _ ->
+            False
 
 
 

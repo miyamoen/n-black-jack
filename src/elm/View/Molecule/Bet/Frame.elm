@@ -38,6 +38,8 @@ view state { chip } =
                     LoadingIcon.view iconConfig
                 else if UD.isError chip then
                     ErrorIcon.view iconConfig
+                else if UD.isNotActive chip then
+                    empty
                 else
                     CheckIcon.view iconConfig
             ]
