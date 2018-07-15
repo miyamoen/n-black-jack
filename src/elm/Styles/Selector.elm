@@ -33,6 +33,7 @@ style_ hue =
         [ style (Selector Disable) <|
             [ variation (HueVar hue)
                 [ Color.border <| toColor Darken2
+                , Color.background <| Pallet.color White
                 , Color.text <| toColor Darken2
                 ]
             ]
@@ -40,6 +41,7 @@ style_ hue =
         , style (Selector Enable) <|
             [ variation (HueVar hue)
                 [ Color.border <| toColor Lighten2
+                , Color.background <| Pallet.color White
                 , Color.text <| toColor Lighten2
                 ]
             ]
