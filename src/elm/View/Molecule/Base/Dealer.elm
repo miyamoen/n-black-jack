@@ -1,20 +1,24 @@
-module View.Molecule.Table.Box.Dealer exposing (view)
+module View.Molecule.Base.Dealer exposing (Data, view)
 
 import Color.Pallet exposing (..)
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Types exposing (Dealer, Point(..))
+import Types exposing (Card, Point(..))
 import Types.Styles exposing (..)
 import Types.Styles.Frame exposing (..)
 import Types.Styles.Text exposing (..)
 import View.Atom.Text as Text
-import View.Molecule.Cards.Dealer as Cards
 import View.Atom.Text.Point as Point
+import View.Molecule.Cards.Dealer as Cards
 
 
-view : Dealer -> RootElement msg
+type alias Data a =
+    { a | cards : List Card }
+
+
+view : Data a -> RootElement msg
 view { cards } =
-    el Frame
+    column Frame
         [ vary (FrameVar <| ShapeVar Semicircle) True
         , if List.isEmpty cards then
             vary (ShadeVar Darken1) True
@@ -22,25 +26,17 @@ view { cards } =
             vary (ShadeVar Lighten2) True
         , width <| px 400
         , height <| px 200
+        , center
+        , alignTop
         ]
-        empty
-        |> within
-            [ el None [ center, alignTop ] <|
-                column None
-                    [ center
-                    , width <| px 200
-                    , height <| px 160
-                    , verticalSpread
-                    ]
-                    [ Cards.view cards
-                    , Point.view textConfig cards
-                    ]
-            ]
+        [ Cards.view cards
+        , Point.view textConfig cards
+        ]
 
 
 textConfig : Text.Config {}
 textConfig =
-    { style = BoldItaric
+    { style = Regular
     , size = Medium
     , line = OneLine
     , align = Center

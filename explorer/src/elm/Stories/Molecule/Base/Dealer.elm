@@ -1,13 +1,13 @@
-module Stories.Molecule.Table.Box.Dealer exposing (viewStories)
+module Stories.Molecule.Base.Dealer exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
-import Types exposing (Card, Dealer, Face(..), Number(..), Suit(..))
+import Types exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
-import View.Molecule.Table.Box.Dealer exposing (view)
+import View.Molecule.Base.Dealer exposing (Data, view)
 
 
-stories : List ( String, Dealer )
+stories : List ( String, Data {} )
 stories =
     [ "Empty" => { cards = [] }
     , "One" => { cards = [ Card Spade Ace Up ] }
