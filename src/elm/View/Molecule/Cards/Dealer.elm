@@ -2,7 +2,7 @@ module View.Molecule.Cards.Dealer exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Types exposing (..)
+import Types.Card exposing (..)
 import Types.Styles exposing (..)
 import View.Atom.Card as Card
 

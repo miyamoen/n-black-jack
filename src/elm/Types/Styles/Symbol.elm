@@ -1,7 +1,7 @@
 module Types.Styles.Symbol exposing (..)
 
 import Color.Chip exposing (..)
-import Types exposing (Suit(..))
+import Types.Card exposing (Suit(..))
 
 
 type Variation

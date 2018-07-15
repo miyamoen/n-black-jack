@@ -2,7 +2,7 @@ module View.Molecule.Cards exposing (Config, view)
 
 import Element exposing (..)
 import Element.Attributes exposing (height, moveRight, moveUp, px, width)
-import Types exposing (Card)
+import Types.Card exposing (Card)
 import Types.Styles exposing (RootElement, Styles(..))
 import Types.Styles.Cards exposing (Align(..))
 import View.Atom.Card as Card

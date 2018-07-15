@@ -4,6 +4,7 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import PushableData exposing (PushableData(..))
 import Types exposing (..)
+import Types.Card exposing (Card)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
 import View.Molecule.Hands.Board as Board

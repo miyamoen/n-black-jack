@@ -4,6 +4,7 @@ import PushableData exposing (PushableData(..))
 import Rocket exposing ((=>))
 import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
 import Types exposing (..)
+import Types.Card exposing (..)
 import Types.Firebase as Firebase
 import UIExplorer exposing (renderStories)
 import View.Molecule.Hands.Frame exposing (Data, view)

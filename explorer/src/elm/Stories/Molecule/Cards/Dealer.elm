@@ -2,7 +2,7 @@ module Stories.Molecule.Cards.Dealer exposing (viewStories)
 
 import Rocket exposing ((=>))
 import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
-import Types exposing (Card, Face(..), Number(..), Suit(..))
+import Types.Card exposing (Card, Face(..), Number(..), Suit(..))
 import UIExplorer exposing (renderStories)
 import View.Molecule.Cards.Dealer exposing (view)
 

@@ -1,7 +1,7 @@
 module View.Atom.Text.Point exposing (view)
 
 import Model.Card as Card
-import Types exposing (Card, Face(..), Point(..))
+import Types.Card exposing (Card, Face(..), Point(..))
 import Types.Styles exposing (..)
 import View.Atom.Text as Text exposing (Config, view)
 

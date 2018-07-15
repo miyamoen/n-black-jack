@@ -13,7 +13,7 @@ import Element exposing (Element)
 import Html exposing (Html)
 import Svg exposing (..)
 import Svg.Attributes exposing (d, display, height, viewBox, width, xlinkHref)
-import Types exposing (Face(..))
+import Types.Card as Types exposing (Face(..))
 
 
 type Symbol

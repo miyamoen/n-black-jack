@@ -2,7 +2,7 @@ module View.Atom.Card exposing (view)
 
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Types exposing (Card)
+import Types.Card exposing (Card)
 import Types.Styles exposing (..)
 import Types.Styles.Symbol exposing (Variation(SuitVar))
 import View.Symbol as Symbol

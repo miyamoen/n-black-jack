@@ -4,6 +4,7 @@ import Element exposing (..)
 import Element.Attributes exposing (..)
 import PushableData as PD exposing (PushableData)
 import Types exposing (..)
+import Types.Card exposing (..)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
 import Types.Styles.PlayBoard exposing (State(..))

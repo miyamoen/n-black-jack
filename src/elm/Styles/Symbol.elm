@@ -5,7 +5,7 @@ import Color.Pallet as Pallet
 import Style exposing (..)
 import Style.Color as Color
 import Style.Sheet as Sheet
-import Types exposing (Suit(..), suits)
+import Types.Card exposing (Suit(..), suits)
 import Types.Styles as Root exposing (..)
 import Types.Styles.Symbol as Child exposing (..)
 

@@ -1,6 +1,6 @@
 module Model.Card exposing (point)
 
-import Types exposing (..)
+import Types.Card exposing (..)
 
 
 point : List Card -> Point

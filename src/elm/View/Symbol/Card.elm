@@ -3,7 +3,7 @@ module View.Symbol.Card exposing (symbols)
 import List.Extra exposing (lift2)
 import Svg exposing (..)
 import Svg.Attributes exposing (cx, cy, d, fill, height, r, rx, stroke, strokeWidth, transform, viewBox, width, x, xlinkHref, y)
-import Types exposing (Face(..), Number(..), Suit(..))
+import Types.Card as Types exposing (Face(..), Number(..), Suit(..))
 import View.Symbol as Symbol exposing (Symbol(Card))
 
 

@@ -4,7 +4,7 @@ import Element exposing (..)
 import Element.Attributes exposing (spacing)
 import Rocket exposing ((=>))
 import Stories.Utils exposing (fromStories, toHtmlWithSymbol)
-import Types exposing (..)
+import Types.Card exposing (..)
 import Types.Styles exposing (Styles(None), Variation)
 import UIExplorer exposing (renderStories)
 import View.Atom.Card as Card

@@ -4,7 +4,8 @@ import Color.Pallet exposing (..)
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import PushableData exposing (PushableData(..))
-import Types exposing (Action(..), Card)
+import Types exposing (Action(..))
+import Types.Card exposing (Card)
 import Types.Firebase as Firebase
 import Types.Styles exposing (..)
 import Types.Styles.Selector as Selector

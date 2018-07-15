@@ -4,7 +4,7 @@ import Color.Pallet exposing (..)
 import Element exposing (..)
 import Element.Attributes exposing (..)
 import Model.Card exposing (point)
-import Types exposing (Card, Point(..))
+import Types.Card exposing (Card, Point(..))
 import Types.Styles exposing (..)
 import Types.Styles.Cards exposing (..)
 import View.Molecule.Cards as Cards

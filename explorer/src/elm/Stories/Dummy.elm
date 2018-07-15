@@ -2,6 +2,7 @@ module Stories.Dummy exposing (..)
 
 import Rocket exposing ((=>))
 import Types exposing (..)
+import Types.Card exposing (..)
 
 
 accounts : List ( String, Account )
